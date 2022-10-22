@@ -8,7 +8,7 @@ import {
   faFacebookF,
   faGooglePlay,
 } from '@fortawesome/free-brands-svg-icons';
-import { faLocationDot, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -18,7 +18,7 @@ import { faLocationDot, faEye } from '@fortawesome/free-solid-svg-icons';
 export class FooterComponent implements OnInit {
   constructor() {}
   lang: string = document.documentElement.lang;
-  callIcon = faEye;
+  callIcon = faPhone;
   faLocationDot = faLocationDot;
   socialLinks: any[] = [
     {

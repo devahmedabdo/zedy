@@ -1,0 +1,7 @@
+<svg id="Home" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect id="Rectangle_41" data-name="Rectangle 41" width="128" height="128" fill="none"/>
+  <g id="Layer_2" data-name="Layer 2" transform="translate(0 0)">
+    <path id="Path_71" data-name="Path 71" d="M11,18H23.749V43.5H11Z" transform="translate(46.626 84.502)" fill="#fff"/>
+    <path id="Path_72" data-name="Path 72" d="M104.4,17.219,66,1.92l-38.4,15.3V40.677H2V129.92H46.8V91.673H85.2V129.92H130V40.677H104.4ZM34,104.422H21.2V91.673H34Zm0-25.5H21.2V66.175H34Zm25.6,0H46.8V66.175H59.6Zm0-51H72.4v25.5H59.6Zm25.6,51H72.4V66.175H85.2Zm25.6,25.5H98V91.673h12.8Zm0-38.247V78.924H98V66.175Z" transform="translate(-2 -1.92)" fill="#fff"/>
+  </g>
+</svg>
