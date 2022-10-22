@@ -1,0 +1,128 @@
+// @use "../../../colors.scss" as *;
+header {
+  @apply w-full fixed py-3 top-0 z-20 bg-grayBg;
+  .container {
+    @apply text-[20px] flex;
+    > a {
+      width: 100px;
+    }
+    nav {
+      flex-grow: 1;
+      ul {
+        @apply text-center capitalize;
+        text-align: center;
+
+        li {
+          @apply mx-3 inline-block list-none;
+          a {
+            @apply relative transition-colors  py-2;
+            &::after {
+              @apply left-0 top-full w-0 absolute h-[2px] rounded-full bg-primary;
+              content: "";
+              transition: 0.15s width;
+            }
+            &:lang(ar)::after {
+              @apply right-0;
+            }
+            &:hover,
+            &.active {
+              @apply text-primary;
+              &::after {
+                width: 50%;
+              }
+            }
+          }
+        }
+        @media (max-width: 1018px) {
+          @apply bg-grayBg flex flex-col absolute top-full h-0 transition-all w-full gap-5 left-0 overflow-hidden;
+          li {
+            a {
+              @apply block rounded-md;
+              &.active,
+              &:hover {
+                @apply w-full bg-white bg-opacity-90;
+                &::after {
+                  width: 0px;
+                  &:lang(ar) {
+                    @apply right-0;
+                    margin-right: 0px;
+                  }
+                }
+              }
+            }
+          }
+          &.active {
+            height: calc(100vh - 68px);
+          }
+        }
+      }
+    }
+    //////////////////////
+    // .lang {
+    //   @apply bg-grayLight flex justify-around gap-2 py-3 px-2 min-w-[150px] rounded-2xl relative select-none;
+    //   @media (max-width: 400px) {
+    //     @apply min-w-[40px];
+    //   }
+    //   .lang-box {
+    //     @apply flex gap-3 hover:text-primary scale-95 transition;
+    //     cursor: pointer;
+    //     @media (max-width: 400px) {
+    //       @apply justify-center;
+    //       span {
+    //         @apply hidden;
+    //       }
+    //     }
+    //     img {
+    //       @apply rounded-sm max-w-[30px];
+    //     }
+    //     &[lang="ar"] {
+    //       font-family: "Tajawal", sans-serif;
+    //     }
+    //   }
+    //   .lang-menu {
+    //     @apply bg-grayLight rounded-2xl -z-50 flex origin-top flex-col gap-5 opacity-0 w-full p-2 absolute transition left-0;
+    //     top: calc(100% + 2px);
+    //     transform: rotateX(90deg);
+    //     &.active {
+    //       @apply opacity-100 z-10;
+    //       transform: rotateX(0deg);
+    //     }
+    //   }
+    // }
+    //////////////////////
+    > button {
+      @apply ml-3 flex flex-col items-end gap-[10px];
+      &:lang(ar) {
+        @apply mr-3 ml-3;
+      }
+      @media (min-width: 1018px) {
+        @apply hidden;
+      }
+      span {
+        transform-origin: 0%;
+        @apply h-[2px] w-[30px] bg-black rounded-full transition-all duration-300;
+      }
+      > span:nth-child(2) {
+        @apply w-[20px];
+      }
+      > span:nth-child(3) {
+        @apply w-[10px];
+      }
+      &:hover > span:nth-child(3) {
+        @apply w-[30px];
+      }
+      &.active {
+        @apply h-[30px] justify-around gap-[15px];
+        > span:nth-child(1) {
+          @apply rotate-[50deg];
+        }
+        > span:nth-child(2) {
+          @apply hidden;
+        }
+        > span:nth-child(3) {
+          @apply w-[30px] rotate-[-50deg];
+        }
+      }
+    }
+  }
+}

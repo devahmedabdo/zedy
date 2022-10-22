@@ -1,0 +1,15 @@
+<section>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="title-2">
+      <h2 style="--color:83 186 255">{{"Our team"|translate}}</h2>
+      <p>{{"Lorem ipsum dolor sit amet, consetetur"|translate}}</p>
+    </div>
+    <div class="team">
+      <div *ngFor="let member of team" style="--color:83 186 255">
+        <div> <img src="../../../assets/landing/team/{{member.image}}.jpg" alt="{{member.name}} image"></div>
+        <span>{{member.name | translate}}</span>
+      </div>
+    </div>
+  </div>
+</section>

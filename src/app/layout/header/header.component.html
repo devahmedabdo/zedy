@@ -1,0 +1,40 @@
+<header>
+  <div class="container items-center">
+    <a href="#" class="logo"><img src="../../../assets/header/logo.svg" alt="zedy-logo"></a>
+    <nav>
+      <ul class="capitalize" id="nav-menu">
+        <li><a class="active" href="#">{{'main Page' | translate}}</a></li>
+        <li><a href="#">{{'services' | translate}}</a></li>
+        <li><a href="#">{{'our clients' | translate}}</a></li>
+        <li><a href="#">{{'about us' | translate}}</a></li>
+        <li><a href="#">{{'learn with us' | translate}}</a></li>
+        <li><a href="#">{{'join us' | translate}}</a></li>
+      </ul>
+    </nav>
+    <app-language></app-language>
+    <!-- <div class="lang" (click)="toggleActive($event.target)">
+      <div>
+        <div class="lang-box" *ngIf="lang=='en'"><img src="../../../assets/landing/flags/usa.svg"
+            alt="English-Button"><span>English</span></div>
+        <div class="lang-box" *ngIf="lang=='ar'" lang="ar"><img src="../../../assets/landing/flags/egypt.svg"
+            alt="Arabic-Button"><span>عربى</span></div>
+      </div>
+      <div class="lang-menu active">
+        <div (click)="setLang('en')" class="lang-box"><img src="../../../assets/landing/flags/usa.svg"
+            alt="English-Button"><span>English</span>
+        </div>
+        <div (click)="setLang('ar')" lang="ar" class="lang-box"><img src="../../../assets/landing/flags/egypt.svg"
+            alt="Arabic-Button"><span>عربى</span>
+        </div>
+      </div>
+      <button id="lang-btn">
+        <img src="../../../assets/header/lang-btn.svg" alt="">
+      </button>
+    </div> -->
+    <button id="toggeler" class=" " (click)="toggelMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>

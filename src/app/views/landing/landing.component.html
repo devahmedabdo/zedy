@@ -1,0 +1,152 @@
+<section class="landing">
+  <div class="container">
+    <div>
+      <h1><span>{{"Welcome to "| translate}}</span>
+        <span class="font-bold text-primaryLight">{{"Zedy "| translate}}</span>
+        <span>{{"for marketing and programming services"| translate}}</span>
+      </h1>
+      <a href="#">
+        <img src="../../../assets/landing/arrow.svg" alt="arrow-image">
+      </a>
+    </div>
+  </div>
+</section>
+<section class="learn-more">
+  <div class="container">
+    <div class="social-section">
+      <p class="lReveal"><span>{{"We happily served more than " | translate}}</span><span
+          class="text-primaryLight font-semibold"> 300
+        </span><span>{{"client" | translate}}</span></p>
+      <h2 class="title lReveal" style="--color:#53BAFF">
+        {{"Get to know us more" | translate}}
+      </h2>
+      <div>
+        <a class="dReveal" style="--d:{{i}};--color:{{link.color}}" *ngFor="let link of socialLinks ; let i=index"
+          href="{{link.link}}">
+          <fa-icon [icon]="link.icon"></fa-icon>
+        </a>
+      </div>
+    </div>
+    <div class="video-section rReveal">
+      <div>
+        <video id="learn-video" controls height="400px" poster="../../../assets/landing/learn-more-image.webp">
+          <source src="../../../assets/landing/learn-more-video.mp4" type="video/mp4">
+        </video>
+        <button (click)="playVideo()">
+        </button>
+      </div>
+      <a href="">
+        {{"LEARN MORE ABOUT US"| translate}}
+      </a>
+    </div>
+  </div>
+</section>
+<section class="py-20">
+  <app-services></app-services>
+  <a class="details-btn dReveal" href="">{{"show details"|translate}}</a>
+</section>
+<app-find-us></app-find-us>
+<app-fields></app-fields>
+<app-portfolio></app-portfolio>
+<app-why-us></app-why-us>
+<app-clients></app-clients>
+<app-team></app-team>
+<section class="help-section">
+  <div class="container">
+    <div class="title lReveal">
+      <h2>{{"Community participation"|translate}}</h2>
+    </div>
+    <div class="sharing">
+      <div class="lReveal">
+        <img src="../../../assets/landing/help.svg" alt="help image">
+      </div>
+      <div>
+        <p class="dReveal">
+          <span>{{"The company seeks "|translate}}</span>
+          <span class="text-primary">{{"effective community participation"|translate}}</span>
+        </p>
+        <div>
+          <div class="dReveal">
+            <span>1</span>
+            <p>{{"Participation of non-profit organizations"|translate}}</p>
+          </div>
+          <div class="dReveal">
+            <span>2</span>
+            <p>{{"Participation in events"|translate}}</p>
+          </div>
+          <div class="dReveal">
+            <span>3</span>
+            <p>{{"Make awareness videos"|translate}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="training-section">
+  <div class="container">
+    <h2 class="title lReveal" style="--color:white ; --before-color:#53BAFF">
+      {{"Training"|translate}}
+    </h2>
+    <div class="training">
+      <div>
+        <p class="lReveal">{{"Our Trainings don't stop thanks to God" |translate}}<span
+            class="text-primaryLight">.</span></p>
+        <div class="dReveal">
+
+          <div>
+            <img src="../../../assets/landing/Check Mark.svg" alt="Check Mark">
+          </div>
+          <div>
+            <span>9</span>
+            <span>{{"Fields"|translate}}</span>
+          </div>
+
+
+        </div>
+        <div class="dReveal">
+          <div>
+            <img src="../../../assets/landing/Check Mark.svg" alt="Check Mark">
+          </div>
+          <div>
+            <span>{{"More than"|translate}}</span>
+            <span>{{"30 Training course"|translate}}</span>
+          </div>
+        </div>
+        <div class="dReveal">
+          <div>
+            <img src="../../../assets/landing/Check Mark.svg" alt="Check Mark">
+          </div>
+          <div>
+            <span>{{"More than"|translate}}</span>
+            <span>{{"100 tutors"|translate}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="rReveal">
+        <img src="../../../assets/landing/training.png" alt="training image">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="opinions-section">
+  <div class="container ">
+    <h2 class="title">{{"Said about us"|translate}}</h2>
+    <div class="opinion">
+      <div *ngFor="let opinion of opinions">
+        <p>{{opinion.text|translate}}</p>
+        <div>
+          <img src="../../../assets/landing/opinions/{{opinion.image}}.png" alt="{{opinion.name}}">
+          <div>
+            <span>{{opinion.name|translate}}</span>
+            <span>{{opinion.jop|translate}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-bar">
+      <div >
+      </div>
+    </div>
+  </div>
+</section>

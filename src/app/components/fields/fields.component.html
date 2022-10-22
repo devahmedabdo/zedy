@@ -1,0 +1,28 @@
+<section>
+  <div class="overlay">
+
+  </div>
+  <div class="container">
+    <div class="overlay">
+      <div>
+        <div>
+        </div>
+        <div>
+        </div>
+      </div>
+      <div>
+
+      </div>
+    </div>
+    <h2 class="title" style="--color:white">{{"Fields we mastered"| translate}}</h2>
+    <div class="fields">
+      <div class="dReveal" *ngFor="let field of fields">
+        <div>
+          <img src="../../../assets/landing/fields/{{field.image}}.svg" alt="{{field.name}} image">
+
+        </div>
+        <h6>{{field.name | translate}}</h6>
+      </div>
+    </div>
+  </div>
+</section>

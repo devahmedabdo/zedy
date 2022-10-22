@@ -1,0 +1,108 @@
+footer {
+  @apply bg-darkBg py-10;
+  .container {
+    > div {
+      @apply flex gap-10 flex-wrap border-b border-white border-opacity-50 py-5;
+      > div {
+        @apply gap-5;
+        &:first-child {
+          @apply w-full max-w-md flex flex-col items-start;
+          > img {
+            max-width: 150px;
+          }
+          > p {
+            @apply text-lg text-white;
+            > span {
+              @apply text-primaryLight font-medium;
+            }
+            &:lang(en) {
+              &.ar {
+                display: none;
+              }
+            }
+            &:lang(ar) {
+              &.ar {
+                display: block;
+              }
+              &.en {
+                display: none;
+              }
+            }
+          }
+          .lang {
+            @apply bg-grayBg bg-opacity-10 text-white;
+            .lang-menu {
+              @apply bg-opacity-10;
+              backdrop-filter: blur(10px);
+            }
+            #lang-btn {
+              img {
+                filter: invert(1);
+              }
+            }
+            .lang-box {
+              span {
+                @media (max-width: 400px) {
+                  display: block !important;
+                }
+              }
+            }
+          }
+        }
+        &:nth-child(2) {
+          @apply w-full max-w-[200px] flex flex-col;
+          > h3 {
+            @apply font-bold text-white text-2xl;
+          }
+          > ul {
+            @apply flex flex-col text-xl gap-2;
+            a {
+              color: #cacaca;
+            }
+          }
+        }
+        &:nth-child(3) {
+          @apply w-full flex flex-col max-w-fit;
+          > h3 {
+            @apply font-bold text-white text-2xl;
+          }
+          .call {
+            @apply flex gap-3 flex-wrap;
+            > div {
+              a {
+                @apply rounded-lg flex items-center bg-white bg-opacity-10 font-bold text-lg text-white p-3 gap-3;
+                fa-icon {
+                  @apply rounded-lg flex justify-center items-center w-10 h-10 bg-slate-200;
+                  background-color: #3683cd;
+                }
+              }
+            }
+          }
+          .location {
+            @apply flex gap-2 items-center;
+            color: #cacaca;
+            fa-icon {
+              @apply rounded-lg  py-1 px-2 text-white bg-white bg-opacity-10;
+            }
+          }
+          .links {
+            @apply flex gap-3 text-white flex-wrap;
+            a {
+              @apply transition rounded-lg p-4 text-xl h-6 w-6 flex justify-center items-center bg-white bg-opacity-5;
+              &:hover {
+                background: rgb(var(--color) / 0.2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    @apply text-center text-lg pt-5;
+    color: #e3e3e3;
+    span {
+      @apply text-primaryLight font-bold;
+    }
+  }
+}

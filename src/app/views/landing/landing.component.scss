@@ -1,0 +1,239 @@
+@use "../../../colors.scss" as *;
+$header-height: 68px;
+.landing {
+  .container {
+    @apply py-10;
+    height: calc(100vh - $header-height);
+    margin-top: $header-height;
+    > div {
+      @apply relative h-full rounded-2xl pt-4 overflow-hidden;
+      background: url("../../../assets/landing/landing.webp") center center
+        no-repeat;
+      background-size: cover;
+      h1 {
+        @apply font-normal text-center mt-10 text-3xl px-10 py-6 text-white max-w-[870px] bg-opacity-80 rounded-2xl mx-auto;
+        background: linear-gradient(
+          to right,
+          hsla(207, 65%, 13%, 0.8),
+          hsla(204, 69%, 34%, 0.8)
+        );
+      }
+      a {
+        @apply absolute bottom-0 right-0 bg-primary px-12 py-4 rounded-tl-2xl;
+        &:lang(ar) {
+          @apply left-0 right-[unset];
+          transform: rotateY(180deg);
+        }
+      }
+    }
+  }
+}
+.learn-more {
+  @apply bg-darkBg;
+  .container {
+    @apply flex flex-wrap gap-3 justify-around;
+    .social-section {
+      @apply py-20 flex flex-col justify-center;
+      max-width: 530px;
+      > p {
+        @apply font-medium py-3 text-3xl;
+        color: white;
+      }
+      div {
+        @apply flex gap-8 flex-wrap p-10 max-w-[500px];
+        a {
+          @apply bg-white w-20 h-20 p-5 flex justify-center items-center rounded-2xl bg-opacity-10;
+          fa-icon {
+            @apply transition-colors duration-300 text-white text-[40px];
+          }
+
+          &:hover {
+            background: rgb(var(--color) / 10%);
+
+            fa-icon {
+              color: rgb(var(--color));
+            }
+          }
+        }
+      }
+    }
+    .video-section {
+      max-width: 650px;
+      div {
+        @apply relative;
+        height: calc(100% - 72px);
+        video {
+          height: 100%;
+        }
+        button {
+          @apply z-10 absolute top-0 left-0 bg-primary bg-opacity-10 w-full h-full;
+          &::after,
+          &::before {
+            content: "";
+            @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+          }
+          &::after {
+            @apply w-20 h-20 rounded-3xl;
+            backdrop-filter: blur(19px) brightness(1.5);
+          }
+          &::before {
+            @apply w-12 h-12 rounded-full z-10;
+            background: url("../../../assets/landing/play-btn.svg") center
+              center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      a {
+        @apply text-center font-medium block bg-primary text-white uppercase p-5 text-2xl;
+      }
+    }
+  }
+}
+.help-section {
+  .container {
+    @apply py-20;
+    .sharing {
+      @apply flex flex-wrap pt-10 gap-20 justify-center;
+      > div {
+        &:first-child {
+          @apply w-2/5 min-w-[300px];
+        }
+        &:nth-child(2) {
+          @apply flex flex-col gap-10;
+          > p {
+            @apply font-bold text-3xl flex flex-col gap-2 relative;
+            &::after {
+              content: "";
+              @apply absolute h-[2px] w-[200px] bg-primary bottom-[-10px];
+            }
+          }
+          > div {
+            @apply flex flex-col gap-5;
+            > div {
+              @apply flex gap-5 items-center;
+              span {
+                @apply w-10 h-10 rounded-2xl font-bold text-center;
+                line-height: 2.5rem;
+                background-color: #eaeaea;
+              }
+              p {
+                @apply font-semibold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.training-section {
+  @apply bg-darkBg;
+  .container {
+    @apply py-20;
+    .training {
+      @apply flex justify-center flex-wrap-reverse items-center gap-20 py-10;
+      > div {
+        &:nth-child(2) {
+          @apply max-w-[650px] flex-grow;
+        }
+        &:first-child {
+          @apply flex flex-col text-white gap-8;
+          > p {
+            @apply font-bold text-2xl;
+          }
+          > div {
+            @apply flex gap-5 text-white;
+            > div {
+              &:first-child {
+                @apply w-24 bg-white bg-opacity-10 rounded h-24 flex justify-center items-center;
+              }
+              &:nth-child(2) {
+                @apply flex flex-col justify-evenly;
+                span {
+                  @apply text-xl;
+                  &:last-child {
+                    @apply font-bold text-primaryLight;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.opinions-section {
+  .container {
+    @apply py-20;
+    .opinion {
+      @apply flex gap-12 overflow-hidden py-10;
+      > div {
+        min-width: 320px;
+
+        > p {
+          @apply rounded-3xl relative p-3 mb-5;
+          background: #eeeeee;
+          &::after,
+          &::before {
+            @apply absolute;
+            content: "";
+          }
+          &::after {
+            @apply h-8 w-8 -top-4 right-8;
+            background: url(../../../assets/landing/opinions/qoute.svg) center
+              center no-repeat;
+            background-size: contain;
+          }
+          &::before {
+            @apply top-full -translate-y-[20%];
+            border: 20px solid;
+            border-top-color: #eee;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+          }
+        }
+        > div {
+          @apply flex gap-5 items-center;
+          > div {
+            @apply flex flex-col;
+            span {
+              &:first-child {
+                @apply font-medium;
+              }
+              &:last-child {
+                color: #a1a1a1;
+              }
+            }
+          }
+        }
+      }
+    }
+    .scroll-bar {
+      @apply overflow-auto w-80 max-w-full mx-auto relative;
+      &::-webkit-scrollbar {
+        height: 10px;
+        overscroll-behavior: contain;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #e4e4e4;
+        border-radius: 50px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        border-radius: 50px;
+        background: #53baff;
+        // box-shadow: 1px 1px 1px red;
+      }
+      > div {
+        @apply overflow-hidden;
+        width: 1600px;
+        height: 60px;
+      }
+    }
+  }
+}

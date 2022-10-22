@@ -1,0 +1,14 @@
+<section class="find-us">
+  <div class="container">
+    <h2 class="title lReveal">
+      {{"You can find our work in" | translate}}
+    </h2>
+    <img src="../../../assets/landing/map.webp" alt="map-img">
+    <div>
+      <div class="dReveal" *ngFor="let country of countries;let i = index" style="--d:{{i}}">
+        <img src="../../../assets/landing/flags/{{country.img}}.svg" alt="{{country.name}} Image">
+        <span>{{country.name | translate}}</span>
+      </div>
+    </div>
+  </div>
+</section>

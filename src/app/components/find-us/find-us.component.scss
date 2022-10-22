@@ -1,0 +1,18 @@
+.find-us {
+  @apply bg-grayMid relative mb-28 sm:mb-20;
+  .container {
+    @apply py-10;
+    > img {
+      @apply pt-10 w-3/4 block mx-auto;
+    }
+    > div {
+      @apply flex flex-wrap justify-around bg-grayDark bg-opacity-10 rounded-3xl absolute top-full -translate-y-1/2;
+      > div {
+        @apply flex flex-col items-center gap-3 font-bold p-5 text-lg w-1/12;
+        min-width: 90px;
+        img {
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<section>
+  <div class="container">
+    <h2 style="--color:#1A7FC3" class="title lReveal">{{"Services" | translate}}</h2>
+    <p class="lReveal">{{"With you in marketing and business" | translate}}</p>
+    <div class="services">
+      <div class="dReveal" *ngFor="let service of services">
+        <div class="services-img">
+          <img src="../../../assets/landing/services/{{service.img}}.webp" alt="{{service.title}}">
+          <div style="--color:{{service.color}}">
+            <h3>{{service.title | translate}}</h3>
+            <p>{{service.description | translate}}</p>
+          </div>
+        </div>
+        <div class="services-des" style="--color:{{service.color}}">
+          <h3>{{service.title | translate}}</h3>
+          <a href="">{{"More" | translate}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

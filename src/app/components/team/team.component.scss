@@ -1,0 +1,51 @@
+section {
+  @apply relative;
+  background: url(../../../assets/landing/team/bg.jpg) center center no-repeat;
+  background-size: cover;
+  .overlay {
+    @apply absolute h-full w-full;
+    backdrop-filter: blur(10px) opacity(0.7);
+  }
+  .container {
+    @apply relative py-10;
+    .team {
+      @apply flex justify-center flex-wrap;
+      > div {
+        @apply flex flex-col justify-center items-center gap-4 my-2;
+        min-width: calc(100% / 6);
+        > div {
+          @apply w-3/5 relative my-8;
+
+          &::after,
+          &::before {
+            @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full;
+            content: "";
+          }
+          &::after {
+            // z-index: -1;
+            width: calc(100% + 55px);
+            height: calc(100% + 55px);
+            box-shadow: 0px 0px 0px 1px rgb(var(--color) / 0.2);
+            // background: rgba(0, 128, 0, 0.217);
+            // background: rgb(var(--color));
+          }
+          &::before {
+            // z-index: -1;
+            width: calc(100% + 40px);
+            height: calc(100% + 40px);
+            box-shadow: 0px 0px 0px 1px rgb(var(--color) / 0.4);
+            // background: rgba(128, 0, 94, 0.225);
+            // background: rgb(var(--color));
+          }
+          img {
+            @apply w-full rounded-full relative;
+            box-shadow: 0px 0px 0px 10px rgb(var(--color) / 0.2);
+          }
+        }
+        span {
+          @apply text-white font-bold;
+        }
+      }
+    }
+  }
+}

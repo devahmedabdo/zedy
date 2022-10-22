@@ -1,0 +1,13 @@
+<section>
+  <div class="container">
+    <h2 class="title">{{"Our clients"|translate}}</h2>
+    <div class="clients">
+      <div class="dReveal" *ngFor="let client of clients ">
+        <img src="../../../assets/landing/clients/{{client.image}}.svg" alt="{{client.name}} Logo">
+        <h6>{{client.name|translate}}</h6>
+        <span>{{client.field|translate}}</span>
+      </div>
+    </div>
+    <a href="" class="details-btn uReveal">{{"More"|translate}}</a>
+  </div>
+</section>
