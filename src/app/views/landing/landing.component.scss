@@ -70,8 +70,7 @@ $header-height: 68px;
             @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
           }
           &::after {
-            @apply w-20 h-20 rounded-3xl;
-            backdrop-filter: blur(19px) brightness(1.5);
+            @apply w-20 h-20 rounded-3xl bg-white bg-opacity-20;
           }
           &::before {
             @apply w-12 h-12 rounded-full z-10;
