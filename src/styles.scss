@@ -15,10 +15,8 @@ $header-height: 78px;
   }
   body {
     padding-top: $header-height;
-    section {
-      &:not(.find-us) {
-        overflow: hidden;
-      }
+    section:not(.find-us) {
+      overflow: hidden;
     }
   }
   html[lang="ar"] {
