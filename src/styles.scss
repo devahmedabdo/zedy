@@ -21,16 +21,6 @@ $header-height: 78px;
       }
     }
   }
-  // * {
-  //   ::selection {
-  //     background-color: rgba($c-blue, 0.4);
-  //     @apply text-gray-800;
-  //   }
-  //   ::-moz-selection {
-  //     background-color: rgba($c-blue, 0.4);
-  //     @apply text-gray-800;
-  //   }
-  // }
   html[lang="ar"] {
     direction: rtl;
     * {
@@ -53,12 +43,6 @@ $header-height: 78px;
       content: "";
       background-color: var(--before-color, var(--color, black));
     }
-    // &[lang="ar"] {
-    //   @apply pl-0 pr-20;
-    //   &::before {
-    //     @apply right-0;
-    //   }
-    // }
   }
   .title-2 {
     @apply text-center py-10;

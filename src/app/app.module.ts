@@ -36,6 +36,7 @@ import { AllClientsComponent } from './components/all-clients/all-clients.compon
 import { LearnPageComponent } from './views/learn-page/learn-page.component';
 import { JoinPageComponent } from './views/join-page/join-page.component';
 import { AboutPageComponent } from './views/about-page/about-page.component';
+import { OpinionsComponent } from './components/opinions/opinions.component';
 //
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { AboutPageComponent } from './views/about-page/about-page.component';
     LearnPageComponent,
     JoinPageComponent,
     AboutPageComponent,
+    OpinionsComponent,
   ],
   imports: [
     BrowserModule,

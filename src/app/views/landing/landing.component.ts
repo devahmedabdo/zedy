@@ -59,50 +59,7 @@ export class LandingComponent implements OnInit {
       color: '242 196 0',
     },
   ];
-  opinions: any[] = [
-    {
-      name: 'Ahmed Abdo',
-      image: 'ahmed',
-      jop: 'Marketing',
-      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
-    },
-    {
-      name: 'Ahmed Abdo',
-      image: 'ahmed',
-      jop: 'Marketing',
-      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
-    },
-    {
-      name: 'Ahmed Abdo',
-      image: 'ahmed',
-      jop: 'Marketing',
-      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
-    },
-    {
-      name: 'Ahmed Abdo',
-      image: 'ahmed',
-      jop: 'Marketing',
-      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
-    },
-    {
-      name: 'Ahmed Abdo',
-      image: 'ahmed',
-      jop: 'Marketing',
-      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
-    },
-    {
-      name: 'Ahmed Abdo',
-      image: 'ahmed',
-      jop: 'Marketing',
-      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
-    },
-    {
-      name: 'Ahmed Abdo',
-      image: 'ahmed',
-      jop: 'Marketing',
-      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
-    },
-  ];
+ 
   playVideo() {
     const video = document.getElementById('learn-video') as HTMLVideoElement;
     video.nextElementSibling?.remove();

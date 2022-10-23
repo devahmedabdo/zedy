@@ -1,11 +1,22 @@
 section {
   .container {
     .who-we {
-      @apply text-lg;
-      .en {
-      }
+      @apply text-lg text-center relative py-10 max-w-3xl mx-auto;
       .ar {
         display: none;
+      }
+      &:lang(ar) {
+        .en {
+          display: none;
+        }
+        .ar {
+          display: block;
+        }
+      }
+      &::after {
+        @apply absolute bottom-0 w-60 h-[1px] left-1/2 -translate-x-1/2;
+        background: #c6c6c6;
+        content: "";
       }
     }
   }

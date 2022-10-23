@@ -1,0 +1,70 @@
+.opinions-section {
+  .container {
+    @apply py-20;
+    .opinion {
+      @apply flex gap-12 overflow-hidden py-10;
+      > div {
+        min-width: 320px;
+
+        > p {
+          @apply rounded-3xl relative p-3 mb-5;
+          background: #eeeeee;
+          &::after,
+          &::before {
+            @apply absolute;
+            content: "";
+          }
+          &::after {
+            @apply h-8 w-8 -top-4 right-8;
+            background: url(../../../assets/landing/opinions/qoute.svg) center
+              center no-repeat;
+            background-size: contain;
+          }
+          &::before {
+            @apply top-full -translate-y-[20%];
+            border: 20px solid;
+            border-top-color: #eee;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+          }
+        }
+        > div {
+          @apply flex gap-5 items-center;
+          > div {
+            @apply flex flex-col;
+            span {
+              &:first-child {
+                @apply font-medium;
+              }
+              &:last-child {
+                color: #a1a1a1;
+              }
+            }
+          }
+        }
+      }
+    }
+    .scroll-bar {
+      @apply overflow-auto w-80 max-w-full mx-auto relative;
+      &::-webkit-scrollbar {
+        height: 10px;
+        overscroll-behavior: contain;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #e4e4e4;
+        border-radius: 50px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 50px;
+        background: #53baff;
+      }
+      > div {
+        @apply overflow-hidden;
+        width: 1600px;
+        height: 60px;
+      }
+    }
+  }
+}

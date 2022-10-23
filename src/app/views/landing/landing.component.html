@@ -130,24 +130,4 @@
     </div>
   </div>
 </section>
-<section class="opinions-section">
-  <div class="container ">
-    <h2 class="title">{{"Said about us"|translate}}</h2>
-    <div class="opinion">
-      <div *ngFor="let opinion of opinions">
-        <p>{{opinion.text|translate}}</p>
-        <div>
-          <img src="../../../assets/landing/opinions/{{opinion.image}}.png" alt="{{opinion.name}}">
-          <div>
-            <span>{{opinion.name|translate}}</span>
-            <span>{{opinion.jop|translate}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-bar">
-      <div>
-      </div>
-    </div>
-  </div>
-</section>
+<app-opinions></app-opinions>
