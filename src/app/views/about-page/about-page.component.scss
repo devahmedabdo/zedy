@@ -1,0 +1,12 @@
+section {
+  .container {
+    .who-we {
+      @apply text-lg;
+      .en {
+      }
+      .ar {
+        display: none;
+      }
+    }
+  }
+}
