@@ -7,13 +7,16 @@
         <div class="services-img">
           <img src="../../../assets/landing/services/{{service.img}}.webp" alt="{{service.title}}">
           <div style="--color:{{service.color}}">
-            <h3>{{service.title | translate}}</h3>
+            <div>
+              <h3>{{service.title | translate}}</h3>
+              <a href="">{{"More"|translate}}</a>
+            </div>
             <p>{{service.description | translate}}</p>
           </div>
         </div>
         <div class="services-des" style="--color:{{service.color}}">
           <h3>{{service.title | translate}}</h3>
-          <a href="">{{"More" | translate}}</a>
+          <a routerLink="construction">{{"More" | translate}}</a>
         </div>
       </div>
     </div>

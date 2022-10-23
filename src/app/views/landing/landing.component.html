@@ -1,3 +1,4 @@
+<app-load></app-load>
 <section class="landing">
   <div class="container">
     <div>
@@ -5,7 +6,7 @@
         <span class="font-bold text-primaryLight">{{"Zedy "| translate}}</span>
         <span>{{"for marketing and programming services"| translate}}</span>
       </h1>
-      <a href="#">
+      <a routerLink="construction">
         <img src="../../../assets/landing/arrow.svg" alt="arrow-image">
       </a>
     </div>
@@ -35,7 +36,7 @@
         <button (click)="playVideo()">
         </button>
       </div>
-      <a href="">
+      <a routerLink="construction">
         {{"LEARN MORE ABOUT US"| translate}}
       </a>
     </div>
@@ -43,7 +44,7 @@
 </section>
 <section class="py-20">
   <app-services></app-services>
-  <a class="details-btn dReveal" href="">{{"show details"|translate}}</a>
+  <a class="details-btn dReveal" routerLink="services">{{"show details"|translate}}</a>
 </section>
 <app-find-us></app-find-us>
 <app-fields></app-fields>
@@ -145,7 +146,7 @@
       </div>
     </div>
     <div class="scroll-bar">
-      <div >
+      <div>
       </div>
     </div>
   </div>

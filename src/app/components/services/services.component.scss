@@ -21,9 +21,21 @@ section {
               background-color: var(--color);
               @apply absolute w-full h-full opacity-95 -z-[1];
             }
-            h3 {
-              @apply text-2xl font-bold pt-10;
+            > div {
+              h3 {
+                @apply text-2xl font-bold pt-10;
+              }
+              a {
+                @apply transition-colors duration-300  text-xl font-medium py-1 px-4 mb-5 border border-white rounded w-fit;
+                &:hover {
+                  @apply bg-white bg-opacity-90;
+                  border-color: var(--color);
+                  color: var(--color);
+                  display: none;
+                }
+              }
             }
+
             p {
               @apply font-medium;
             }
@@ -31,6 +43,9 @@ section {
           &:hover {
             > div {
               opacity: 1;
+              a {
+                display: none;
+              }
             }
             + .services-des {
               @apply opacity-0;
@@ -58,17 +73,5 @@ section {
         }
       }
     }
-    // &:hover {
-    //   > div {
-    //     @apply top-0 left-0 transform-none w-full;
-    //     height: calc(200% / 3);
-    //     &::after {
-    //       @apply opacity-95;
-    //     }
-    //     p {
-    //       height: auto;
-    //     }
-    //   }
-    // }
   }
 }

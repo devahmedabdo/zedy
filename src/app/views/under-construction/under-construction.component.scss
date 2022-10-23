@@ -1,0 +1,17 @@
+section {
+  .container {
+    @apply flex flex-col gap-10 py-8;
+    h2 {
+      @apply title;
+    }
+    img {
+      mix-blend-mode: darken;
+      max-width: 600px;
+      margin: auto;
+      width: 100%;
+    }
+    button {
+      @apply details-btn;
+    }
+  }
+}

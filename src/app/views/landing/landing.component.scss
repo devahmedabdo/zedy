@@ -3,7 +3,6 @@ $header-height: 68px;
   .container {
     @apply py-10;
     height: calc(100vh - $header-height);
-    margin-top: $header-height;
     > div {
       @apply relative h-full rounded-2xl pt-4 overflow-hidden;
       background: url("../../../assets/landing/landing.webp") center center

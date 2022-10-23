@@ -51,12 +51,12 @@ export class HeaderComponent implements OnInit {
     this.setLang(this.lang);
 
     //add active on click
-    let navLink = document.querySelectorAll('header nav ul li a');
-    navLink.forEach((e) => {
-      e.addEventListener('click', () => {
-        this.removeActive(navLink, e);
-      });
-    });
+    // let navLink = document.querySelectorAll('header nav ul li a');
+    // navLink.forEach((e) => {
+    //   e.addEventListener('click', () => {
+    //     this.removeActive(navLink, e);
+    //   });
+    // });
     //close menu when scroll
     let toggeler = document.querySelectorAll('#toggeler,#nav-menu');
     window.addEventListener('scroll', () => {

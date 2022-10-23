@@ -28,6 +28,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 // import swiper
 import { SwiperModule } from 'swiper/angular';
+import { UnderConstructionComponent } from './views/under-construction/under-construction.component';
+import { LoadComponent } from './components/load/load.component';
+import { ServicesPageComponent } from './views/services-page/services-page.component';
+import { ClientPageComponent } from './views/client-page/client-page.component';
+import { AllClientsComponent } from './components/all-clients/all-clients.component';
+import { LearnPageComponent } from './views/learn-page/learn-page.component';
+import { JoinPageComponent } from './views/join-page/join-page.component';
+import { AboutPageComponent } from './views/about-page/about-page.component';
 //
 @NgModule({
   declarations: [
@@ -44,6 +52,14 @@ import { SwiperModule } from 'swiper/angular';
     FindUsComponent,
     LanguageComponent,
     SwiperComponentComponent,
+    UnderConstructionComponent,
+    LoadComponent,
+    ServicesPageComponent,
+    ClientPageComponent,
+    AllClientsComponent,
+    LearnPageComponent,
+    JoinPageComponent,
+    AboutPageComponent,
   ],
   imports: [
     BrowserModule,

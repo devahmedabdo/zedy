@@ -1,4 +1,4 @@
-// @use "./colors.scss" as *;
+$header-height: 78px;
 @use "./animation.scss" as *;
 @tailwind base;
 @tailwind components;
@@ -13,6 +13,7 @@
     font-family: "Poppins", sans-serif;
   }
   body {
+    padding-top: $header-height;
     section {
       &:not(.find-us) {
         overflow: hidden;
@@ -64,7 +65,43 @@
     }
   }
   .details-btn {
-    @apply text-center block text-primary text-2xl font-bold w-64 bg-primary bg-opacity-10 py-4 px-10 uppercase mx-auto transition-all duration-300 hover:bg-primary hover:text-white;
+    @apply text-center block text-primary text-2xl font-bold w-[270px] bg-primary bg-opacity-10 py-4 px-10 uppercase mx-auto transition-all duration-300 hover:bg-primary hover:text-white;
+  }
+  .page-title {
+    @apply relative font-bold w-fit px-10 py-5 text-xl mx-auto z-0 text-center;
+    &::after,
+    &::before {
+      @apply absolute w-2/5 bg-primaryLight h-4/5 -z-30;
+      content: "";
+      transform: skew(-45deg);
+    }
+    min-width: 550px;
+    @media (max-width: 600px) {
+      min-width: unset;
+    }
+    &::after {
+      @apply border bg-primaryLight border-black;
+      top: 5px;
+      left: -15px;
+      box-shadow: -14px -15px 0px 0px #53baff, inset -14px -14px 0px 0px #f9f9f9;
+    }
+    &::before {
+      bottom: -15px;
+      right: 10px;
+      box-shadow: -14px -7px 0px 0px #f9f9f9, -15px -6px 0px 0px #000000;
+    }
+    > div {
+      @apply absolute w-full h-full top-0 left-0 -z-10;
+      background: #eee;
+      transform: skewX(-45deg);
+    }
+    @media (max-width: 750px) {
+      &::after,
+      &::before,
+      > div {
+        @apply rounded-lg skew-x-0;
+      }
+    }
   }
   .container {
     @apply mx-auto px-2;
