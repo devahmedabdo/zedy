@@ -1,0 +1,72 @@
+section {
+  .container {
+    @apply py-10;
+    > h2 {
+      @apply font-bold text-xl text-center;
+    }
+    > p {
+      @apply relative text-center py-5;
+      &::after {
+        @apply absolute bottom-0 w-72 h-[1px] left-1/2 -translate-x-1/2;
+        background: #c6c6c6;
+        content: "";
+      }
+    }
+    > div {
+      @apply flex gap-5 justify-center flex-wrap pt-10;
+      .links {
+        max-width: 700px;
+        @apply flex flex-col items-end gap-4;
+        .jobs {
+          @apply p-5 border flex justify-center flex-wrap gap-2 rounded-3xl;
+          border-color: #cdcdcd;
+          a {
+            @apply p-3 transition-colors duration-300 font-medium rounded-lg;
+            background: #eeeeee;
+
+            &:hover {
+              @apply bg-primaryLight text-white;
+            }
+          }
+        }
+        .other-jobs {
+          @apply p-5 border flex   flex-wrap gap-2 rounded-3xl;
+          background: #eee;
+          > div {
+            @apply flex flex-wrap gap-2;
+            > div {
+              @apply rounded-lg w-[50px] flex justify-center items-center;
+              background: var(--color);
+              img {
+                @apply w-1/4;
+              }
+            }
+            a {
+              @apply p-3 border transition-colors duration-300 font-medium rounded-lg;
+              border-color: #dcdcdc;
+              &:hover {
+                @apply bg-white text-primaryDark;
+              }
+            }
+          }
+        }
+        .submit {
+          @apply flex items-center gap-2;
+          a {
+            &:first-child {
+              @apply flex items-center justify-center p-5 font-bold rounded-lg text-white;
+              background: linear-gradient(45deg, #1a89d4, #1578bb);
+            }
+            &:last-child {
+              @apply flex items-center justify-center px-4 py-[10px] rounded-lg;
+              background-color: #eee;
+            }
+          }
+        }
+      }
+      .form-img {
+        max-width: 500px;
+      }
+    }
+  }
+}

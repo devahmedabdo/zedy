@@ -1,29 +1,37 @@
 section {
   .container {
     .learn-video {
+      @apply flex gap-3 flex-wrap justify-center py-10;
       > div {
-        @apply relative rounded-lg overflow-hidden;
-        width: 300px;
-        button {
-          @apply w-full h-full top-0 z-0 absolute;
-          &::after,
-          &::before {
-            @apply absolute;
-            content: "";
+        > div {
+          @apply relative rounded-lg overflow-hidden;
+          width: 300px;
+          button {
+            @apply w-full h-full top-0 z-10 absolute;
+            &::after,
+            &::before {
+              @apply absolute;
+              content: "";
+            }
+            &::before {
+              @apply w-full h-full top-0 left-0;
+              backdrop-filter: blur(5px);
+            }
+            &::after {
+              @apply w-16 h-16 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+              background: url(../../../assets/landing/play-btn.svg) center
+                  center no-repeat,
+                #ffffff26;
+              background-size: 40px;
+            }
           }
-          &::before {
-            @apply w-full h-full top-0 left-0;
-            backdrop-filter: blur(20px);
-          }
-          &::after {
-            @apply w-16 h-16 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-            background: url(../../../assets/landing/play-btn.svg) center center
-                no-repeat,
-              #ffffff26;
-            background-size: 40px;
+          video {
+            height: 180px;
+            object-fit: cover;
           }
         }
-        video {
+        h3 {
+          @apply font-bold text-center pt-5;
         }
       }
     }

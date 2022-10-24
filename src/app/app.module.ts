@@ -17,17 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FindUsComponent } from './components/find-us/find-us.component';
 import { LanguageComponent } from './components/language/language.component';
 import { SwiperComponentComponent } from './components/swiper-component/swiper-component.component';
-//
-import { MatSliderModule } from '@angular/material/slider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 // import swiper
-import { SwiperModule } from 'swiper/angular';
 import { UnderConstructionComponent } from './views/under-construction/under-construction.component';
 import { LoadComponent } from './components/load/load.component';
 import { ServicesPageComponent } from './views/services-page/services-page.component';
@@ -68,9 +62,6 @@ import { OpinionsComponent } from './components/opinions/opinions.component';
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-
-    // swiper
-    SwiperModule,
     // ngx-translate and the loader module
     HttpClientModule,
     TranslateModule.forRoot({

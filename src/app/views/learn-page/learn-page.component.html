@@ -1,13 +1,16 @@
+<app-load></app-load>
 <section class="services-page">
   <div class="container py-10">
-    <h2 class="page-title">{{"Join Our Dear Clients"|translate}}<div></div>
+    <h2 class="page-title">{{"Learn With Us And Watch Our Videos And Leave Us A Comment"|translate}}<div></div>
     </h2>
     <div class="learn-video">
-      <div>
-        <button>
-
-        </button>
-        <video src="../../../assets/landing/learn-more-video.mp4"></video>
+      <div (click)="playVideo()" *ngFor="let video of videos">
+        <div>
+          <button>
+          </button>
+          <video controls src="../../../assets/learn with us/{{video.name}}.mp4"></video>
+        </div>
+        <h3>{{video.title | translate}}</h3>
       </div>
     </div>
   </div>

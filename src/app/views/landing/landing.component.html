@@ -30,11 +30,11 @@
     </div>
     <div class="video-section rReveal">
       <div>
+        <button (click)="playVideo()">
+        </button>
         <video id="learn-video" controls height="400px" poster="../../../assets/landing/learn-more-image.webp">
           <source src="../../../assets/landing/learn-more-video.mp4" type="video/mp4">
         </video>
-        <button (click)="playVideo()">
-        </button>
       </div>
       <a routerLink="construction">
         {{"LEARN MORE ABOUT US"| translate}}

@@ -1,5 +1,6 @@
 .find-us {
   @apply bg-grayMid relative mb-28 sm:mb-20;
+  overflow: visible !important;
   .container {
     @apply py-10;
     > img {

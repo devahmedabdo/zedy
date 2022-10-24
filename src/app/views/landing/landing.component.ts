@@ -59,10 +59,11 @@ export class LandingComponent implements OnInit {
       color: '242 196 0',
     },
   ];
- 
+
   playVideo() {
+    console.log(event?.target);
     const video = document.getElementById('learn-video') as HTMLVideoElement;
-    video.nextElementSibling?.remove();
+    video.previousElementSibling?.remove();
     if (video) {
       video.play();
     }

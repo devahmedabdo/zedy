@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FaProps } from '@fortawesome/angular-fontawesome';
-import { FaLayersCounterComponent } from '@fortawesome/angular-fontawesome';
-import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-header',
@@ -23,8 +20,7 @@ export class HeaderComponent implements OnInit {
     });
     link ? link.classList.add('active') : '';
   }
-  toggleActive(e: any) {
-    console.log(e);
+  toggleActive() {
     document.querySelector('.lang-menu')?.classList.toggle('active');
   }
   setLang(lang: any) {
@@ -35,28 +31,18 @@ export class HeaderComponent implements OnInit {
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
   }
-  // toggleActive() {
-  //   document.querySelector('.lang-menu')?.classList.toggle('active');
-  // }
-  // setLang(lang: any) {
-  //   this.toggleActive();
-  //   this.lang = lang;
-  //   document.documentElement.lang = lang;
-  //   localStorage.setItem('lang', lang);
-  //   this.translate.setDefaultLang(lang);
-  //   this.translate.use(lang);
-  // }
   ngOnInit(): void {
     this.lang = localStorage.getItem('lang') || 'en';
     this.setLang(this.lang);
 
-    //add active on click
-    // let navLink = document.querySelectorAll('header nav ul li a');
-    // navLink.forEach((e) => {
-    //   e.addEventListener('click', () => {
-    //     this.removeActive(navLink, e);
-    //   });
-    // });
+    //scroll to top on click and close menu
+    let navLink = document.querySelectorAll('header nav ul li');
+    navLink.forEach((e) => {
+      e.addEventListener('click', () => {
+        this.removeActive(toggeler);
+        window.scrollTo(0, 0);
+      });
+    });
     //close menu when scroll
     let toggeler = document.querySelectorAll('#toggeler,#nav-menu');
     window.addEventListener('scroll', () => {
