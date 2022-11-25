@@ -1,7 +1,0 @@
-<svg id="Resto" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <rect id="Rectangle_42" data-name="Rectangle 42" width="128" height="128" fill="none"/>
-  <g id="Group_26" data-name="Group 26">
-    <path id="Path_73" data-name="Path 73" d="M0,0H128V128H0Z" fill="none"/>
-    <path id="Path_74" data-name="Path 74" d="M37.723,69.748l18.47-18.47L10.376,5.526a26.156,26.156,0,0,0,0,36.941Zm78.646-20.82c12.466-12.466,14.881-30.349,5.287-39.943-9.529-9.529-27.412-7.179-39.943,5.287-10.377,10.377-13.641,24.41-9.007,34.4l-63.7,63.7,9.2,9.2L63.177,76.732l44.9,44.9,9.2-9.2-44.9-44.9,9.594-9.594c9.986,4.634,24.018,1.371,34.4-9.007Z" transform="translate(-1.138 2.745)" fill="#fff"/>
-  </g>
-</svg>
