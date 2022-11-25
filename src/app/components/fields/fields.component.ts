@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ZedyService } from './../../services/zedy.service';
 
 @Component({
   selector: 'app-fields',
@@ -6,52 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fields.component.scss'],
 })
 export class FieldsComponent implements OnInit {
-  constructor() {}
+  constructor(private zedy: ZedyService) {}
   fields: any[] = [
-    {
-      name: 'Realestate',
-      image: 'Realestate',
-    },
-    {
-      name: 'Restaurant',
-      image: 'Restaurant',
-    },
-    {
-      name: 'Doctors',
-      image: 'Doctors',
-    },
-    {
-      name: 'Hospitals',
-      image: 'Hospitals',
-    },
-    {
-      name: 'Stores',
-      image: 'Stores',
-    },
-    {
-      name: 'Factories',
-      image: 'Factories',
-    },
-    {
-      name: 'Schools',
-      image: 'Schools',
-    },
-    {
-      name: 'Libraries',
-      image: 'Libraries',
-    },
-    {
-      name: 'Companies',
-      image: 'Companies',
-    },
-    {
-      name: 'Development agencies',
-      image: 'Development agencies',
-    },
-    {
-      name: 'Government interests',
-      image: 'Government interests',
-    },
+    
   ];
-  ngOnInit(): void {}
+  getFields() {
+    this.zedy.getFields().subscribe({
+      next: (fields: any) => {
+        this.fields = fields['data'];
+       
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+  ngOnInit(): void {
+    this.getFields();
+  }
 }

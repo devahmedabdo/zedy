@@ -13,7 +13,7 @@ section {
         }
         > div {
           @apply rounded-2xl overflow-hidden flex justify-center items-center flex-col gap-5 h-full w-full  absolute left-0 top-0 bg-black text-white bg-opacity-60;
-          button {
+          a {
             @apply p-2 text-4xl bg-white bg-opacity-20 rounded-lg;
           }
           p {

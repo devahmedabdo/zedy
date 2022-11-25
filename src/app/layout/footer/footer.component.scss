@@ -12,22 +12,6 @@ footer {
           }
           > p {
             @apply text-lg text-white;
-            > span {
-              @apply text-primaryLight font-medium;
-            }
-            &:lang(en) {
-              &.ar {
-                display: none;
-              }
-            }
-            &:lang(ar) {
-              &.ar {
-                display: block;
-              }
-              &.en {
-                display: none;
-              }
-            }
           }
           .lang {
             @apply bg-grayBg bg-opacity-10 text-white;
@@ -70,7 +54,7 @@ footer {
             @apply flex gap-3 flex-wrap;
             > div {
               a {
-                @apply min-w-[180px] rounded-lg flex items-center justify-between bg-white bg-opacity-10 font-bold text-lg text-white p-3 gap-3;
+                @apply min-w-[220px] rounded-lg flex items-center justify-between bg-white bg-opacity-10 font-bold text-lg text-white p-3 gap-3;
                 fa-icon {
                   @apply rounded-lg flex justify-center items-center w-10 h-10 bg-slate-200;
                   background-color: #3683cd;

@@ -1,12 +1,15 @@
 $header-height: 68px;
+@import "swiper/scss";
 .landing {
   .container {
     @apply py-10;
     height: calc(100vh - $header-height);
-    > div {
+    .swiper {
+      direction: ltr;
+    }
+    div {
       @apply relative h-full rounded-2xl pt-4 overflow-hidden;
-      background: url("../../../assets/landing/landing.webp") center center
-        no-repeat;
+      background: var(--bg) center center no-repeat;
       background-size: cover;
       h1 {
         @apply font-normal text-center mt-10 text-3xl px-10 py-6 text-white max-w-[870px] bg-opacity-80 rounded-2xl mx-auto;
@@ -16,11 +19,28 @@ $header-height: 68px;
           hsla(204, 69%, 34%, 0.8)
         );
       }
-      a {
+      button {
         @apply absolute bottom-0 right-0 bg-primary px-12 py-4 rounded-tl-2xl;
         &:lang(ar) {
           @apply left-0 right-[unset];
           transform: rotateY(180deg);
+        }
+      }
+      &.slide-2 {
+        @apply flex justify-end items-center;
+        h1 {
+          @apply m-0;
+          border-top-right-radius: 0%;
+          border-bottom-right-radius: 0%;
+        }
+        &:lang(ar) {
+          @apply justify-start;
+          h1 {
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-top-left-radius: 0%;
+            border-bottom-left-radius: 0%;
+          }
         }
       }
     }
@@ -58,11 +78,17 @@ $header-height: 68px;
       div {
         @apply relative;
         height: calc(100% - 72px);
-        video {
+        iframe {
           height: 100%;
+          width: 650px;
+          max-width: 100%;
+          min-height: 300px;
         }
         button {
           @apply z-10 absolute top-0 left-0 bg-primary bg-opacity-10 w-full h-full;
+          background: url(../../../assets/landing/learn-more-image.webp) center
+            center no-repeat;
+          background-size: cover;
           &::after,
           &::before {
             content: "";

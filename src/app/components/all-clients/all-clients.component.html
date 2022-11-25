@@ -3,9 +3,31 @@
     <h2 class="title">{{"Our clients"|translate}}</h2>
     <div class="clients">
       <div class="dReveal" *ngFor="let client of clients ">
-        <img src="../../../assets/landing/clients/{{client.image}}.svg" alt="{{client.name}} Logo">
-        <h6>{{client.name|translate}}</h6>
-        <span>{{client.field|translate}}</span>
+        <img src="{{client.image}}" alt="{{client.name}} Logo">
+        <h6 class="english">{{client.name}}</h6>
+        <h6 class="arabic">{{client.ar_name}}</h6>
+        <span class="english">{{client.description}}</span>
+        <span class="arabic">{{client.ar_description}}</span>
+        <!--
+        ar_description: 'Est ducimus pariatur eius eligendi voluptate eum minima. Vel alias corporis dolore non dolorem
+        magnam. Atque autem maiores id et aut laudantium. Quasi alias fugit fugit harum saepe.عربي';
+        ar_name: 'Bridgette Goldnerعربي';
+        created_at: '2022-11-12 17:13:25';
+        deleted_at: null;
+        description: 'Consectetur nostrum eligendi autem ipsum sit. Consequuntur est sunt enim sed. Libero quos aliquid
+        voluptatem fugit et ex. Quasi ex dolores omnis molestias ab.';
+        id: 1;
+        image: 'http://api.z-edy.com/uploads/clients/mac.svg';
+        item_order: '1';
+        name: 'Mr. Isaac Kling Jr.';
+        updated_at: '2022-11-12 17:13:25';
+        user_id: '1';
+
+
+
+
+
+        -->
       </div>
     </div>
   </div>

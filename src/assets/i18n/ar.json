@@ -1,5 +1,5 @@
 {
-  "main Page": "الصفحة لرئيسية",
+  "home": "الصفحة الرئيسية",
   "services": "الخدمات",
   "Services": "الخدمات",
   "our clients": "عملاؤنا",
@@ -9,6 +9,7 @@
   "Welcome to ": "أهلاً بك فى ",
   "Zedy ": "زيدي ",
   "for marketing and programming services": "لخدمات التسويق و البرمجة",
+  "Integrated Marketing Solutions": "خدمات تسويقية متكاملة",
   "We happily served more than ": "سعدنا بخدمة اكثر من ",
   "Get to know us more": "تعرف علينا",
   "300": "300",
@@ -100,11 +101,11 @@
   "With You In Marketing And Business": "معك فيما يخص التسويق والبيزنس",
   "Join Our Dear Clients": "انضم الى عملاؤنا الأعزاء",
   "Learn With Us And Watch Our Videos And Leave Us A Comment": "تعلم معنا وشاهد الفيديوهات واترك لنا تعليقك",
-  "Available Positions": "الوظائف الممكنة",
+  "Available Jobs": "الوظائف المتاحة",
   "You can apply to work with us through": "يمكنك التقديم للعمل معنا عبر",
   "possible jobs, and if the job is not available, it may be available later, God willing": "وظيفة ممكنة، و إذا لم تكن الوظيفة متاحة فقد تتوفر لاحقا بمشيئة الله",
   "video title": "عنوان الفيديو",
   "Press to submit": "اضغط للتقدم",
-  "": "",
-  "": ""
+  "Under Construction": "تحت الإنشاء",
+  "Order Now": "أطلب الان"
 }

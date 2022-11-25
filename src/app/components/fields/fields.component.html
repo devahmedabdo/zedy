@@ -18,10 +18,11 @@
     <div class="fields">
       <div class="dReveal" *ngFor="let field of fields">
         <div>
-          <img src="../../../assets/landing/fields/{{field.image}}.svg" alt="{{field.name}} image">
+          <img src="{{field.image}}" alt="{{field.name}} image">
 
         </div>
-        <h6>{{field.name | translate}}</h6>
+        <h6 class="arabic">{{field.ar_name}}</h6>
+        <h6 class="english">{{field.name}}</h6>
       </div>
     </div>
   </div>

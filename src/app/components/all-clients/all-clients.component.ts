@@ -1,136 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { ZedyService } from './../../services/zedy.service';
 
 @Component({
   selector: 'app-all-clients',
   templateUrl: './all-clients.component.html',
-  styleUrls: ['./all-clients.component.scss']
+  styleUrls: ['./all-clients.component.scss'],
 })
 export class AllClientsComponent implements OnInit {
-
-  constructor() { }
-  clients: any[] = [
-    {
-      name: 'Mcdonalds',
-      image: 'mac',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Dominos',
-      image: 'domino',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Microsoft',
-      image: 'microsoft',
-      field: 'Programming ',
-    },
-    {
-      name: 'Mercedes',
-      image: 'mercedes',
-      field: 'Cars',
-    },
-    {
-      name: 'Mcdonalds',
-      image: 'mac',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Dominos',
-      image: 'domino',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Microsoft',
-      image: 'microsoft',
-      field: 'Programming ',
-    },
-    {
-      name: 'Mercedes',
-      image: 'mercedes',
-      field: 'Cars',
-    },
-    {
-      name: 'Mcdonalds',
-      image: 'mac',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Dominos',
-      image: 'domino',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Microsoft',
-      image: 'microsoft',
-      field: 'Programming ',
-    },
-    {
-      name: 'Mercedes',
-      image: 'mercedes',
-      field: 'Cars',
-    },
-    {
-      name: 'Mcdonalds',
-      image: 'mac',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Dominos',
-      image: 'domino',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Microsoft',
-      image: 'microsoft',
-      field: 'Programming ',
-    },
-    {
-      name: 'Mercedes',
-      image: 'mercedes',
-      field: 'Cars',
-    },
-    {
-      name: 'Mcdonalds',
-      image: 'mac',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Dominos',
-      image: 'domino',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Microsoft',
-      image: 'microsoft',
-      field: 'Programming ',
-    },
-    {
-      name: 'Mercedes',
-      image: 'mercedes',
-      field: 'Cars',
-    },
-    {
-      name: 'Mcdonalds',
-      image: 'mac',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Dominos',
-      image: 'domino',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Microsoft',
-      image: 'microsoft',
-      field: 'Programming ',
-    },
-    {
-      name: 'Mercedes',
-      image: 'mercedes',
-      field: 'Cars',
-    },
-  ];
-  ngOnInit(): void {
+  constructor(private zedy: ZedyService) {}
+  clients: any[] = [];
+  getClient() {
+    this.zedy.getClients().subscribe({
+      next: (clients: any) => {
+        this.clients = clients['data'];
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
-
+  ngOnInit(): void {
+    this.getClient();
+  }
 }

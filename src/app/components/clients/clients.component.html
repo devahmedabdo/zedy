@@ -3,9 +3,11 @@
     <h2 class="title">{{"Our clients"|translate}}</h2>
     <div class="clients">
       <div class="dReveal" *ngFor="let client of clients ">
-        <img src="../../../assets/landing/clients/{{client.image}}.svg" alt="{{client.name}} Logo">
-        <h6>{{client.name|translate}}</h6>
-        <span>{{client.field|translate}}</span>
+        <img src="{{client.image}}" alt="{{client.name}} Logo">
+        <h6 class="english">{{client.name}}</h6>
+        <h6 class="arabic">{{client.ar_name}}</h6>
+        <span class="english">{{client.description}}</span>
+        <span class="arabic">{{client.ar_description}}</span>
       </div>
     </div>
     <a routerLink="/clients" class="details-btn uReveal">{{"More"|translate}}</a>

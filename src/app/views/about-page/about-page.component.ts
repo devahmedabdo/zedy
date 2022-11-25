@@ -14,6 +14,9 @@ export class AboutPageComponent implements OnInit, AfterViewInit {
     animationClass.forEach((e) => {
       e.classList.add('reveal');
     });
+    setTimeout(() => {
+      document.querySelector('.loading')?.classList.remove('loading');
+    });
   }
   ngOnInit(): void {}
 }

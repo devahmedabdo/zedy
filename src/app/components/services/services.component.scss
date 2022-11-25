@@ -26,7 +26,7 @@ section {
                 @apply text-2xl font-bold pt-10;
               }
               a {
-                @apply transition-colors duration-300  text-xl font-medium py-1 px-4 mb-5 border border-white rounded w-fit;
+                @apply hidden transition-colors duration-300 min-w-[140px] text-xl font-medium py-1 px-4 mb-5 border border-white rounded w-fit;
                 &:hover {
                   @apply bg-white bg-opacity-90;
                   border-color: var(--color);
@@ -61,6 +61,11 @@ section {
           }
           h3 {
             @apply text-2xl font-bold flex-grow flex items-center;
+            &:lang(ar) {
+              &.arabic {
+                display: flex !important;
+              }
+            }
           }
           a {
             @apply transition-colors duration-300  text-xl font-medium py-1 px-4 mb-5 border border-white rounded w-fit;

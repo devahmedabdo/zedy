@@ -1,19 +1,26 @@
 <section class="opinions-section">
   <div class="container ">
     <h2 class="title">{{"Said about us"|translate}}</h2>
-    <div class="opinion">
-      <div *ngFor="let opinion of opinions">
-        <p>{{opinion.text|translate}}</p>
-        <div>
-          <img src="../../../assets/landing/opinions/{{opinion.image}}.png" alt="{{opinion.name}}">
-          <div>
-            <span>{{opinion.name|translate}}</span>
-            <span>{{opinion.jop|translate}}</span>
+    <div class="opinion relative">
+      <swiper class="swiper" style="max-width: 1200px; padding-top: 20px;" [config]="config">
+        <ng-template *ngFor="let opinion of opinions" swiperSlide>
+          <div class="opinionBox">
+            <p class="english">{{opinion.description}}</p>
+            <p class="arabic">{{opinion.ar_description}}</p>
+            <div>
+              <img src="{{opinion.image}}" alt="{{opinion.name}}">
+              <div>
+                <span class="english">{{opinion.name}}</span>
+                <span class="arabic">{{opinion.ar_name}}</span>
+                <p class="english">{{opinion.field?.name}}</p>
+                <p class="arabic">{{opinion.field?.ar_name}}</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-bar">
+        </ng-template>
+      </swiper>
+      <div class="swiper-scrollbar"></div>
+      <div class="swiper-pagination"></div>
       <div>
       </div>
     </div>

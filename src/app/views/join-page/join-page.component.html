@@ -1,38 +1,57 @@
-<app-load></app-load>
 <section>
   <div class="container">
-    <h2>{{"Available Positions"|translate}}</h2>
-    <p>{{"You can apply to work with us through"|translate}}<span class="font-bold"> 15 </span>{{"possible jobs, and if
+    <h2>{{"Available Jobs"|translate}}</h2>
+    <p>{{"You can apply to work with us through"|translate}}<span class="font-bold"> {{jobs.length}} </span>{{"possible
+      jobs, and if
       the job is not available, it may be available later, God willing"|translate}}</p>
 
     <div>
       <div class="links">
         <div class="jobs">
-          <a *ngFor="let job of jobs" href="{{job.link}}">{{job.job}}</a>
+          <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="english"
+            *ngFor="let job of jobs">{{job.name}}</a>
+          <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="arabic"
+            *ngFor="let job of jobs">{{job.ar_name}}</a>
         </div>
         <div class="other-jobs">
           <div style="--color:#3683CD">
             <div>
-
               <img src="../../../assets/join us/male.svg" alt="male-icon">
             </div>
-            <a href="">{{"Accountant"|translate}}</a>
-            <a href="">{{"Account Manager"|translate}}</a>
-            <a href="">{{"Out-Door Sales"|translate}}</a>
-            <a href="">{{"Office Boy"|translate}}</a>
+            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="arabic"
+              *ngFor="let job of maleJobs">{{job.ar_name}}</a>
+            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="english"
+              *ngFor="let job of maleJobs">{{job.name}}</a>
           </div>
           <div style="--color:#F47095">
             <div>
-
+              <img src="../../../assets/join us/male.svg" alt="female-icon">
+            </div>
+            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="arabic"
+              *ngFor="let job of femaleJobs">{{job.ar_name}}</a>
+            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="english"
+              *ngFor="let job of femaleJobs">{{job.name}}</a>
+          </div>
+          <div>
+            <div style="--color:#F47095">
               <img src="../../../assets/join us/male.svg" alt="male-icon">
             </div>
-            <a href="">{{"HR Coordinator"|translate}}</a>
-            <a href="">{{"In-Door Sales"|translate}}</a>
+            <div style="--color:#3683CD">
+              <img src="../../../assets/join us/male.svg" alt="female-icon">
+            </div>
+            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="arabic"
+              *ngFor="let job of multiJobs">{{job.ar_name}}</a>
+            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="english"
+              *ngFor="let job of multiJobs">{{job.name}}</a>
+
           </div>
+
+
+
         </div>
         <div class="submit">
-          <a href="">{{"Press to submit"|translate}}</a>
-          <a href=""><img src="../../../assets/join us/file.svg" alt=""></a>
+          <a [href]="config?.job_form_link">{{"Press to submit"|translate}}</a>
+          <a [href]="config?.job_form_link"><img src="../../../assets/join us/file.svg" alt=""></a>
         </div>
       </div>
       <div class="form-img">

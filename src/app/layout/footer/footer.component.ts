@@ -9,6 +9,7 @@ import {
   faGooglePlay,
 } from '@fortawesome/free-brands-svg-icons';
 import { faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { ZedyService } from 'src/app/services/zedy.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -16,55 +17,66 @@ import { faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
   encapsulation: ViewEncapsulation.None,
 })
 export class FooterComponent implements OnInit {
-  constructor() {}
+  constructor(private zedy: ZedyService) {}
   lang: string = document.documentElement.lang;
+  year:number = new Date().getFullYear();
   callIcon = faPhone;
   faLocationDot = faLocationDot;
-  socialLinks: any[] = [
-    {
-      icon: faFacebookF,
-      link: '#',
-      color: '71 89 147',
-    },
-    {
-      icon: faLinkedinIn,
-      link: '#',
-      color: '0 119 183',
-    },
-    {
-      icon: faInstagram,
-      link: '#',
-      color: '242 124 166',
-    },
-    {
-      icon: faWhatsapp,
-      link: '#',
-      color: '122 208 109',
-    },
-    {
-      icon: faYoutube,
-      link: '#',
-      color: '255 0 0',
-    },
-    {
-      icon: faBehance,
-      link: '#',
-      color: '30 109 255',
-    },
-    {
-      icon: faLocationDot,
-      link: '#',
-      color: '196 66 40',
-    },
-    {
-      icon: faGooglePlay,
-      link: '#',
-      color: '242 196 0',
-    },
-  ];
+  config: any;
+  socialLinks?: any[];
+  getConfig() {
+    this.zedy.getConfig().subscribe({
+      next: (config: any) => {
+        this.config = config['data'];
+        this.socialLinks = [
+          {
+            icon: faFacebookF,
+            link: this.config.facebook,
+            color: '71 89 147',
+          },
+          {
+            icon: faLinkedinIn,
+            link: this.config.linkedin,
+            color: '0 119 183',
+          },
+          {
+            icon: faInstagram,
+            link: this.config.instagram,
+            color: '242 124 166',
+          },
+          {
+            icon: faWhatsapp,
+            link: 'https://wa.me/+2' + this.config.whatsapp,
+            color: '122 208 109',
+          },
+          {
+            icon: faYoutube,
+            link: this.config.youtube,
+            color: '255 0 0',
+          },
+          {
+            icon: faBehance,
+            link: this.config.behance,
+            color: '30 109 255',
+          },
+          {
+            icon: faLocationDot,
+            link: this.config.location,
+            color: '196 66 40',
+          },
+          {
+            icon: faGooglePlay,
+            link: this.config.google_play_link,
+            color: '242 196 0',
+          },
+        ];
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
   ngOnInit(): void {
-    let copyright = document.getElementById('copyright') as HTMLElement;
-    let year = new Date().getFullYear();
-    copyright.innerHTML = `${year}`;
+    this.getConfig()
   }
 }

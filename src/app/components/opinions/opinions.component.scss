@@ -1,13 +1,19 @@
+@import "swiper/scss";
+@import "swiper/scss/pagination";
+@import "swiper/scss/scrollbar";
 .opinions-section {
   .container {
     @apply py-20;
     .opinion {
-      @apply flex gap-12 overflow-hidden py-10;
-      > div {
-        min-width: 320px;
-
+      @apply flex gap-12  py-10;
+      direction: ltr;
+      .opinionBox {
+        &:lang(ar) {
+          direction: rtl;
+        }
+        max-width: 400px;
         > p {
-          @apply rounded-3xl relative p-3 mb-5;
+          @apply rounded-3xl relative p-3 mb-5 h-24;
           background: #eeeeee;
           &::after,
           &::before {
@@ -34,12 +40,10 @@
           > div {
             @apply flex flex-col;
             span {
-              &:first-child {
-                @apply font-medium;
-              }
-              &:last-child {
-                color: #a1a1a1;
-              }
+              @apply font-medium;
+            }
+            p {
+              color: #a1a1a1;
             }
           }
         }
@@ -67,4 +71,16 @@
       }
     }
   }
+}
+.swiper-horizontal > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  bottom: -25px;
+}
+.swiper-scrollbar-drag {
+  top: calc(-5px / 2);
+  height: 10px;
+  background-color: #53baff;
 }

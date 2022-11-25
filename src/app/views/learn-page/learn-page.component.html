@@ -1,17 +1,21 @@
-<app-load></app-load>
 <section class="services-page">
   <div class="container py-10">
     <h2 class="page-title">{{"Learn With Us And Watch Our Videos And Leave Us A Comment"|translate}}<div></div>
     </h2>
     <div class="learn-video">
-      <div (click)="playVideo()" *ngFor="let video of videos">
+
+      <div *ngFor="let video of videos">
         <div>
-          <button>
+          <button class="playBtn" (click)="playVideo($event)">
           </button>
-          <video controls src="../../../assets/learn with us/{{video.name}}.mp4"></video>
+          <iframe [src]="'https://www.youtube.com/embed/'+video.path | safe" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
-        <h3>{{video.title | translate}}</h3>
+        <a class="arabic" [href]="video.link | safe">{{video.ar_name}}</a>
+        <a class="english" [href]="video.link | safe">{{video.name}}</a>
       </div>
+      <h1></h1>
     </div>
   </div>
 </section>

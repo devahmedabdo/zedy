@@ -7,12 +7,24 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 export class ClientPageComponent implements OnInit, AfterViewInit {
   constructor() {}
   ngOnInit(): void {}
+  // ngAfterViewInit(): void {
+  //   let animationClass = document.querySelectorAll(
+  //     '.lReveal , .dReveal,.uReveal,.rReveal'
+  //   );
+  //   animationClass.forEach((e) => {
+  //     e.classList.add('reveal');
+  //   });
+  //   setTimeout(() => {
+  //     document.querySelector('.loading')?.classList.remove('loading');
+  //   });
+  // }
   ngAfterViewInit(): void {
-    let animationClass = document.querySelectorAll(
-      '.lReveal , .dReveal,.uReveal,.rReveal'
-    );
-    animationClass.forEach((e) => {
-      e.classList.add('reveal');
+    console.log('ngAfterViewInit');
+    setTimeout(() => {
+      document.querySelector('.loading')?.classList.remove('loading');
     });
+  }
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit');
   }
 }

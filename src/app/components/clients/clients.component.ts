@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ZedyService } from './../../services/zedy.service';
 
 @Component({
   selector: 'app-clients',
@@ -6,68 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clients.component.scss'],
 })
 export class ClientsComponent implements OnInit {
-  constructor() {}
-  clients: any[] = [
-    {
-      name: 'Mcdonalds',
-      image: 'mac',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Dominos',
-      image: 'domino',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Microsoft',
-      image: 'microsoft',
-      field: 'Programming ',
-    },
-    {
-      name: 'Mercedes',
-      image: 'mercedes',
-      field: 'Cars',
-    },
-    {
-      name: 'Mcdonalds',
-      image: 'mac',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Dominos',
-      image: 'domino',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Microsoft',
-      image: 'microsoft',
-      field: 'Programming ',
-    },
-    {
-      name: 'Mercedes',
-      image: 'mercedes',
-      field: 'Cars',
-    },
-    {
-      name: 'Mcdonalds',
-      image: 'mac',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Dominos',
-      image: 'domino',
-      field: 'Restaurant series',
-    },
-    {
-      name: 'Microsoft',
-      image: 'microsoft',
-      field: 'Programming ',
-    },
-    {
-      name: 'Mercedes',
-      image: 'mercedes',
-      field: 'Cars',
-    },
-  ];
-  ngOnInit(): void {}
+  constructor(private zedy: ZedyService) {}
+  clients: any[] = [];
+  getClient() {
+    this.zedy.getClients().subscribe({
+      next: (clients: any) => {
+        this.clients = clients['data'];
+        this.clients.length = 12;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+  ngOnInit(): void {
+    this.getClient();
+  }
 }

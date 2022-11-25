@@ -7,8 +7,9 @@
     </div>
     <div class="team">
       <div *ngFor="let member of team" style="--color:83 186 255">
-        <div> <img src="../../../assets/landing/team/{{member.image}}.jpg" alt="{{member.name}} image"></div>
-        <span>{{member.name | translate}}</span>
+        <div> <img src="{{member.image}}" alt="{{member.name}} image"></div>
+        <span class="arabic">{{member.ar_name}}</span>
+        <span class="english">{{member.name}}</span>
       </div>
     </div>
   </div>

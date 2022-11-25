@@ -1,15 +1,28 @@
-<app-load></app-load>
 <section class="landing">
   <div class="container">
-    <div>
-      <h1><span>{{"Welcome to "| translate}}</span>
-        <span class="font-bold text-primaryLight">{{"Zedy "| translate}}</span>
-        <span>{{"for marketing and programming services"| translate}}</span>
-      </h1>
-      <a routerLink="construction">
-        <img src="../../../assets/landing/arrow.svg" alt="arrow-image">
-      </a>
-    </div>
+    <swiper class="h-full swiper" [config]="config">
+      <ng-template class="h-full" swiperSlide>
+        <div style="--bg:url('../../../assets/landing/landing.webp')">
+          <h1><span>{{"Welcome to "| translate}}</span>
+            <span class="font-bold text-primaryLight">{{"Zedy "| translate}}</span>
+            <span>{{"for marketing and programming services"| translate}}</span>
+          </h1>
+          <button class="swiper-button-next">
+            <img src="../../../assets/landing/arrow.svg" alt="arrow-image">
+          </button>
+        </div>
+      </ng-template>
+      <ng-template class="h-full" swiperSlide>
+        <div class="slide-2" style="--bg:url('../../../assets/landing/landing2.webp')">
+          <h1>
+            <span>{{"Integrated Marketing Solutions"| translate}}</span>
+          </h1>
+          <button class="swiper-button-prev">
+            <img src="../../../assets/landing/arrow.svg" alt="arrow-image">
+          </button>
+        </div>
+      </ng-template>
+    </swiper>
   </div>
 </section>
 <section class="learn-more">
@@ -23,8 +36,8 @@
       </h2>
       <div>
         <a class="dReveal" style="--d:{{i}};--color:{{link.color}}" *ngFor="let link of socialLinks ; let i=index"
-          href="{{link.link}}">
-          <fa-icon [icon]="link.icon"></fa-icon>
+          [href]="link?.link">
+          <fa-icon [icon]="link?.icon"></fa-icon>
         </a>
       </div>
     </div>
@@ -32,11 +45,11 @@
       <div>
         <button (click)="playVideo()">
         </button>
-        <video id="learn-video" controls height="400px" poster="../../../assets/landing/learn-more-image.webp">
-          <source src="../../../assets/landing/learn-more-video.mp4" type="video/mp4">
-        </video>
+        <iframe src="https://www.youtube.com/embed/2758uKEnL2E"
+          title="نبذة سريعة عن شركة الزيدى ^_^ هتعرفك بينا اكتر و هتسهل عليك و انت بتتعامل معانا" frameborder="0"
+          allowfullscreen></iframe>
       </div>
-      <a routerLink="construction">
+      <a>
         {{"LEARN MORE ABOUT US"| translate}}
       </a>
     </div>

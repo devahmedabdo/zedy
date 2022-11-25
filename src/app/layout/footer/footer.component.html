@@ -3,20 +3,14 @@
     <div>
       <div>
         <img src="../../../assets/landing/whiteLogo.svg" alt="zedy logo">
-        <p class="en"><span>Zedy</span> Marketing and Programming Services Company provides a complete service
-          in the field of marketing, software and business management. Through a distinguished team and more than 6
-          years of experience serving more than 300 clients</p>
-        <p class="ar">شركة <span>الزيدي </span>لخدمات التسويق و البرمجة تقدم خدمة متكاملة فى
-          مجال التسويق
-          و البرمجيات و إدارة
-          األعمال
-          عن طريق فريق عمل مميز و خبرة تتجاوز ال6 سنوات فى خدمة أكثر من 300 عميل</p>
+        <p class="arabic">{{config?.description}}</p>
+        <p class="english">{{config?.en_description}}</p>
         <app-language class="language"></app-language>
       </div>
       <div>
         <h3>{{"Important Links"|translate}}</h3>
         <ul class="capitalize">
-          <li><a routerLink="/">{{'main Page' | translate}}</a></li>
+          <li><a routerLink="/">{{'home' | translate}}</a></li>
           <li><a routerLink="/services">{{'services' | translate}}</a></li>
           <li><a routerLink="clients">{{'our clients' | translate}}</a></li>
           <li><a routerLink="about">{{'about us' | translate}}</a></li>
@@ -27,29 +21,30 @@
       <div>
         <h3>{{"Contact Us"|translate}}</h3>
         <div class="call">
-          <div><a href="tel:+201098500999">
-              <span>01098500999</span>
+          <div><a href="tel:+2{{config?.phone}}">
+              <span>{{config?.phone}}</span>
               <fa-icon [icon]="callIcon"></fa-icon>
             </a></div>
-          <div><a href="tel:+201050171135">
-              <span>01050171135</span>
+          <div><a href="tel:+2{{config?.phone2}}">
+              <span>{{config?.phone2}}</span>
               <fa-icon [icon]="callIcon"></fa-icon>
             </a></div>
         </div>
         <h3>{{"Or visit the closest branch"|translate}}</h3>
         <div class="location">
-          <fa-icon [icon]="faLocationDot"></fa-icon><span>{{"Al-Assal Street from Al-Gomhoria Street,
-            Assiut"|translate}}</span>
+          <fa-icon [icon]="faLocationDot"></fa-icon>
+          <a [href]="config?.location" class="arabic">{{config?.ar_address}}</a>
+          <a [href]="config?.location" class="english">{{config?.address}}</a>
         </div>
         <div class="links">
-          <a style="--color:{{link.color}}" *ngFor="let link of socialLinks ; let i=index" href="{{link.link}}">
-            <fa-icon [icon]="link.icon"></fa-icon>
+          <a style="--color:{{myLink.color}}" *ngFor="let myLink of socialLinks ; let i=index" [href]="myLink.link">
+            <fa-icon [icon]="myLink.icon"></fa-icon>
           </a>
         </div>
       </div>
     </div>
   </div>
   <div class="copyright">
-    <p>{{"All rights reserved "|translate}}<span>{{"Zedy "|translate}}<span id="copyright"></span></span></p>
+    <p>{{"All rights reserved "|translate}}<span>{{"Zedy "|translate}}<span>{{year}}</span></span></p>
   </div>
 </footer>

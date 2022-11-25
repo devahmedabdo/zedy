@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ZedyService } from './../../services/zedy.service';
 
 @Component({
   selector: 'app-learn-page',
@@ -6,81 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./learn-page.component.scss'],
 })
 export class LearnPageComponent implements OnInit {
-  constructor() {}
-  videos: any[] = [
-    {
-      name: 'video-1',
-      title: 'video title',
-    },
-    {
-      name: 'video-2',
-      title: 'video title',
-    },
-    {
-      name: 'video-3',
-      title: 'video title',
-    },
-    {
-      name: 'video-4',
-      title: 'video title',
-    },
-    {
-      name: 'video-1',
-      title: 'video title',
-    },
-    {
-      name: 'video-2',
-      title: 'video title',
-    },
-    {
-      name: 'video-3',
-      title: 'video title',
-    },
-    {
-      name: 'video-4',
-      title: 'video title',
-    },
-    {
-      name: 'video-1',
-      title: 'video title',
-    },
-    {
-      name: 'video-2',
-      title: 'video title',
-    },
-    {
-      name: 'video-3',
-      title: 'video title',
-    },
-    {
-      name: 'video-4',
-      title: 'video title',
-    },
-    {
-      name: 'video-1',
-      title: 'video title',
-    },
-    {
-      name: 'video-2',
-      title: 'video title',
-    },
-    {
-      name: 'video-3',
-      title: 'video title',
-    },
-    {
-      name: 'video-4',
-      title: 'video title',
-    },
-  ];
-  playVideo() {
-    const btn = event?.target as HTMLElement;
-    const video = btn.nextElementSibling as HTMLVideoElement;
+  constructor(private get: ZedyService) {}
+  videos: any[] = [];
+  playVideo(btn: any): void {
+    let playBtn = btn.target as HTMLElement;
+    let video = playBtn.nextElementSibling as HTMLEmbedElement;
     if (video) {
-      video.play();
-      btn.remove();
+      video.src += '?autoplay=1';
+      playBtn.remove();
     }
   }
-
-  ngOnInit(): void {}
+  getVideos() {
+    this.get.getVideos().subscribe(
+      (videos: any) => {
+        this.videos = videos.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  ngOnInit(): void {
+    this.getVideos();
+  }
 }

@@ -5,10 +5,8 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
   templateUrl: './load.component.html',
   styleUrls: ['./load.component.scss'],
 })
-export class LoadComponent implements OnInit, AfterViewInit {
+export class LoadComponent implements OnInit {
   constructor() {}
-  ngAfterViewInit(): void {
-    document.querySelector('.loading')?.classList.remove('loading');
-  }
+
   ngOnInit(): void {}
 }

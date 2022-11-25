@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ZedyService } from 'src/app/services/zedy.service';
 
 @Component({
   selector: 'app-join-page',
@@ -6,44 +7,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./join-page.component.scss'],
 })
 export class JoinPageComponent implements OnInit {
-  constructor() {}
-  jobs: any[] = [
-    {
-      job: 'General Manager',
-      link: '',
-    },
-    {
-      job: 'CEO Assistant',
-      link: '',
-    },
-    {
-      job: 'Media Buyer',
-      link: '',
-    },
-    {
-      job: 'Social Media Specialist',
-      link: '',
-    },
-    {
-      job: 'Social Media Moderator',
-      link: '',
-    },
-    {
-      job: 'Art Director',
-      link: '',
-    },
-    {
-      job: 'Graphic Designer',
-      link: '',
-    },
-    {
-      job: 'Office Manager',
-      link: '',
-    },
-    {
-      job: 'Motion Graphic Designer',
-      link: '',
-    },
-  ];
-  ngOnInit(): void {}
+  constructor(private zedy: ZedyService) {}
+  jobs: any[] = [];
+  maleJobs: any = [];
+  femaleJobs: any = [];
+  multiJobs: any = [];
+  config: any;
+  getJobs() {
+    this.zedy.getJobs().subscribe({
+      next: (jobs: any) => {
+        this.jobs = jobs['data'];
+        this.maleJobs = this.jobs.filter((e) => e.type == 'ذكر');
+        this.femaleJobs = this.jobs.filter((e) => e.type == 'انثي');
+        this.multiJobs = this.jobs.filter((e) => e.type == 'انثي,ذكر');
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+  getConfig() {
+    this.zedy.getConfig().subscribe({
+      next: (config: any) => {
+        this.config = config['data'];
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+  ngOnInit(): void {
+    this.getConfig();
+    this.getJobs();
+  }
 }

@@ -16,13 +16,13 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FindUsComponent } from './components/find-us/find-us.component';
 import { LanguageComponent } from './components/language/language.component';
-import { SwiperComponentComponent } from './components/swiper-component/swiper-component.component';
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 // import swiper
-import { UnderConstructionComponent } from './views/under-construction/under-construction.component';
+import { SwiperModule } from 'swiper/angular';
+
 import { LoadComponent } from './components/load/load.component';
 import { ServicesPageComponent } from './views/services-page/services-page.component';
 import { ClientPageComponent } from './views/client-page/client-page.component';
@@ -31,6 +31,9 @@ import { LearnPageComponent } from './views/learn-page/learn-page.component';
 import { JoinPageComponent } from './views/join-page/join-page.component';
 import { AboutPageComponent } from './views/about-page/about-page.component';
 import { OpinionsComponent } from './components/opinions/opinions.component';
+import { SafePipe } from './pipes/safe.pipe';
+
+import { ZedyService } from './services/zedy.service';
 //
 @NgModule({
   declarations: [
@@ -46,8 +49,7 @@ import { OpinionsComponent } from './components/opinions/opinions.component';
     PortfolioComponent,
     FindUsComponent,
     LanguageComponent,
-    SwiperComponentComponent,
-    UnderConstructionComponent,
+ 
     LoadComponent,
     ServicesPageComponent,
     ClientPageComponent,
@@ -56,12 +58,14 @@ import { OpinionsComponent } from './components/opinions/opinions.component';
     JoinPageComponent,
     AboutPageComponent,
     OpinionsComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    SwiperModule,
     // ngx-translate and the loader module
     HttpClientModule,
     TranslateModule.forRoot({
@@ -72,7 +76,7 @@ import { OpinionsComponent } from './components/opinions/opinions.component';
       },
     }),
   ],
-  providers: [],
+  providers: [ZedyService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

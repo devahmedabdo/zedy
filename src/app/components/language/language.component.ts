@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-language',
@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguageComponent implements OnInit {
   constructor(private translate: TranslateService) {}
 
-  lang: string = 'en';
+  lang: string = 'ar';
   setLang(lang: any) {
     this.lang = lang;
     document.documentElement.lang = lang;
@@ -17,9 +17,8 @@ export class LanguageComponent implements OnInit {
     this.translate.use(lang);
   }
   ngOnInit(): void {
-    this.lang = localStorage.getItem('lang') || 'en';
+    this.lang = localStorage.getItem('lang') || 'ar';
     this.setLang(this.lang);
-
     //
     const languageBox = document.querySelectorAll('.lang');
     languageBox.forEach(function (e: any) {

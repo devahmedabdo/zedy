@@ -3,20 +3,23 @@
     <h2 style="--color:#1A7FC3" class="title lReveal">{{"Services" | translate}}</h2>
     <p class="lReveal">{{"With you in marketing and business" | translate}}</p>
     <div class="services">
-      <div class="dReveal" *ngFor="let service of services">
+      <div style="--color:{{service.color}}" class="dReveal" *ngFor="let service of services">
         <div class="services-img">
-          <img src="../../../assets/landing/services/{{service.img}}.webp" alt="{{service.title}}">
-          <div style="--color:{{service.color}}">
+          <img [src]="service.image" alt="{{service.title}}">
+          <div>
             <div>
-              <h3>{{service.title | translate}}</h3>
-              <a routerLink="/construction">{{"More"|translate}}</a>
+              <h3 class="arabic">{{service.ar_name}}</h3>
+              <h3 class="english">{{service.name}}</h3>
+              <a [href]="'https://wa.me/+2'+config?.whatsapp">{{"Order Now"|translate}}</a>
             </div>
-            <p>{{service.description | translate}}</p>
+            <p class="arabic">{{service.ar_description}}</p>
+            <p class="english">{{service.description}}</p>
           </div>
         </div>
-        <div class="services-des" style="--color:{{service.color}}">
-          <h3>{{service.title | translate}}</h3>
-          <a routerLink="/construction">{{"More" | translate}}</a>
+        <div class="services-des">
+          <h3 class="arabic">{{service.ar_name}}</h3>
+          <h3 class="english">{{service.name}}</h3>
+          <a [href]="'https://wa.me/+2'+config?.whatsapp">{{"Order Now" | translate}}</a>
         </div>
       </div>
     </div>

@@ -9,7 +9,6 @@ $header-height: 78px;
   html,
   body {
     @apply bg-grayBg;
-    // background-color: $bg;
     scroll-behavior: smooth;
     font-family: "Poppins", sans-serif;
   }
@@ -96,6 +95,17 @@ $header-height: 78px;
     @apply mx-auto px-2;
     @media (min-width: 768px) {
       max-width: 1280px;
+    }
+  }
+  .arabic {
+    display: none !important;
+    &:lang(ar) {
+      display: inherit !important;
+    }
+  }
+  .english {
+    &:lang(ar) {
+      display: none !important;
     }
   }
 }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './views/landing/landing.component';
-import { UnderConstructionComponent } from './views/under-construction/under-construction.component';
 import { ServicesPageComponent } from './views/services-page/services-page.component';
 import { ClientPageComponent } from './views/client-page/client-page.component';
 import { LearnPageComponent } from './views/learn-page/learn-page.component';
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: 'learn', component: LearnPageComponent },
   { path: 'join', component: JoinPageComponent },
   { path: 'about', component: AboutPageComponent },
-  { path: 'construction', component: UnderConstructionComponent },
 ];
 
 @NgModule({
