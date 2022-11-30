@@ -19,7 +19,7 @@ section {
             }
             &::after {
               @apply w-16 h-16 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-              background: url(../../../assets/landing/play-btn.svg) center
+              background: url("../../../assets/landing/play-btn.svg") center
                   center no-repeat,
                 #ffffff26;
               background-size: 40px;

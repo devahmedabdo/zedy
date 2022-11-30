@@ -3,10 +3,10 @@
     <h2 class="title dReveal">
       {{"You can find our work in" | translate}}
     </h2>
-    <img src="../../../assets/landing/map.webp" alt="map-img">
+    <img src="assets/landing/map.webp" alt="map-img">
     <div>
       <div class="dReveal" *ngFor="let country of countries;let i = index" style="--d:{{i}}">
-        <img src="../../../assets/landing/flags/{{country.img}}.svg" alt="{{country.name}} Image">
+        <img src="assets/landing/flags/{{country.img}}.svg" alt="{{country.name}} Image">
         <span>{{country.name | translate}}</span>
       </div>
     </div>

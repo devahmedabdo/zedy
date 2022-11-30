@@ -49,7 +49,7 @@ import { ZedyService } from './services/zedy.service';
     PortfolioComponent,
     FindUsComponent,
     LanguageComponent,
- 
+
     LoadComponent,
     ServicesPageComponent,
     ClientPageComponent,
@@ -81,5 +81,5 @@ import { ZedyService } from './services/zedy.service';
 })
 export class AppModule {}
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
