@@ -31,6 +31,9 @@ import { LearnPageComponent } from './views/learn-page/learn-page.component';
 import { JoinPageComponent } from './views/join-page/join-page.component';
 import { AboutPageComponent } from './views/about-page/about-page.component';
 import { OpinionsComponent } from './components/opinions/opinions.component';
+
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 import { SafePipe } from './pipes/safe.pipe';
 
 import { ZedyService } from './services/zedy.service';
@@ -76,7 +79,10 @@ import { ZedyService } from './services/zedy.service';
       },
     }),
   ],
-  providers: [ZedyService],
+  providers: [
+    ZedyService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
