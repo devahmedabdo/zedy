@@ -112,7 +112,7 @@
             <img src="assets/landing/Check Mark.svg" alt="Check Mark">
           </div>
           <div>
-            <span>9</span>
+            <span>{{configuration?.fields_count}}</span>
             <span>{{"Fields"|translate}}</span>
           </div>
 
@@ -124,7 +124,7 @@
           </div>
           <div>
             <span>{{"More than"|translate}}</span>
-            <span>{{"30 Training course"|translate}}</span>
+            <span><span>{{configuration?.training_course_count}}</span>{{" Training course"|translate}}</span>
           </div>
         </div>
         <div class="dReveal">
@@ -133,7 +133,7 @@
           </div>
           <div>
             <span>{{"More than"|translate}}</span>
-            <span>{{"100 tutors"|translate}}</span>
+            <span><span>{{configuration?.trainee_count}}</span>{{"tutors"|translate}}</span>
           </div>
         </div>
       </div>
