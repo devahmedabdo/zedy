@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewEncapsulation,
-  AfterViewInit,
-} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-services-page',
@@ -11,7 +6,7 @@ import {
   styleUrls: ['./services-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ServicesPageComponent implements OnInit, AfterViewInit {
+export class ServicesPageComponent implements OnInit {
   constructor() {}
   loading() {
     setTimeout(() => {
@@ -20,20 +15,13 @@ export class ServicesPageComponent implements OnInit, AfterViewInit {
         '.lReveal , .dReveal,.uReveal,.rReveal'
       );
       window.onload = () => {
-        console.log('awd');
         animationClass.forEach((e) => {
           e.classList.add('reveal');
         });
       };
     }, 100);
   }
-  ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
-  }
   ngOnInit(): void {
     this.loading();
-  }
-  ngAfterContentInit() {
-    console.log('ngAfterViewInit');
   }
 }

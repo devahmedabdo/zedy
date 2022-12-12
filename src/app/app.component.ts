@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ZedyService } from './services/zedy.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,6 +19,19 @@ export class AppComponent implements OnInit {
         }
       });
     });
+    this.zedy.getConfig().subscribe({
+      next: (config: any) => {
+        let head = document.getElementsByTagName('head')[0];
+        let body = document.getElementsByTagName('body')[0];
+        head.insertAdjacentHTML('beforeend', config['data'].head_meta);
+        body.insertAdjacentHTML('beforeend', config['data'].footer_meta);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
+
+  constructor(private zedy: ZedyService) {}
   title = 'zedy';
 }

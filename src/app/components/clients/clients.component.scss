@@ -4,7 +4,7 @@ section {
     .clients {
       @apply flex justify-center gap-5 flex-wrap py-10;
       > div {
-        @apply flex justify-center flex-col items-center min-w-[200px] pt-11 px-4 pb-3 rounded-2xl gap-2;
+        @apply flex justify-center flex-col text-center items-center min-w-[200px] pt-11 px-4 pb-3 rounded-2xl gap-2;
         background-color: #f3f3f3;
         width: calc(25% - 30px);
         img {

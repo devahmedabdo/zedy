@@ -46,6 +46,9 @@ section {
               transform: translateX(-50%) rotateY(180deg);
             }
           }
+          span {
+            min-width: 190px;
+          }
         }
       }
     }
