@@ -58,7 +58,7 @@ $header-height: 68px;
         color: white;
       }
       div {
-        @apply flex gap-8 flex-wrap p-10 max-w-[500px];
+        @apply flex gap-8 flex-wrap justify-center p-10 max-w-[500px];
         a {
           @apply bg-white w-20 h-20 p-5 flex justify-center items-center rounded-2xl bg-opacity-10;
           fa-icon {
