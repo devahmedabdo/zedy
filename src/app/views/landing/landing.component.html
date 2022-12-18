@@ -35,7 +35,7 @@
         {{"Get to know us more" | translate}}
       </h2>
       <div>
-        <a class="dReveal" style="--d:{{i}};--color:{{link.color}}" *ngFor="let link of socialLinks ; let i=index"
+        <a target="_blank" class="dReveal" style="--d:{{i}};--color:{{link.color}}" *ngFor="let link of socialLinks ; let i=index"
           [href]="link?.link">
           <fa-icon [icon]="link?.icon"></fa-icon>
         </a>

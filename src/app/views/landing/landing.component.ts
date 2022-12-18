@@ -93,8 +93,5 @@ export class LandingComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getConfig();
-    setTimeout(() => {
-      document.querySelector('.loading')?.classList.remove('loading');
-    });
   }
 }

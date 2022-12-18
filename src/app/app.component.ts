@@ -23,8 +23,12 @@ export class AppComponent implements OnInit {
       next: (config: any) => {
         let head = document.getElementsByTagName('head')[0];
         let body = document.getElementsByTagName('body')[0];
-        head.insertAdjacentHTML('beforeend', config['data'].head_meta);
-        body.insertAdjacentHTML('beforeend', config['data'].footer_meta);
+        if (config['data'].head_meta != null) {
+          head.insertAdjacentHTML('beforeend', config['data'].head_meta);
+        }
+        if (config['data'].footer_meta != null) {
+          body.insertAdjacentHTML('beforeend', config['data'].footer_meta);
+        }
       },
       error: (error) => {
         console.log(error);

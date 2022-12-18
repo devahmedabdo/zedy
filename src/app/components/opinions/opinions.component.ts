@@ -52,12 +52,12 @@ export class OpinionsComponent implements OnInit {
     },
   };
   constructor(private zedy: ZedyService) {}
-  opinions: any[] = [
-  ];
+  opinions: any[] = [];
   getClientReviews() {
     this.zedy.getClientReviews().subscribe({
       next: (opinions: any) => {
         this.opinions = opinions['data'];
+        console.log(this.opinions);
       },
       error: (error) => {
         console.log(error);

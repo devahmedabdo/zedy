@@ -8,9 +8,9 @@
     <div>
       <div class="links">
         <!-- <div class="jobs">
-          <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="english"
+          <a target='_blank' [href]="config?.job_form_link"  class="english"
             *ngFor="let job of jobs">{{job.name}}</a>
-          <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="arabic"
+          <a target='_blank' [href]="config?.job_form_link"  class="arabic"
             *ngFor="let job of jobs">{{job.ar_name}}</a>
         </div> -->
         <div class="other-jobs">
@@ -18,18 +18,18 @@
             <div>
               <img src="assets/join us/male.svg" alt="male-icon">
             </div>
-            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="arabic"
+            <a target='_blank' [href]="config?.job_form_link" class="arabic"
               *ngFor="let job of maleJobs">{{job.ar_name}}</a>
-            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="english"
+            <a target='_blank' [href]="config?.job_form_link" class="english"
               *ngFor="let job of maleJobs">{{job.name}}</a>
           </div>
           <div style="--color:#F47095">
             <div>
               <img src="assets/join us/male.svg" alt="female-icon">
             </div>
-            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="arabic"
+            <a target='_blank' [href]="config?.job_form_link" class="arabic"
               *ngFor="let job of femaleJobs">{{job.ar_name}}</a>
-            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="english"
+            <a target='_blank' [href]="config?.job_form_link" class="english"
               *ngFor="let job of femaleJobs">{{job.name}}</a>
           </div>
           <!-- <div>
@@ -39,9 +39,9 @@
             <div style="--color:#3683CD">
               <img src="assets/join us/male.svg" alt="female-icon">
             </div>
-            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="arabic"
+            <a target='_blank' [href]="config?.job_form_link"  class="arabic"
               *ngFor="let job of multiJobs">{{job.ar_name}}</a>
-            <a [href]="config?.job_form_link" [href]="config?.job_form_link" class="english"
+            <a target='_blank' [href]="config?.job_form_link" class="english"
               *ngFor="let job of multiJobs">{{job.name}}</a>
 
           </div> -->
@@ -50,8 +50,8 @@
 
         </div>
         <div class="submit">
-          <a [href]="config?.job_form_link">{{"Press to submit"|translate}}</a>
-          <a [href]="config?.job_form_link"><img src="assets/join us/file.svg" alt=""></a>
+          <a target='_blank' [href]="config?.job_form_link">{{"Press to submit"|translate}}</a>
+          <a target='_blank' [href]="config?.job_form_link"><img src="assets/join us/file.svg" alt=""></a>
         </div>
       </div>
       <div class="form-img">

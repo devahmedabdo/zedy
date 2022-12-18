@@ -30,7 +30,7 @@ section {
           fa-icon {
             @apply text-5xl;
           }
-          a {
+          a:not(.overlay) {
             @apply rounded-3xl w-16 h-16 flex justify-center items-center absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2;
             background: rgb(var(--color));
             background: linear-gradient(
@@ -45,6 +45,9 @@ section {
               @apply left-0 right-[unset] -translate-x-1/2;
               transform: translateX(-50%) rotateY(180deg);
             }
+          }
+          a.overlay {
+            @apply w-full h-full z-10 block absolute top-0 right-0;
           }
           span {
             min-width: 190px;

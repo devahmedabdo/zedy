@@ -21,11 +21,11 @@
       <div>
         <h3>{{"Contact Us"|translate}}</h3>
         <div class="call">
-          <div><a href="tel:+2{{config?.phone}}">
+          <div><a target="_blank" href="tel:+2{{config?.phone}}">
               <span>{{config?.phone}}</span>
               <fa-icon [icon]="callIcon"></fa-icon>
             </a></div>
-          <div><a href="tel:+2{{config?.phone2}}">
+          <div><a target="_blank" href="tel:+2{{config?.phone2}}">
               <span>{{config?.phone2}}</span>
               <fa-icon [icon]="callIcon"></fa-icon>
             </a></div>
@@ -33,11 +33,11 @@
         <h3>{{"Or visit the closest branch"|translate}}</h3>
         <div class="location">
           <fa-icon [icon]="faLocationDot"></fa-icon>
-          <a [href]="config?.location" class="arabic">{{config?.ar_address}}</a>
-          <a [href]="config?.location" class="english">{{config?.address}}</a>
+          <a target="_blank" [href]="config?.location" class="arabic">{{config?.ar_address}}</a>
+          <a target="_blank" [href]="config?.location" class="english">{{config?.address}}</a>
         </div>
         <div class="links">
-          <a style="--color:{{myLink.color}}" *ngFor="let myLink of socialLinks ; let i=index" [href]="myLink.link">
+          <a target="_blank" style="--color:{{myLink.color}}" *ngFor="let myLink of socialLinks ; let i=index" [href]="myLink.link">
             <fa-icon [icon]="myLink.icon"></fa-icon>
           </a>
         </div>

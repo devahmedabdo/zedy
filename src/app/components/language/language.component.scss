@@ -18,27 +18,30 @@
     }
     &[lang="ar"] {
       font-family: "Tajawal", sans-serif;
-    }
-  }
-  .lang-menu {
-    @apply bg-grayLight rounded-2xl -z-50 flex origin-top flex-col gap-5 opacity-0 w-full p-2 absolute transition left-0;
-    top: calc(100% + 2px);
-    transform: rotateX(90deg);
-    &.active {
-      @apply opacity-100 z-10;
-      transform: rotateX(0deg);
-    }
-  }
-  .selected-lang {
-    &:lang(ar) {
-      .en {
-        display: none !important;
-      }
-    }
-    &:lang(en) {
-      .ar {
-        display: none !important;
+      &.arabic {
+        display: none;
       }
     }
   }
+  // .lang-menu {
+  //   @apply bg-grayLight rounded-2xl -z-50 flex origin-top flex-col gap-5 opacity-0 w-full p-2 absolute transition left-0;
+  //   top: calc(100% + 2px);
+  //   transform: rotateX(90deg);
+  //   &.active {
+  //     @apply opacity-100 z-10;
+  //     transform: rotateX(0deg);
+  //   }
+  // }
+  // .selected-lang {
+  //   &:lang(ar) {
+  //     .en {
+  //       display: none !important;
+  //     }
+  //   }
+  //   &:lang(en) {
+  //     .ar {
+  //       display: none !important;
+  //     }
+  //   }
+  // }
 }

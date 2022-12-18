@@ -5,7 +5,7 @@
       <div class="lReveal">
         <img src="assets/landing/portfolio/company-goal.webp" alt="company-goal image">
         <div>
-          <a [href]="config?.company_profile">
+          <a target="_blank" [href]="config?.company_profile">
             <fa-icon [icon]="eyeIcon"></fa-icon>
           </a>
           <p>{{"Company profile"|translate}}</p>
@@ -14,7 +14,7 @@
       <div class="dReveal">
         <img src="assets/landing/portfolio/company-goal.webp" alt="company-goal image">
         <div>
-          <a [href]="config?.Visual_identity_samples">
+          <a target="_blank" [href]="config?.Visual_identity_samples">
             <fa-icon [icon]="eyeIcon"></fa-icon>
           </a>
           <p>{{"Visual identity samples"|translate}}</p>
@@ -23,13 +23,15 @@
       <div class="rReveal">
         <div style="--color:253 56 50;--color1:#FD3832;--color2:#EC413C;--color3:#FF7E7A;">
           <fa-icon [icon]="youtubeIcon"></fa-icon>
-          <span>{{"Design Samples"|translate}}</span>
-          <a [href]="config?.behance"><img src="assets/landing/portfolio/arrow.svg" alt="more"></a>
+          <span>{{"Videos samples"|translate}}</span>
+          <a target="_blank" class="overlay" [href]="config?.youtube"></a>
+          <a target="_blank" [href]="config?.youtube"><img src="assets/landing/portfolio/arrow.svg" alt="more"></a>
         </div>
         <div style="--color:42 90 252;--color1:#1737A1;--color2:#3057DB;--color3:#7693F7;">
+          <a target="_blank" class="overlay" [href]="config?.behance"></a>
           <fa-icon [icon]="faceIcon"></fa-icon>
-          <span>{{"Videos samples"|translate}}</span>
-          <a [href]="config?.youtube"><img src="assets/landing/portfolio/arrow.svg" alt="more"></a>
+          <span>{{"Design Samples"|translate}}</span>
+          <a target="_blank" [href]="config?.behance  "><img src="assets/landing/portfolio/arrow.svg" alt="more"></a>
         </div>
       </div>
     </div>
