@@ -37,6 +37,9 @@
         }
         > div {
           @apply flex gap-5 items-center;
+          img {
+            @apply w-20 rounded-full;
+          }
           > div {
             @apply flex flex-col;
             span {

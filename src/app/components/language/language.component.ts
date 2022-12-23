@@ -16,19 +16,20 @@ export class LanguageComponent implements OnInit {
     localStorage.setItem('lang', lang);
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
-    await this.zedy.getConfig().subscribe({
-      next: (config: any) => {
-        this.configuration = config['data'];
-        if (lang == 'ar') {
-          document.title = this.configuration.ar_title;
-        } else {
-          document.title = this.configuration.title;
-        }
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    // await this.zedy.getConfig().subscribe({
+    //   next: (config: any) => {
+    //     this.configuration = config['data'];
+    //     if (lang == 'ar') {
+    //       console.log(this.constructor.name);
+    //       document.title = this.configuration.ar_title;
+    //     } else {
+    //       document.title = this.configuration.title;
+    //     }
+    //   },
+    //   error: (error) => {
+    //     console.log(error);
+    //   },
+    // });
   };
 
   getConfig() {

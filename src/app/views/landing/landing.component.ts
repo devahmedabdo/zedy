@@ -80,6 +80,13 @@ export class LandingComponent implements OnInit {
             color: '242 196 0',
           },
         ];
+        let lang = document.documentElement.lang;
+        if (lang == 'ar') {
+          console.log(this.constructor.name);
+          document.title = 'الرئيسية - ' + this.configuration.ar_title;
+        } else {
+          document.title = 'Home - ' + this.configuration.title;
+        }
       },
       error: (error) => {
         console.log(error);

@@ -30,6 +30,13 @@ export class JoinPageComponent implements OnInit {
     this.zedy.getConfig().subscribe({
       next: (config: any) => {
         this.config = config['data'];
+        let lang = document.documentElement.lang;
+        if (lang == 'ar') {
+          console.log(this.constructor.name);
+          document.title = 'انضم إلينا - ' + config['data'].ar_title;
+        } else {
+          document.title = 'Join Us - ' + config['data'].title;
+        }
       },
       error: (error) => {
         console.log(error);
