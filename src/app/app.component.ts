@@ -38,4 +38,25 @@ export class AppComponent implements OnInit {
 
   constructor(private zedy: ZedyService) {}
   title = 'zedy';
+  // ngAfterViewChecked() {
+  //   console.log('after checked');
+  // }
+  ngOnChange() {
+    console.log('ngOnChange');
+  }
+  // ngDoCheck() {
+  //   console.log('do checked');
+  // }
+  // ngAfterContentInit() {
+  //   console.log('content');
+  // }
+  // ngAfterContentChecked() {
+  //   console.log('content checked');
+  // }
+  // ngAfterViewInit() {
+  //   console.log('view');
+  //   setTimeout(() => {
+  //     console.log('view 1');
+  //   });
+  // }
 }

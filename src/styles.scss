@@ -98,9 +98,8 @@ $header-height: 78px;
     }
   }
   .arabic {
-    display: none !important;
-    &:lang(ar) {
-      display: inherit !important;
+    &:lang(en) {
+      display: none !important;
     }
   }
   .english {
@@ -108,4 +107,15 @@ $header-height: 78px;
       display: none !important;
     }
   }
+  // .arabic {
+  //   display: none !important;
+  //   &:lang(ar) {
+  //     display: inherit !important;
+  //   }
+  // }
+  // .english {
+  //   &:lang(ar) {
+  //     display: none !important;
+  //   }
+  // }
 }

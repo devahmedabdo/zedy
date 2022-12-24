@@ -1,5 +1,5 @@
 .lang {
-  @apply bg-grayLight flex justify-around gap-2 py-3 px-2 min-w-[150px] rounded-2xl relative select-none;
+  @apply bg-grayLight flex justify-around gap-2 py-3 px-2 min-w-[100px] rounded-2xl relative select-none;
   @media (max-width: 400px) {
     @apply min-w-[40px];
   }

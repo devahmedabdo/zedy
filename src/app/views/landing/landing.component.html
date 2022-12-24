@@ -113,10 +113,11 @@
           </div>
           <div>
             <span>{{configuration?.fields_count}} </span>
-            <span>{{"Fields"|translate}}</span>
+            <span
+              *ngIf=" configuration?.fields_count > 1 && configuration?.fields_count < 11">{{"Fields"|translate}}</span>
+            <span *ngIf=" configuration?.fields_count == 1">{{"Field"|translate}}</span>
+            <span *ngIf=" configuration?.fields_count > 11">{{"Fields "|translate}}</span>
           </div>
-
-
         </div>
         <div class="dReveal">
           <div>
@@ -139,6 +140,7 @@
       </div>
       <div class="rReveal">
         <img src="assets/landing/internship-image.png" alt="training image">
+        <a target='_blank' [href]="configuration?.job_form_link">{{"Press to submit"|translate}}</a>
       </div>
     </div>
   </div>

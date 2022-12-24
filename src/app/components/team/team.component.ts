@@ -13,6 +13,7 @@ export class TeamComponent implements OnInit {
     this.zedy.getTeam().subscribe({
       next: (team: any) => {
         this.team = team['data'];
+        console.log(team['data']);
       },
       error: (error) => {
         console.log(error);

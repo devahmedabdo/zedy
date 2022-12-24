@@ -8,7 +8,7 @@ export class ZedyService {
   url: string = 'http://api.z-edy.com/api/';
   constructor(private http: HttpClient) {}
   getVideos() {
-    return this.http.get(this.url + 'videos?type=video');
+    return this.http.get(this.url + 'videos?type=videos');
   }
   getClients() {
     return this.http.get(this.url + 'clients');

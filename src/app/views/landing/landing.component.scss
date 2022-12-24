@@ -154,6 +154,10 @@ $header-height: 68px;
       > div {
         &:nth-child(2) {
           @apply max-w-[650px] flex-grow;
+          a {
+            @apply flex items-center justify-center p-5 font-bold rounded-lg text-white;
+            background: linear-gradient(45deg, #1a89d4, #1578bb);
+          }
         }
         &:first-child {
           @apply flex flex-col text-white gap-8;

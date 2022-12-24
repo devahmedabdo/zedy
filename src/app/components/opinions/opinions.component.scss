@@ -52,27 +52,6 @@
         }
       }
     }
-    .scroll-bar {
-      @apply overflow-auto w-80 max-w-full mx-auto relative;
-      &::-webkit-scrollbar {
-        height: 10px;
-        overscroll-behavior: contain;
-      }
-
-      &::-webkit-scrollbar-track {
-        background: #e4e4e4;
-        border-radius: 50px;
-      }
-      &::-webkit-scrollbar-thumb {
-        border-radius: 50px;
-        background: #53baff;
-      }
-      > div {
-        @apply overflow-hidden;
-        width: 1600px;
-        height: 60px;
-      }
-    }
   }
 }
 .swiper-horizontal > .swiper-scrollbar,
@@ -81,6 +60,7 @@
   transform: translateX(-50%);
   width: 300px;
   bottom: -25px;
+  z-index: 0;
 }
 .swiper-scrollbar-drag {
   top: calc(-5px / 2);
