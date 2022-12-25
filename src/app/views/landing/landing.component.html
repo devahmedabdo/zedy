@@ -30,7 +30,7 @@
     <div class="social-section">
       <p class="lReveal"><span>{{"We happily served more than " | translate}}</span><span
           class="text-primaryLight font-semibold"> 300
-        </span><span>{{"client" | translate}}</span></p>
+        </span><span>{{"clients" | translate}}</span></p>
       <h2 class="title lReveal" style="--color:#53BAFF">
         {{"Get to know us more" | translate}}
       </h2>
@@ -114,9 +114,9 @@
           <div>
             <span>{{configuration?.fields_count}} </span>
             <span
-              *ngIf=" configuration?.fields_count > 1 && configuration?.fields_count < 11">{{"Fields"|translate}}</span>
+              *ngIf=" configuration?.fields_count > 1 &&  configuration?.fields_count <11 ">{{"Fields"|translate}}</span>
             <span *ngIf=" configuration?.fields_count == 1">{{"Field"|translate}}</span>
-            <span *ngIf=" configuration?.fields_count > 11">{{"Fields "|translate}}</span>
+            <span *ngIf=" configuration?.fields_count >= 11">{{"Fields "|translate}}</span>
           </div>
         </div>
         <div class="dReveal">
