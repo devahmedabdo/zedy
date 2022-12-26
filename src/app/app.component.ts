@@ -7,6 +7,32 @@ import { ZedyService } from './services/zedy.service';
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
+    let lang = document.documentElement.lang;
+    let keyword = document.getElementsByTagName('meta')[2];
+    let description = document.getElementsByTagName('meta')[3];
+    let title = document.documentElement.title;
+
+    if (lang == 'ar') {
+      keyword.setAttribute(
+        'content',
+        'الزيدي ، تسويق ، شركة ، عبدالرحمن الزيدي ، برمجة ، موقع الكتروني ، وكالة، سوشيال ميديا، فيديوهات، إعلانات'
+      );
+      description.setAttribute(
+        'content',
+        'الموقع الرسمي لشركة الزيدي لخدمات التسويق و البرمجة '
+      );
+      title = 'زيدي لخدمات التسويق';
+    } else {
+      keyword.setAttribute(
+        'content',
+        'zedy, marketing, business, agency, abdelrahman elzedy , software, website, social media, multi media, videos'
+      );
+      description.setAttribute(
+        'content',
+        'Zedy Marketing & Software Agency Official Page'
+      );
+      title = 'Zedy Marketing Agency';
+    }
     window.addEventListener('scroll', () => {
       let animationClass = document.querySelectorAll(
         '.lReveal , .dReveal,.uReveal,.rReveal'
@@ -23,15 +49,15 @@ export class AppComponent implements OnInit {
       next: (config: any) => {
         let head = document.getElementsByTagName('head')[0];
         let body = document.getElementsByTagName('body')[0];
-        let lang = document.documentElement.lang;
+
         if (config['data'].head_meta != null) {
           head.insertAdjacentHTML('beforeend', config['data'].head_meta);
         }
         if (config['data'].footer_meta != null) {
           body.insertAdjacentHTML('beforeend', config['data'].footer_meta);
         }
-        let keyword = document.getElementsByTagName('meta')[2];
-        let description = document.getElementsByTagName('meta')[3];
+        // let keyword = document.getElementsByTagName('meta')[2];
+        // let description = document.getElementsByTagName('meta')[3];
         if (lang == 'ar') {
           keyword.setAttribute('content', config['data'].header_keywords);
           description.setAttribute('content', config['data'].description);

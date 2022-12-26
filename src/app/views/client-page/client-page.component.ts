@@ -25,5 +25,6 @@ export class ClientPageComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getConfig();
+    window.scrollTo(0, 0);
   }
 }
