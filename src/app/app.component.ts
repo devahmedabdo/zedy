@@ -23,11 +23,21 @@ export class AppComponent implements OnInit {
       next: (config: any) => {
         let head = document.getElementsByTagName('head')[0];
         let body = document.getElementsByTagName('body')[0];
+        let lang = document.documentElement.lang;
         if (config['data'].head_meta != null) {
           head.insertAdjacentHTML('beforeend', config['data'].head_meta);
         }
         if (config['data'].footer_meta != null) {
           body.insertAdjacentHTML('beforeend', config['data'].footer_meta);
+        }
+        let keyword = document.getElementsByTagName('meta')[2];
+        let description = document.getElementsByTagName('meta')[3];
+        if (lang == 'ar') {
+          keyword.setAttribute('content', config['data'].header_keywords);
+          description.setAttribute('content', config['data'].description);
+        } else {
+          keyword.setAttribute('content', config['data'].en_header_keywords);
+          description.setAttribute('content', config['data'].en_description);
         }
       },
       error: (error) => {

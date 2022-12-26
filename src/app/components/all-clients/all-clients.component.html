@@ -1,6 +1,15 @@
 <section>
   <div class="container">
     <h2 class="title">{{"Our clients"|translate}}</h2>
+    <div class="fillter">
+      <span (click)="setClientType('all')">All</span>
+      <span class="active" (click)="setClientType('all')">All</span>
+      <span (click)="setClientType('all')">All</span>
+      <span (click)="setClientType('all')">All</span>
+      <span (click)="setClientType('all')">All</span>
+      <span (click)="setClientType('all')">All</span>
+      <span (click)="setClientType('all')">All</span>
+    </div>
     <div class="clients">
       <div class="dReveal" *ngFor="let client of clients ">
         <img src="{{client.image}}" alt="{{client.name}} Logo">
