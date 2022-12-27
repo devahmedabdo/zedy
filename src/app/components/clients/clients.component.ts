@@ -10,12 +10,12 @@ export class ClientsComponent implements OnInit {
   constructor(private zedy: ZedyService) {}
   clients: any[] = [];
   getClient() {
-    this.zedy.getClients().subscribe({
+    this.zedy.getSomeClients().subscribe({
       next: (clients: any) => {
         this.clients = clients['data'];
-        if (this.clients.length > 12) {
-          this.clients.length = 12;
-        }
+        // if (this.clients.length > 12) {
+        //   this.clients.length = 12;
+        // }
       },
       error: (error) => {
         console.log(error);

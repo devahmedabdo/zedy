@@ -2,16 +2,13 @@
   <div class="container">
     <h2 class="title">{{"Our clients"|translate}}</h2>
     <div class="fillter">
-      <span (click)="setClientType('all')">All</span>
-      <span class="active" (click)="setClientType('all')">All</span>
-      <span (click)="setClientType('all')">All</span>
-      <span (click)="setClientType('all')">All</span>
-      <span (click)="setClientType('all')">All</span>
-      <span (click)="setClientType('all')">All</span>
-      <span (click)="setClientType('all')">All</span>
+      <div *ngFor="let type of types">
+        <span class="arabic">{{type.ar_field}}</span>
+        <span class="english">{{type.en_field}}</span>
+      </div>
     </div>
     <div class="clients">
-      <div class="dReveal" *ngFor="let client of clients ">
+      <div class="dReveal" [ngClass]="{active : clientType === client.type}" *ngFor="let client of clients">
         <img src="{{client.image}}" alt="{{client.name}} Logo">
         <h6 class="english">{{client.name}}</h6>
         <h6 class="arabic">{{client.ar_name}}</h6>

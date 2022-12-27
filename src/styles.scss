@@ -97,12 +97,12 @@ $header-height: 78px;
       max-width: 1280px;
     }
   }
-  .arabic {
+  .arabic:not(.lang-box) {
     &:lang(en) {
       display: none !important;
     }
   }
-  .english {
+  .english:not(.lang-box) {
     &:lang(ar) {
       display: none !important;
     }

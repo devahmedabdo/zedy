@@ -3,7 +3,7 @@ section {
     @apply py-10;
     .fillter {
       span {
-        @apply px-2 py-1 bg-zinc-500 duration-300;
+        @apply px-2 py-1 bg-zinc-300 duration-300;
         &.active {
           @apply bg-primary text-white duration-300;
         }

@@ -13,6 +13,9 @@ export class ZedyService {
   getClients() {
     return this.http.get(this.url + 'clients');
   }
+  getSomeClients() {
+    return this.http.get(this.url + 'clients?limit=12');
+  }
   getFields() {
     return this.http.get(this.url + 'fields');
   }

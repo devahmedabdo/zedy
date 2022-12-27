@@ -16,10 +16,26 @@
     img {
       @apply rounded-sm max-w-[30px];
     }
-    &[lang="ar"] {
+    // .arabic {
+    //   &:lang(ar) {
+    //
+    //     display: none !important;
+    //   }
+    // }
+    // .english {
+    //   &:lang(en) {
+    //     display: none !important;
+    //   }
+    // }
+    &.arabic {
       font-family: "Tajawal", sans-serif;
-      &.arabic {
-        display: none;
+      &:lang(ar) {
+        display: none !important;
+      }
+    }
+    &.english {
+      &:lang(en) {
+        display: none !important;
       }
     }
   }

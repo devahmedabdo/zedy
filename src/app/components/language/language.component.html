@@ -1,10 +1,10 @@
 <div class="lang">
   <div class="selected-lang">
-    <div *ngIf="lang == 'ar'" class="lang-box" (click)="setLang('en')"><img src="assets/landing/flags/usa.svg"
+    <div class="lang-box english " (click)="setLang('en')"><img src="assets/landing/flags/usa.svg"
         alt="English-Button"><span>English</span>
     </div>
-    <div *ngIf="lang == 'en'" class="lang-box" lang="ar" (click)="setLang('ar')"><img
-        src="assets/landing/flags/egypt.svg" alt="Arabic-Button"><span>عربى</span>
+    <div class="lang-box  arabic" (click)="setLang('ar')"><img src="assets/landing/flags/egypt.svg"
+        alt="Arabic-Button"><span>عربى</span>
     </div>
   </div>
   <!-- <div class="lang-menu">
