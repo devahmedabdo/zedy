@@ -2,19 +2,26 @@
   <div class="container">
     <h2 class="title">{{"Our clients"|translate}}</h2>
     <div class="fillter">
-      <div *ngFor="let type of types">
-        <span class="arabic">{{type.ar_field}}</span>
-        <span class="english">{{type.en_field}}</span>
+      <div [ngClass]="{active : clientType === 'all' }" (click)="setClientType('all')">
+        <span class="arabic">الكل</span>
+        <span class="english">All</span>
+      </div>
+      <div [ngClass]="{active : clientType === type.name }" *ngFor="let type of types"
+        (click)="setClientType(type.name)">
+        <span class="arabic">{{type.ar_name}}</span>
+        <span class="english">{{type.name}}</span>
       </div>
     </div>
     <div class="clients">
-      <div class="dReveal" [ngClass]="{active : clientType === client.type}" *ngFor="let client of clients">
-        <img src="{{client.image}}" alt="{{client.name}} Logo">
-        <h6 class="english">{{client.name}}</h6>
-        <h6 class="arabic">{{client.ar_name}}</h6>
-        <span class="english">{{client.description}}</span>
-        <span class="arabic">{{client.ar_description}}</span>
-      </div>
+      <ng-container *ngFor="let client of clients">
+        <div class="dReveal" *ngIf="clientType === client.en_type || clientType === 'all'">
+          <img src="{{client.image}}" alt="{{client.name}} Logo">
+          <h6 class="english">{{client.name}}</h6>
+          <h6 class="arabic">{{client.ar_name}}</h6>
+          <span class="english">{{client.description}}</span>
+          <span class="arabic">{{client.ar_description}}</span>
+        </div>
+      </ng-container>
     </div>
   </div>
 </section>

@@ -2,10 +2,16 @@ section {
   .container {
     @apply py-10;
     .fillter {
-      span {
-        @apply px-2 py-1 bg-zinc-300 duration-300;
-        &.active {
-          @apply bg-primary text-white duration-300;
+      @apply flex gap-3 flex-wrap pt-10;
+      div {
+        span {
+          @apply px-2 py-1 bg-zinc-300 bg-opacity-40 duration-300 rounded-lg justify-center;
+        }
+        &.active,
+        &:hover {
+          span {
+            @apply bg-primary text-white;
+          }
         }
       }
     }

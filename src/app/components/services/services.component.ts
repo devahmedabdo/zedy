@@ -33,5 +33,6 @@ export class ServicesComponent implements OnInit {
   ngOnInit(): void {
     this.getServices();
     this.getConfig();
+    this.zedy.removeRveal();
   }
 }

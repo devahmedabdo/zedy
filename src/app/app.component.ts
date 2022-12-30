@@ -6,10 +6,11 @@ import { ZedyService } from './services/zedy.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  whatsLink?: string;
   ngOnInit(): void {
-    let lang = document.documentElement.lang;
-    let keyword = document.getElementsByTagName('meta')[2];
-    let description = document.getElementsByTagName('meta')[3];
+    // let lang = document.documentElement.lang;
+    // let keyword = document.getElementsByTagName('meta')[2];
+    // let description = document.getElementsByTagName('meta')[3];
 
     // if (lang == 'ar') {
     //   keyword.setAttribute(
@@ -57,6 +58,7 @@ export class AppComponent implements OnInit {
         if (config['data'].footer_meta != null) {
           body.insertAdjacentHTML('beforeend', config['data'].footer_meta);
         }
+        this.whatsLink = 'https://wa.me/' + config['data'].whatsapp;
         // let keyword = document.getElementsByTagName('meta')[2];
         // let description = document.getElementsByTagName('meta')[3];
         // if (lang == 'ar') {
@@ -78,9 +80,9 @@ export class AppComponent implements OnInit {
   // ngAfterViewChecked() {
   //   console.log('after checked');
   // }
-  ngOnChange() {
-    console.log('ngOnChange');
-  }
+  // ngOnChange() {
+  //   console.log('ngOnChange');
+  // }
   // ngDoCheck() {
   //   console.log('do checked');
   // }

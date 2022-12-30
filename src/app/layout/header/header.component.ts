@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-header',
@@ -7,7 +8,9 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
   constructor(private translate: TranslateService) {}
+@Input() whatsLink?:string
   lang: string = 'en';
+  whatsapp = faWhatsapp;
   toggelMenu() {
     let toggeler = document.querySelectorAll('#toggeler,#nav-menu');
     toggeler.forEach((e) => {
@@ -23,17 +26,17 @@ export class HeaderComponent implements OnInit {
   toggleActive() {
     document.querySelector('.lang-menu')?.classList.toggle('active');
   }
-  setLang(lang: any) {
-    this.toggleActive;
-    this.lang = lang;
-    document.documentElement.lang = lang;
-    localStorage.setItem('lang', lang);
-    this.translate.setDefaultLang(lang);
-    this.translate.use(lang);
-  }
+  // setLang(lang: any) {
+  //   this.toggleActive;
+  //   this.lang = lang;
+  //   document.documentElement.lang = lang;
+  //   localStorage.setItem('lang', lang);
+  //   this.translate.setDefaultLang(lang);
+  //   this.translate.use(lang);
+  // }
   ngOnInit(): void {
-    this.lang = localStorage.getItem('lang') || 'en';
-    this.setLang(this.lang);
+    // this.lang = localStorage.getItem('lang') || 'en';
+    // this.setLang(this.lang);
 
     //scroll to top on click and close menu
     let navLink = document.querySelectorAll('header nav ul li');
