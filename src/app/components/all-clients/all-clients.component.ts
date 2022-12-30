@@ -90,12 +90,16 @@ export class AllClientsComponent implements OnInit {
         let element;
         let type;
         clients['data'].forEach((e: any) => {
+          if (e.field == null) {
+            return;
+          }
           type = e.field;
-          // console.log(type);
+          console.log(type);
           // console.log(
           //   JSON.stringify(this.types).includes(JSON.stringify(type))
           // );
-          if (this.types.includes(type)) {
+          // if (this.types.includes(type)) {
+          if (JSON.stringify(this.types).includes(JSON.stringify(type))) {
             console.log('no');
           } else {
             this.types.push(type);
