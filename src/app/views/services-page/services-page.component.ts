@@ -14,7 +14,6 @@ export class ServicesPageComponent implements OnInit {
       next: (config: any) => {
         let lang = document.documentElement.lang;
         if (lang == 'ar') {
-          console.log(this.constructor.name);
           document.title = 'خدماتنا - ' + config['data'].ar_title;
         } else {
           document.title = 'Services - ' + config['data'].title;

@@ -23,7 +23,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 // import swiper
 import { SwiperModule } from 'swiper/angular';
 
-import { LoadComponent } from './components/load/load.component';
 import { ServicesPageComponent } from './views/services-page/services-page.component';
 import { ClientPageComponent } from './views/client-page/client-page.component';
 import { AllClientsComponent } from './components/all-clients/all-clients.component';
@@ -53,7 +52,6 @@ import { ZedyService } from './services/zedy.service';
     FindUsComponent,
     LanguageComponent,
 
-    LoadComponent,
     ServicesPageComponent,
     ClientPageComponent,
     AllClientsComponent,

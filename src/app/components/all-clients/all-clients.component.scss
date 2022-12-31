@@ -2,7 +2,7 @@ section {
   .container {
     @apply py-10;
     .fillter {
-      @apply flex gap-3 flex-wrap pt-10;
+      @apply flex gap-3 flex-wrap pt-10 justify-center;
       div {
         span {
           @apply px-2 py-1 bg-zinc-300 bg-opacity-40 duration-300 rounded-lg justify-center;

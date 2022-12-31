@@ -26,18 +26,7 @@ export class HeaderComponent implements OnInit {
   toggleActive() {
     document.querySelector('.lang-menu')?.classList.toggle('active');
   }
-  // setLang(lang: any) {
-  //   this.toggleActive;
-  //   this.lang = lang;
-  //   document.documentElement.lang = lang;
-  //   localStorage.setItem('lang', lang);
-  //   this.translate.setDefaultLang(lang);
-  //   this.translate.use(lang);
-  // }
   ngOnInit(): void {
-    // this.lang = localStorage.getItem('lang') || 'en';
-    // this.setLang(this.lang);
-
     //scroll to top on click and close menu
     let navLink = document.querySelectorAll('header nav ul li');
     navLink.forEach((e) => {

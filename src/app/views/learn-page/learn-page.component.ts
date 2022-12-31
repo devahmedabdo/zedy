@@ -21,7 +21,6 @@ export class LearnPageComponent implements OnInit {
     this.zedy.getVideos().subscribe(
       (videos: any) => {
         this.videos = videos.data;
-        console.log(this.videos);
       },
       (error) => {
         console.log(error);
@@ -33,7 +32,6 @@ export class LearnPageComponent implements OnInit {
       next: (config: any) => {
         let lang = document.documentElement.lang;
         if (lang == 'ar') {
-          console.log(this.constructor.name);
           document.title = 'تعلم معنا - ' + config['data'].ar_title;
         } else {
           document.title = 'Learn With Us - ' + config['data'].title;

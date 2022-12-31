@@ -13,9 +13,6 @@ export class ClientsComponent implements OnInit {
     this.zedy.getSomeClients().subscribe({
       next: (clients: any) => {
         this.clients = clients['data'];
-        // if (this.clients.length > 12) {
-        //   this.clients.length = 12;
-        // }
       },
       error: (error) => {
         console.log(error);

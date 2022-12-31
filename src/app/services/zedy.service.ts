@@ -40,11 +40,6 @@ export class ZedyService {
         '.lReveal , .dReveal,.uReveal,.rReveal'
       );
       animationClass.forEach((e) => {
-        // if (e.getBoundingClientRect().top < 600) {
-        //   e.classList.add('reveal');
-        // } else {
-        // }
-        // e.classList.remove('reveal');
         e.classList.add('reveal');
       });
     }, 111);

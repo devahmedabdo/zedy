@@ -8,7 +8,6 @@ import { ZedyService } from 'src/app/services/zedy.service';
 })
 export class LanguageComponent implements OnInit {
   constructor(private translate: TranslateService, private zedy: ZedyService) {}
-  // configuration: any;
   lang: string = 'ar';
   keyword = document.getElementsByTagName('meta')[2];
   description = document.getElementsByTagName('meta')[3];
@@ -24,7 +23,6 @@ export class LanguageComponent implements OnInit {
           this.keyword.setAttribute('content', config['data'].header_keywords);
           this.description.setAttribute('content', config['data'].description);
           document.title = config['data'].ar_title;
-          console.log('##############');
         } else {
           this.keyword.setAttribute(
             'content',
@@ -59,48 +57,12 @@ export class LanguageComponent implements OnInit {
           );
           document.title = 'Zedy Marketing Agency';
         }
-        // if (lang == 'ar') {
-        //   this.keyword.setAttribute('content', config['data'].header_keywords);
-        //   this.description.setAttribute('content', config['data'].description);
-        //   document.title = config['data'].title;
-        //   console.log('##############');
-        // } else {
-        //   this.keyword.setAttribute(
-        //     'content',
-        //     config['data'].en_header_keywords
-        //   );
-        //   this.description.setAttribute(
-        //     'content',
-        //     config['data'].en_description
-        //   );
-        //   document.title = config['data'].en_title;
-        // }
       },
     });
   };
 
-  // getConfig() {
-  //   this.zedy.getConfig().subscribe({
-  //     next: (config: any) => {
-  //       config['data'];
-  //     },
-  //     error: (error) => {
-  //       console.log(error);
-  //     },
-  //   });
-  // }
-
   ngOnInit(): void {
     this.lang = localStorage.getItem('lang') || 'ar';
     this.setLang(this.lang);
-    // console.log(this.lang);
-    // this.getConfig();
-    //
-    // const languageBox = document.querySelectorAll('.lang');
-    // languageBox.forEach(function (e: any) {
-    //   e.onclick = function () {
-    //     this.children[1].classList.toggle('active');
-    //   };
-    // });
   }
 }

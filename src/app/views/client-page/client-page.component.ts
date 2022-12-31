@@ -12,7 +12,6 @@ export class ClientPageComponent implements OnInit {
       next: (config: any) => {
         let lang = document.documentElement.lang;
         if (lang == 'ar') {
-          console.log(this.constructor.name);
           document.title = 'عملاؤنا - ' + config['data'].ar_title;
         } else {
           document.title = 'Our Clients - ' + config['data'].title;

@@ -57,7 +57,6 @@ export class OpinionsComponent implements OnInit {
     this.zedy.getClientReviews().subscribe({
       next: (opinions: any) => {
         this.opinions = opinions['data'];
-        console.log(this.opinions);
       },
       error: (error) => {
         console.log(error);

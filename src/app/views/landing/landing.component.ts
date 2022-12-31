@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   faYoutube,
   faLinkedinIn,
@@ -38,7 +38,6 @@ export class LandingComponent implements OnInit {
     this.zedy.getConfig().subscribe({
       next: (config: any) => {
         this.configuration = config['data'];
-        console.log(config['data']);
         this.socialLinks = [
           {
             icon: faFacebookF,
@@ -83,7 +82,6 @@ export class LandingComponent implements OnInit {
         ];
         let lang = document.documentElement.lang;
         if (lang == 'ar') {
-          console.log(this.constructor.name);
           document.title = 'الرئيسية - ' + this.configuration.ar_title;
         } else {
           document.title = 'Home - ' + this.configuration.title;
