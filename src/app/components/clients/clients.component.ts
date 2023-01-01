@@ -27,7 +27,6 @@ export class ClientsComponent implements OnInit {
           }
           type = e.field;
           if (JSON.stringify(this.types).includes(JSON.stringify(type))) {
-            console.log('no');
           } else {
             this.types.push(type);
           }
