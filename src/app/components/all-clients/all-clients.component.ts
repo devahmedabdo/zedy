@@ -9,7 +9,6 @@ import { ZedyService } from './../../services/zedy.service';
 export class AllClientsComponent implements OnInit {
   constructor(private zedy: ZedyService) {}
   clients: any[] = [];
-  // clients: any[] = [];
   setClientType(type: string) {
     this.clientType = type;
     this.zedy.removeRveal();
