@@ -14,7 +14,7 @@
     </div>
     <div class="clients">
       <ng-container *ngFor="let client of clients">
-        <div class="dReveal">
+        <div class="dReveal"*ngIf="clientType === client.field?.name || clientType === 'all'">
           <img src="{{client.image}}" alt="{{client.name}} Logo">
           <h6 class="english">{{client.name}}</h6>
           <h6 class="arabic">{{client.ar_name}}</h6>
