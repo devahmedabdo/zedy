@@ -16,7 +16,7 @@ export class ClientsComponent implements OnInit {
   types: any[] = [];
   clientType: string = 'all';
   getClient() {
-    this.zedy.getSomeClients().subscribe({
+    this.zedy.getClients().subscribe({
       next: (clients: any) => {
         this.clients = clients['data'];
 
@@ -31,6 +31,30 @@ export class ClientsComponent implements OnInit {
             this.types.push(type);
           }
         });
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+  getSpecific(type: string) {
+    this.zedy.getClients().subscribe({
+      next: (clients: any) => {
+        let typeArr: any = [];
+        console.log(clients['data']);
+        clients['data'].forEach((ele: any) => {
+          if (type == 'all') {
+            typeArr.push(ele);
+          } else if (ele.field?.name == type) {
+            typeArr.push(ele);
+          }
+        });
+        if (typeArr.length > 12) {
+          typeArr.length = 12;
+        }
+        this.clients = typeArr;
+        this.zedy.removeRveal();
+        // console.log(clients['data']);
       },
       error: (error) => {
         console.log(error);
