@@ -44,4 +44,7 @@ export class ZedyService {
       });
     }, 111);
   }
+  goTop() {
+    window.scrollTo(0, 0);
+  }
 }

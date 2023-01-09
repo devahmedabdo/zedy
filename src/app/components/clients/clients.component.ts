@@ -31,6 +31,9 @@ export class ClientsComponent implements OnInit {
             this.types.push(type);
           }
         });
+        if (this.clients.length > 12) {
+          this.clients.length = 12;
+        }
       },
       error: (error) => {
         console.log(error);

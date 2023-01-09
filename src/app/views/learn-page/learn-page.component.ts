@@ -45,5 +45,6 @@ export class LearnPageComponent implements OnInit {
   ngOnInit(): void {
     this.getVideos();
     this.getConfig();
+    this.zedy.goTop();
   }
 }

@@ -26,5 +26,6 @@ export class AboutPageComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getConfig();
+    this.zedy.goTop();
   }
 }

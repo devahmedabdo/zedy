@@ -46,5 +46,6 @@ export class JoinPageComponent implements OnInit {
   ngOnInit(): void {
     this.getConfig();
     this.getJobs();
+    this.zedy.goTop();
   }
 }

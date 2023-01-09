@@ -81,6 +81,7 @@ export class LandingComponent implements OnInit {
           },
         ];
         let lang = document.documentElement.lang;
+        console.log(config['data']);
         if (lang == 'ar') {
           document.title = 'الرئيسية - ' + this.configuration.ar_title;
         } else {
@@ -99,5 +100,6 @@ export class LandingComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getConfig();
+    this.zedy.goTop();
   }
 }
