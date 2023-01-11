@@ -7,8 +7,15 @@ section {
 
       > div {
         @apply relative flex flex-col gap-14 max-w-full w-[350px];
-        &:not(:last-child)::after {
-          @apply absolute right-[-28px] top-1/2 -translate-y-1/2 h-3/4 w-[1px] bg-opacity-30 bg-white;
+        &:nth-child(2)::before {
+          @apply left-[-28px];
+        }
+        &:nth-child(2)::after {
+          @apply right-[-28px];
+        }
+        &:nth-child(2)::after,
+        &:nth-child(2)::before {
+          @apply absolute  top-1/2 -translate-y-1/2 h-3/4 w-[1px] bg-opacity-30 bg-white;
           content: "";
           @media (max-width: 1195px) {
             display: none;
@@ -27,15 +34,6 @@ section {
             box-shadow: inset 0px 5px 2px -3px #0e0e0e4a;
           }
         }
-        // > div {
-        //   @apply bg-darkMidBg text-center p-5;
-        //   img {
-        //     @apply w-1/2 mx-auto;
-        //   }
-        // }
-        // img {
-        //   @apply w-1/2;
-        // }
       }
     }
   }

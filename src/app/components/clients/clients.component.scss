@@ -31,12 +31,10 @@ section {
         p {
           color: #6d6d6d;
         }
-        &:nth-child(1),
-        &:nth-child(3),
-        &:nth-child(6),
-        &:nth-child(8),
-        &:nth-child(9),
-        &:nth-child(11) {
+        &:nth-child(8n),
+        &:nth-child(8n + 6),
+        &:nth-child(8n + 3),
+        &:nth-child(8n + 1) {
           background-color: #cccccc;
           @media (max-width: 894px) {
             background-color: #f3f3f3;

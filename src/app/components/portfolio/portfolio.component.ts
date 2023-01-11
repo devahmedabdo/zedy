@@ -23,17 +23,18 @@ export class PortfolioComponent implements OnInit {
   youtubeIcon = faYoutube;
   eyeIcon = faEye;
   config: any;
-  getConfig() {
-    this.zedy.getConfig().subscribe({
-      next: (config: any) => {
-        this.config = config['data'];
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  }
-  ngOnInit(): void {
-    this.getConfig();
+  // getConfig() {
+  //   this.zedy.getConfig().subscribe({
+  //     next: (config: any) => {
+  //       this.config = config['data'];
+  //     },
+  //     error: (error) => {
+  //       console.log(error);
+  //     },
+  //   });
+  // }
+  async ngOnInit() {
+    // this.getConfig();
+    this.config = await this.zedy.localApi('configuration');
   }
 }

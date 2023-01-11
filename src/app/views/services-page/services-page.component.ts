@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ZedyService } from 'src/app/services/zedy.service';
 
 @Component({
@@ -8,24 +9,17 @@ import { ZedyService } from 'src/app/services/zedy.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class ServicesPageComponent implements OnInit {
-  constructor(private zedy: ZedyService) {}
-  getConfig() {
-    this.zedy.getConfig().subscribe({
-      next: (config: any) => {
-        let lang = document.documentElement.lang;
-        if (lang == 'ar') {
-          document.title = 'خدماتنا - ' + config['data'].ar_title;
-        } else {
-          document.title = 'Services - ' + config['data'].title;
-        }
-      },
-      error: (error) => {
-        console.log(error);
-      },
+  clickEventSubscribtion: Subscription;
+  constructor(private zedy: ZedyService) {
+    this.clickEventSubscribtion = this.zedy.getItems().subscribe(() => {
+      this.changeTitle();
     });
   }
+  changeTitle() {
+    this.zedy.changeTitle(this.constructor.name);
+  }
   ngOnInit(): void {
-    this.getConfig();
+    this.changeTitle();
     this.zedy.goTop();
   }
 }

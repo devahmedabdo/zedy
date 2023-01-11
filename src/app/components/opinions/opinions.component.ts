@@ -53,17 +53,7 @@ export class OpinionsComponent implements OnInit {
   };
   constructor(private zedy: ZedyService) {}
   opinions: any[] = [];
-  getClientReviews() {
-    this.zedy.getClientReviews().subscribe({
-      next: (opinions: any) => {
-        this.opinions = opinions['data'];
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  }
-  ngOnInit(): void {
-    this.getClientReviews();
+  async ngOnInit() {
+    this.opinions = await this.zedy.localApi('review');
   }
 }

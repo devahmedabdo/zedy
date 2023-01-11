@@ -17,48 +17,15 @@ export class LanguageComponent implements OnInit {
     localStorage.setItem('lang', lang);
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
-    await this.zedy.getConfig().subscribe({
-      next: (config: any) => {
-        if (lang == 'ar') {
-          this.keyword.setAttribute('content', config['data'].header_keywords);
-          this.description.setAttribute('content', config['data'].description);
-          document.title = config['data'].ar_title;
-        } else {
-          this.keyword.setAttribute(
-            'content',
-            config['data'].en_header_keywords
-          );
-          this.description.setAttribute(
-            'content',
-            config['data'].en_description
-          );
-          document.title = config['data'].title;
-        }
-      },
-      error: () => {
-        if (this.lang == 'ar') {
-          this.keyword.setAttribute(
-            'content',
-            'الزيدي ، تسويق ، شركة ، عبدالرحمن الزيدي ، برمجة ، موقع الكتروني ، وكالة، سوشيال ميديا، فيديوهات، إعلانات'
-          );
-          this.description.setAttribute(
-            'content',
-            'الموقع الرسمي لشركة الزيدي لخدمات التسويق و البرمجة '
-          );
-          document.title = 'زيدي لخدمات التسويق';
-        } else {
-          this.keyword.setAttribute(
-            'content',
-            'zedy, marketing, business, agency, abdelrahman elzedy , software, website, social media, multi media, videos'
-          );
-          this.description.setAttribute(
-            'content',
-            'Zedy Marketing & Software Agency Official Page'
-          );
-          document.title = 'Zedy Marketing Agency';
-        }
-      },
-    });
+    let config = await this.zedy.localApi('configuration');
+    if (lang == 'ar') {
+      this.keyword.setAttribute('content', config.header_keywords);
+      this.description.setAttribute('content', config.description);
+    } else {
+      this.keyword.setAttribute('content', config.en_header_keywords);
+      this.description.setAttribute('content', config.en_description);
+    }
+    await this.zedy.setItems();
   };
 
   ngOnInit(): void {

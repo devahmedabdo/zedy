@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ZedyService } from './../../services/zedy.service';
-
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-learn-page',
   templateUrl: './learn-page.component.html',
   styleUrls: ['./learn-page.component.scss'],
 })
 export class LearnPageComponent implements OnInit {
-  constructor(private zedy: ZedyService) {}
+  clickEventSubscribtion: Subscription;
+  constructor(private zedy: ZedyService) {
+    this.clickEventSubscribtion = this.zedy.getItems().subscribe(() => {
+      this.changeTitle();
+    });
+  }
   videos: any[] = [];
   playVideo(btn: any): void {
     let playBtn = btn.target as HTMLElement;
@@ -17,34 +22,15 @@ export class LearnPageComponent implements OnInit {
       playBtn.remove();
     }
   }
-  getVideos() {
-    this.zedy.getVideos().subscribe(
-      (videos: any) => {
-        this.videos = videos.data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  async getVideos() {
+    this.videos = await this.zedy.localApi('videos');
   }
-  getConfig() {
-    this.zedy.getConfig().subscribe({
-      next: (config: any) => {
-        let lang = document.documentElement.lang;
-        if (lang == 'ar') {
-          document.title = 'تعلم معنا - ' + config['data'].ar_title;
-        } else {
-          document.title = 'Learn With Us - ' + config['data'].title;
-        }
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+  changeTitle() {
+    this.zedy.changeTitle(this.constructor.name);
   }
   ngOnInit(): void {
     this.getVideos();
-    this.getConfig();
+    this.changeTitle();
     this.zedy.goTop();
   }
 }

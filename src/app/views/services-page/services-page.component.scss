@@ -1,7 +1,6 @@
 .services-page {
   app-services {
     .title {
-      // display: none !important;
       & + p {
         display: none !important;
       }
@@ -14,7 +13,6 @@
         max-width: 500px !important;
         .services-img {
           box-shadow: none !important;
-
           img {
             @apply shadow-2xl;
             width: unset !important;
@@ -30,7 +28,10 @@
               max-height: unset !important;
             }
             > div {
-              @apply flex items-start pt-3 justify-between w-full;
+              @apply flex items-start pt-3 justify-between w-full flex-wrap gap-5;
+              @media (max-width: 700px) {
+                @apply justify-around;
+              }
               h3 {
                 font-size: 20px !important;
                 padding-top: 0px !important;

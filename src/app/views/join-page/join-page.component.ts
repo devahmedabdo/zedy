@@ -1,50 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { ZedyService } from 'src/app/services/zedy.service';
-
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-join-page',
   templateUrl: './join-page.component.html',
   styleUrls: ['./join-page.component.scss'],
 })
 export class JoinPageComponent implements OnInit {
-  constructor(private zedy: ZedyService) {}
+  clickEventSubscribtion: Subscription;
+  constructor(private zedy: ZedyService) {
+    this.clickEventSubscribtion = this.zedy.getItems().subscribe(() => {
+      this.changeTitle();
+    });
+  }
   jobs: any[] = [];
   maleJobs: any = [];
   femaleJobs: any = [];
   multiJobs: any = [];
   config: any;
-  getJobs() {
-    this.zedy.getJobs().subscribe({
-      next: (jobs: any) => {
-        this.jobs = jobs['data'];
-        this.maleJobs = this.jobs.filter((e) => e.type == 'ذكر');
-        this.femaleJobs = this.jobs.filter((e) => e.type == 'انثي');
-        this.multiJobs = this.jobs.filter((e) => e.type == 'انثي,ذكر');
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+  async getJobs() {
+    this.jobs = await this.zedy.localApi('jobs');
+    this.maleJobs = this.jobs.filter((e) => e.type == 'ذكر');
+    this.femaleJobs = this.jobs.filter((e) => e.type == 'انثي');
+    this.multiJobs = this.jobs.filter((e) => e.type == 'انثي,ذكر');
   }
-  getConfig() {
-    this.zedy.getConfig().subscribe({
-      next: (config: any) => {
-        this.config = config['data'];
-        let lang = document.documentElement.lang;
-        if (lang == 'ar') {
-          console.log(this.constructor.name);
-          document.title = 'انضم إلينا - ' + config['data'].ar_title;
-        } else {
-          document.title = 'Join Us - ' + config['data'].title;
-        }
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+
+  changeTitle() {
+    this.zedy.changeTitle(this.constructor.name);
   }
-  ngOnInit(): void {
-    this.getConfig();
+
+  async ngOnInit() {
+    this.config = await this.zedy.localApi('configuration');
+    this.changeTitle();
     this.getJobs();
     this.zedy.goTop();
   }
