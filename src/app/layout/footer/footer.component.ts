@@ -24,7 +24,7 @@ export class FooterComponent implements OnInit {
   config: any;
   socialLinks?: any[];
   async getConfig() {
-    this.config = await this.zedy.localApi('configuration');
+    this.config = await this.zedy.localApi('configrations');
     this.socialLinks = [
       {
         icon: faFacebookF,
@@ -68,7 +68,7 @@ export class FooterComponent implements OnInit {
       },
     ];
   }
-  ngOnInit(): void {
+  ngOnInit() {
     this.getConfig();
   }
 }

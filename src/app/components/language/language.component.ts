@@ -17,7 +17,7 @@ export class LanguageComponent implements OnInit {
     localStorage.setItem('lang', lang);
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
-    let config = await this.zedy.localApi('configuration');
+    let config = await this.zedy.localApi('configrations');
     if (lang == 'ar') {
       this.keyword.setAttribute('content', config.header_keywords);
       this.description.setAttribute('content', config.description);
@@ -28,8 +28,13 @@ export class LanguageComponent implements OnInit {
     await this.zedy.setItems();
   };
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.lang = localStorage.getItem('lang') || 'ar';
-    this.setLang(this.lang);
+    if (await this.zedy.localApi('configrations')) {
+      return this.setLang(this.lang);
+    }
+    setTimeout(() => {
+      this.setLang(this.lang);
+    }, 1000);
   }
 }

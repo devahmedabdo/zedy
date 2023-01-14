@@ -23,7 +23,7 @@ export class LearnPageComponent implements OnInit {
     }
   }
   async getVideos() {
-    this.videos = await this.zedy.localApi('videos');
+    this.videos = await this.zedy.localApi('videos?type=videos');
   }
   changeTitle() {
     this.zedy.changeTitle(this.constructor.name);

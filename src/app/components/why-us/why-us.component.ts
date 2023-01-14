@@ -10,6 +10,6 @@ export class WhyUsComponent implements OnInit {
   constructor(private zedy: ZedyService) {}
   configuration: any;
   async ngOnInit() {
-    this.configuration = await this.zedy.localApi('configuration');
+    this.configuration = await this.zedy.localApi('configrations');
   }
 }

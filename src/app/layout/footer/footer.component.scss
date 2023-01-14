@@ -41,6 +41,7 @@ footer {
           > ul {
             @apply flex flex-col text-xl gap-2;
             a {
+              @apply duration-300 hover:text-white;
               color: #cacaca;
             }
           }

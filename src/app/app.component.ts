@@ -7,7 +7,7 @@ import { ZedyService } from './services/zedy.service';
 })
 export class AppComponent implements OnInit {
   whatsLink?: string;
-  ngOnInit(): void {
+  ngOnInit() {
     window.addEventListener('scroll', () => {
       let animationClasses = document.querySelectorAll(
         '.lReveal , .dReveal,.uReveal,.rReveal'
@@ -33,44 +33,44 @@ export class AppComponent implements OnInit {
         }
         this.whatsLink = 'https://wa.me/' + config['data'].whatsapp;
         window.localStorage.setItem(
-          'configuration',
+          'configrations',
           JSON.stringify(config['data'])
         );
       },
     });
-    this.zedy.api.forEach((e: string) => {
-      let setLocal = async (position: string, data: any) => {
-        let strData = await JSON.stringify(data);
-        window.localStorage.setItem(position, strData);
-      };
-      this.zedy.getData(e).subscribe({
-        next: (data: any) => {
-          switch (e) {
-            case 'videos?type=videos':
-              setLocal('videos', data['data']);
-              break;
-            case 'clients':
-              setLocal('clients', data['data']);
-              break;
-            case 'employees':
-              setLocal('team', data['data']);
-              break;
-            case 'services':
-              setLocal('services', data['data']);
-              break;
-            case 'fields':
-              setLocal('fields', data['data']);
-              break;
-            case 'jobs':
-              setLocal('jobs', data['data']);
-              break;
-            case 'client-reviews':
-              setLocal('review', data['data']);
-              break;
-          }
-        },
-      });
-    });
+    // this.zedy.api.forEach((e: string) => {
+    //   let setLocal = async (position: string, data: any) => {
+    //     let strData = await JSON.stringify(data);
+    //     window.localStorage.setItem(position, strData);
+    //   };
+    //   // this.zedy.getData(e).subscribe({
+    //   //   next: (data: any) => {
+    //   //     switch (e) {
+    //   //       case 'videos?type=videos':
+    //   //         setLocal('videos?type=videos', data['data']);
+    //   //         break;
+    //   //       case 'clients':
+    //   //         setLocal('clients', data['data']);
+    //   //         break;
+    //   //       case 'employees':
+    //   //         setLocal('employees', data['data']);
+    //   //         break;
+    //   //       case 'services':
+    //   //         setLocal('services', data['data']);
+    //   //         break;
+    //   //       case 'fields':
+    //   //         setLocal('fields', data['data']);
+    //   //         break;
+    //   //       case 'jobs':
+    //   //         setLocal('jobs', data['data']);
+    //   //         break;
+    //   //       case 'client-reviews':
+    //   //         setLocal('client-reviews', data['data']);
+    //   //         break;
+    //   //     }
+    //   //   },
+    //   // });
+    // });
   }
 
   constructor(private zedy: ZedyService) {}

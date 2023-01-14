@@ -30,7 +30,7 @@ export class JoinPageComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.config = await this.zedy.localApi('configuration');
+    this.config = await this.zedy.localApi('configrations');
     this.changeTitle();
     this.getJobs();
     this.zedy.goTop();

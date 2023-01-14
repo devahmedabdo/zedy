@@ -35,6 +35,6 @@ export class PortfolioComponent implements OnInit {
   // }
   async ngOnInit() {
     // this.getConfig();
-    this.config = await this.zedy.localApi('configuration');
+    this.config = await this.zedy.localApi('configrations');
   }
 }

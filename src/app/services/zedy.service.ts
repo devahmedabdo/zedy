@@ -36,13 +36,26 @@ export class ZedyService {
       });
     }, 111);
   }
+
   async localApi(api: string) {
-    let config = await JSON.parse(window.localStorage.getItem(api)!);
-    return config;
+    let setLocal = async (position: string, data: any) => {
+      let strData = await JSON.stringify(data);
+      window.sessionStorage.setItem(position, strData);
+    };
+    let config = await JSON.parse(window.sessionStorage.getItem(api)!);
+    if (config) {
+      return config;
+    }
+    return this.getData(api)
+      .toPromise()
+      .then((data: any) => {
+        setLocal(api, data['data']);
+        return data['data'];
+      });
   }
   async changeTitle(component: any) {
     let lang = document.documentElement.lang;
-    let config = await this.localApi('configuration');
+    let config = await this.localApi('configrations');
     let setTitle = (pageTitle: string) => {
       if (lang == 'ar') {
         document.title = pageTitle + config.ar_title;
