@@ -50,13 +50,13 @@ export class ZedyService {
     let title = document.querySelector('title');
     let setTitle = (pageTitle: string) => {
       if (lang == 'ar') {
-        if (title) {
-          title.innerHTML = pageTitle + config.ar_title;
-        }
+        console.log(title?.innerText);
+        title!.innerText = pageTitle + config.ar_title;
+        console.log(title?.innerText);
       } else {
-        if (title) {
-          title.innerHTML = pageTitle + config.title;
-        }
+        console.log(title?.innerText);
+        title!.innerText = pageTitle + config.title;
+        console.log(title?.innerText);
       }
     };
     if (lang == 'ar') {
