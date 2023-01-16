@@ -38,41 +38,7 @@ export class AppComponent implements OnInit {
         );
       },
     });
-    // this.zedy.api.forEach((e: string) => {
-    //   let setLocal = async (position: string, data: any) => {
-    //     let strData = await JSON.stringify(data);
-    //     window.localStorage.setItem(position, strData);
-    //   };
-    //   // this.zedy.getData(e).subscribe({
-    //   //   next: (data: any) => {
-    //   //     switch (e) {
-    //   //       case 'videos?type=videos':
-    //   //         setLocal('videos?type=videos', data['data']);
-    //   //         break;
-    //   //       case 'clients':
-    //   //         setLocal('clients', data['data']);
-    //   //         break;
-    //   //       case 'employees':
-    //   //         setLocal('employees', data['data']);
-    //   //         break;
-    //   //       case 'services':
-    //   //         setLocal('services', data['data']);
-    //   //         break;
-    //   //       case 'fields':
-    //   //         setLocal('fields', data['data']);
-    //   //         break;
-    //   //       case 'jobs':
-    //   //         setLocal('jobs', data['data']);
-    //   //         break;
-    //   //       case 'client-reviews':
-    //   //         setLocal('client-reviews', data['data']);
-    //   //         break;
-    //   //     }
-    //   //   },
-    //   // });
-    // });
   }
-
   constructor(private zedy: ZedyService) {}
   title = 'zedy';
 }
