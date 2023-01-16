@@ -1,12 +1,13 @@
 import { Injectable, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
+import { BrowserModule, Title } from '@angular/platform-browser';
 @Injectable({
   providedIn: 'root',
 })
 export class ZedyService {
   url: string = 'http://api.z-edy.com/api/';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private title: Title) {}
   private subject = new Subject<any>();
   setItems() {
     this.subject.next(null);
@@ -14,15 +15,6 @@ export class ZedyService {
   getItems(): Observable<any> {
     return this.subject.asObservable();
   }
-  api = [
-    'videos?type=videos',
-    'clients',
-    'fields',
-    'client-reviews',
-    'jobs',
-    'services',
-    'employees',
-  ];
   getData(api: string) {
     return this.http.get(this.url + api);
   }
@@ -58,9 +50,11 @@ export class ZedyService {
     let config = await this.localApi('configrations');
     let setTitle = (pageTitle: string) => {
       if (lang == 'ar') {
-        document.title = pageTitle + config.ar_title;
+        this.title.setTitle(pageTitle + config.ar_title);
+        // document.title = pageTitle + config.ar_title;
       } else {
-        document.title = pageTitle + config.title;
+        this.title.setTitle(pageTitle + config.title);
+        // document.title = pageTitle + config.title;
       }
     };
     if (lang == 'ar') {

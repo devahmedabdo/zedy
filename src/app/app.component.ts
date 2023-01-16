@@ -40,12 +40,12 @@ export class AppComponent implements OnInit {
     });
   }
   constructor(private zedy: ZedyService) {
-    Object.defineProperty(document, 'title', {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value: document.title,
-    });
+    // Object.defineProperty(document, 'title', {
+    //   // enumerable: true,
+    //   // configurable: true,
+    //   writable: true,
+    //   value: 'asas',
+    // });
   }
   title = 'zedy';
 }
