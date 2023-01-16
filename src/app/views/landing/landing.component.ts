@@ -22,7 +22,7 @@ export class LandingComponent implements OnInit {
   clickEventSubscribtion: Subscription;
   constructor(private zedy: ZedyService) {
     this.clickEventSubscribtion = this.zedy.getItems().subscribe(() => {
-      this.changeTitle()
+      this.changeTitle();
     });
   }
   config: SwiperOptions = {
@@ -93,7 +93,7 @@ export class LandingComponent implements OnInit {
     video.src += '?autoplay=1';
   }
   ngOnInit(): void {
-    this.changeTitle()
+    this.changeTitle();
     this.getConfig();
     this.zedy.goTop();
   }

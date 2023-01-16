@@ -106,6 +106,7 @@ export class ZedyService {
           break;
       }
     }
+    console.log('asd');
   }
   goTop() {
     window.scrollTo(0, 0);
