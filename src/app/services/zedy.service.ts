@@ -1,13 +1,12 @@
-import { Injectable, Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { BrowserModule, Title } from '@angular/platform-browser';
 @Injectable({
   providedIn: 'root',
 })
 export class ZedyService {
   url: string = 'http://api.z-edy.com/api/';
-  constructor(private http: HttpClient, private title: Title) {}
+  constructor(private http: HttpClient) {}
   private subject = new Subject<any>();
   setItems() {
     this.subject.next(null);
@@ -48,13 +47,16 @@ export class ZedyService {
   async changeTitle(component: any) {
     let lang = document.documentElement.lang;
     let config = await this.localApi('configrations');
+    let title = document.querySelector('title');
     let setTitle = (pageTitle: string) => {
       if (lang == 'ar') {
-        this.title.setTitle(pageTitle + config.ar_title);
-        // document.title = pageTitle + config.ar_title;
+        if (title) {
+          title.innerHTML = pageTitle + config.ar_title;
+        }
       } else {
-        this.title.setTitle(pageTitle + config.title);
-        // document.title = pageTitle + config.title;
+        if (title) {
+          title.innerHTML = pageTitle + config.title;
+        }
       }
     };
     if (lang == 'ar') {
@@ -100,8 +102,6 @@ export class ZedyService {
           break;
       }
     }
-    console.log('asd');
-    console.log(document.title);
   }
   goTop() {
     window.scrollTo(0, 0);
