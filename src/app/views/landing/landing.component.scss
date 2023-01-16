@@ -86,6 +86,11 @@ $header-height: 68px;
           background: url(../../../assets/landing/learn-more-image.webp) center
             center no-repeat;
           background-size: cover;
+          &:lang(en) {
+            background: url(../../../assets/landing/learn-more-image-en.webp)
+              center center no-repeat;
+            background-size: cover;
+          }
           &::after,
           &::before {
             content: "";
