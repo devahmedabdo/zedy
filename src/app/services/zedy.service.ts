@@ -52,59 +52,59 @@ export class ZedyService {
     console.log(title);
     console.log(lang);
     // console.log('pageTitle ' + config.ar_title);
-    let setTitle = (pageTitle: string) => {
-      if (lang == 'ar') {
-        // console.log(title?.innerText);
-        title.textContent = pageTitle + config.ar_title;
-        // console.log(title?.innerText);
-        console.log('pageTitle' + config.ar_title);
-      } else {
-        // console.log(title?.innerText);
-        title.textContent = pageTitle + config.title;
-        // console.log(title?.innerText);
-        console.log('pageTitle' + config.title);
-      }
+    let setTitle = (pageTitle: string, title: any) => {
+      title.textContent = pageTitle + title;
+      // if (lang == 'ar') {
+      //   // console.log(title?.innerText);
+      //   // console.log(title?.innerText);
+      //   console.log('pageTitle' + config.ar_title);
+      // } else {
+      //   // console.log(title?.innerText);
+      //   title.textContent = pageTitle + config.title;
+      //   // console.log(title?.innerText);
+      //   console.log('pageTitle' + config.title);
+      // }
     };
     if (lang == 'ar') {
       switch (component) {
         case 'LandingComponent':
-          setTitle('الرئيسية - ');
+          setTitle('الرئيسية - ', config.ar_title);
           break;
         case 'AboutPageComponent':
-          setTitle('من نحن - ');
+          setTitle('من نحن - ', config.ar_title);
           break;
         case 'ClientPageComponent':
-          setTitle('عملاؤنا - ');
+          setTitle('عملاؤنا - ', config.ar_title);
           break;
         case 'JoinPageComponent':
-          setTitle('انضم إلينا - ');
+          setTitle('انضم إلينا - ', config.ar_title);
           break;
         case 'LearnPageComponent':
-          setTitle('تعلم معنا - ');
+          setTitle('تعلم معنا - ', config.ar_title);
           break;
         case 'ServicesPageComponent':
-          setTitle('خدماتنا - ');
+          setTitle('خدماتنا - ', config.ar_title);
           break;
       }
     } else {
       switch (component) {
         case 'LandingComponent':
-          setTitle('Home - ');
+          setTitle('Home - ', config.title);
           break;
         case 'AboutPageComponent':
-          setTitle('About Us - ');
+          setTitle('About Us - ', config.title);
           break;
         case 'ClientPageComponent':
-          setTitle('Our Clients - ');
+          setTitle('Our Clients - ', config.title);
           break;
         case 'JoinPageComponent':
-          setTitle('Join Us - ');
+          setTitle('Join Us - ', config.title);
           break;
         case 'LearnPageComponent':
-          setTitle('Learn With Us - ');
+          setTitle('Learn With Us - ', config.title);
           break;
         case 'ServicesPageComponent':
-          setTitle('Services - ');
+          setTitle('Services - ', config.title);
           break;
       }
     }
