@@ -26,7 +26,7 @@ export class LearnPageComponent implements OnInit {
     this.videos = await this.zedy.localApi('videos?type=videos');
   }
   changeTitle() {
-    this.zedy.changeTitle(this.constructor.name);
+    this.zedy.changeTitle('LearnPageComponent');
   }
   ngOnInit(): void {
     this.getVideos();

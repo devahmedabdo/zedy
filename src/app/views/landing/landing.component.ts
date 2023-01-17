@@ -85,7 +85,7 @@ export class LandingComponent implements OnInit {
     ];
   }
   changeTitle() {
-    this.zedy.changeTitle(this.constructor.name);
+    this.zedy.changeTitle('LandingComponent');
   }
   playVideo() {
     const video = document.querySelector('iframe') as any;

@@ -16,7 +16,7 @@ export class ServicesPageComponent implements OnInit {
     });
   }
   changeTitle() {
-    this.zedy.changeTitle(this.constructor.name);
+    this.zedy.changeTitle('ServicesPageComponent');
   }
   ngOnInit(): void {
     this.changeTitle();

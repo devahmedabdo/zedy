@@ -26,7 +26,7 @@ export class JoinPageComponent implements OnInit {
   }
 
   changeTitle() {
-    this.zedy.changeTitle(this.constructor.name);
+    this.zedy.changeTitle('JoinPageComponent');
   }
 
   async ngOnInit() {

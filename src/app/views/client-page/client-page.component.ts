@@ -14,7 +14,7 @@ export class ClientPageComponent implements OnInit {
     });
   }
   changeTitle() {
-    this.zedy.changeTitle(this.constructor.name);
+    this.zedy.changeTitle('ClientPageComponent');
   }
   ngOnInit(): void {
     this.changeTitle();
