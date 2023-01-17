@@ -63,7 +63,7 @@ export class ZedyService {
     let lang = document.documentElement.lang;
     let config = await this.localApi('configrations');
     // let title = document.querySelector('title') as HTMLTitleElement;
-    // console.log('changing title');
+    console.log('changing title');
     // console.log(title);
     // console.log(lang);
     // console.log('pageTitle ' + config.ar_title);
