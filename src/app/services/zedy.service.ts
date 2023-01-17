@@ -51,17 +51,18 @@ export class ZedyService {
     console.log('changing title');
     console.log(title);
     console.log(lang);
+    // console.log('pageTitle ' + config.ar_title);
     let setTitle = (pageTitle: string) => {
       if (lang == 'ar') {
-        console.log(title?.innerText);
+        // console.log(title?.innerText);
         title.textContent = pageTitle + config.ar_title;
-        console.log(title?.innerText);
-        console.log(pageTitle + config.ar_title);
+        // console.log(title?.innerText);
+        console.log('pageTitle' + config.ar_title);
       } else {
-        console.log(title?.innerText);
+        // console.log(title?.innerText);
         title.textContent = pageTitle + config.title;
-        console.log(title?.innerText);
-        console.log(pageTitle + config.title);
+        // console.log(title?.innerText);
+        console.log('pageTitle' + config.title);
       }
     };
     if (lang == 'ar') {
