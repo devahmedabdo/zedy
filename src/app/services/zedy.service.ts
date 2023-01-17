@@ -48,12 +48,13 @@ export class ZedyService {
     let lang = document.documentElement.lang;
     let config = await this.localApi('configrations');
     let title = document.querySelector('title') as HTMLTitleElement;
-    console.log('changing title');
-    console.log(title);
-    console.log(lang);
+    // console.log('changing title');
+    // console.log(title);
+    // console.log(lang);
     // console.log('pageTitle ' + config.ar_title);
-    let setTitle = (pageTitle: string, title: any) => {
-      title.textContent = pageTitle + title;
+    let setTitle = async (pageTitle: string, title: string) => {
+      console.log(pageTitle + title);
+      document.title = pageTitle + title;
       // if (lang == 'ar') {
       //   // console.log(title?.innerText);
       //   // console.log(title?.innerText);
