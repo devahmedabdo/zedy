@@ -44,7 +44,7 @@ export class ZedyService {
         return data['data'];
       });
   }
-  async changeTitle(component: any) {
+  async changeTitle(component: string) {
     let lang = document.documentElement.lang;
     let config = await this.localApi('configrations');
     let title = document.querySelector('title') as HTMLTitleElement;
@@ -54,6 +54,7 @@ export class ZedyService {
     // console.log('pageTitle ' + config.ar_title);
     let setTitle = async (pageTitle: string, title: string) => {
       console.log(pageTitle + title);
+      console.log('pageTitle + title');
       document.title = pageTitle + title;
       // if (lang == 'ar') {
       //   // console.log(title?.innerText);
