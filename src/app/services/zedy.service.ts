@@ -46,8 +46,8 @@ export class ZedyService {
   }
   setTitle(pageTitle: string, title: string) {
     // console.log(pageTitle + title);
-    console.log('pageTitle + title');
-    // document.title = pageTitle + title;
+    // console.log('pageTitle + title');
+    document.title = pageTitle + title;
     // if (lang == 'ar') {
     //   // console.log(title?.innerText);
     //   // console.log(title?.innerText);
@@ -62,25 +62,15 @@ export class ZedyService {
   async changeTitle(component: string) {
     let lang = document.documentElement.lang;
     let config = await this.localApi('configrations');
-    // let title = document.querySelector('title') as HTMLTitleElement;
-    console.log('changing title');
-    // console.log(title);
-    // console.log(lang);
-    // console.log('pageTitle ' + config.ar_title);
     if (lang == 'ar') {
-      console.log('ar');
-      console.log(component);
       switch (component) {
         case 'LandingComponent':
-          console.log('LandingComponent');
           this.setTitle('الرئيسية - ', config.ar_title);
           break;
         case 'AboutPageComponent':
-          console.log(component);
           this.setTitle('من نحن - ', config.ar_title);
           break;
         case 'ClientPageComponent':
-          console.log(component);
           this.setTitle('عملاؤنا - ', config.ar_title);
           break;
         case 'JoinPageComponent':
@@ -94,7 +84,6 @@ export class ZedyService {
           break;
       }
     } else {
-      console.log('en');
       switch (component) {
         case 'LandingComponent':
           this.setTitle('Home - ', config.title);
