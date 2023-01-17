@@ -72,12 +72,15 @@ export class ZedyService {
       switch (component) {
         case 'LandingComponent':
           await this.setTitle('الرئيسية - ', config.ar_title);
+          console.log(component);
           break;
         case 'AboutPageComponent':
           await this.setTitle('من نحن - ', config.ar_title);
+          console.log(component);
           break;
         case 'ClientPageComponent':
           await this.setTitle('عملاؤنا - ', config.ar_title);
+          console.log(component);
           break;
         case 'JoinPageComponent':
           await this.setTitle('انضم إلينا - ', config.ar_title);
