@@ -69,9 +69,10 @@ export class ZedyService {
     // console.log('pageTitle ' + config.ar_title);
     if (lang == 'ar') {
       console.log('ar');
+      console.log(component);
       switch (component) {
         case 'LandingComponent':
-          console.log(component);
+          console.log('LandingComponent');
           this.setTitle('الرئيسية - ', config.ar_title);
           break;
         case 'AboutPageComponent':
