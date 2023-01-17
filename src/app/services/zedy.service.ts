@@ -71,47 +71,47 @@ export class ZedyService {
       console.log('ar');
       switch (component) {
         case 'LandingComponent':
-          await this.setTitle('الرئيسية - ', config.ar_title);
           console.log(component);
+          this.setTitle('الرئيسية - ', config.ar_title);
           break;
         case 'AboutPageComponent':
-          await this.setTitle('من نحن - ', config.ar_title);
           console.log(component);
+          this.setTitle('من نحن - ', config.ar_title);
           break;
         case 'ClientPageComponent':
-          await this.setTitle('عملاؤنا - ', config.ar_title);
           console.log(component);
+          this.setTitle('عملاؤنا - ', config.ar_title);
           break;
         case 'JoinPageComponent':
-          await this.setTitle('انضم إلينا - ', config.ar_title);
+          this.setTitle('انضم إلينا - ', config.ar_title);
           break;
         case 'LearnPageComponent':
-          await this.setTitle('تعلم معنا - ', config.ar_title);
+          this.setTitle('تعلم معنا - ', config.ar_title);
           break;
         case 'ServicesPageComponent':
-          await this.setTitle('خدماتنا - ', config.ar_title);
+          this.setTitle('خدماتنا - ', config.ar_title);
           break;
       }
     } else {
       console.log('en');
       switch (component) {
         case 'LandingComponent':
-          await this.setTitle('Home - ', config.title);
+          this.setTitle('Home - ', config.title);
           break;
         case 'AboutPageComponent':
-          await this.setTitle('About Us - ', config.title);
+          this.setTitle('About Us - ', config.title);
           break;
         case 'ClientPageComponent':
-          await this.setTitle('Our Clients - ', config.title);
+          this.setTitle('Our Clients - ', config.title);
           break;
         case 'JoinPageComponent':
-          await this.setTitle('Join Us - ', config.title);
+          this.setTitle('Join Us - ', config.title);
           break;
         case 'LearnPageComponent':
-          await this.setTitle('Learn With Us - ', config.title);
+          this.setTitle('Learn With Us - ', config.title);
           break;
         case 'ServicesPageComponent':
-          await this.setTitle('Services - ', config.title);
+          this.setTitle('Services - ', config.title);
           break;
       }
     }
