@@ -45,19 +45,7 @@ export class ZedyService {
       });
   }
   setTitle(pageTitle: string, title: string) {
-    // console.log(pageTitle + title);
-    // console.log('pageTitle + title');
     document.title = pageTitle + title;
-    // if (lang == 'ar') {
-    //   // console.log(title?.innerText);
-    //   // console.log(title?.innerText);
-    //   console.log('pageTitle' + config.ar_title);
-    // } else {
-    //   // console.log(title?.innerText);
-    //   title.textContent = pageTitle + config.title;
-    //   // console.log(title?.innerText);
-    //   console.log('pageTitle' + config.title);
-    // }
   }
   async changeTitle(component: string) {
     let lang = document.documentElement.lang;
