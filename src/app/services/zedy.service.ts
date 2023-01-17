@@ -51,11 +51,12 @@ export class ZedyService {
     let setTitle = (pageTitle: string) => {
       if (lang == 'ar') {
         console.log(title?.innerText);
-        title!.innerText = pageTitle + config.ar_title;
+        document.querySelector('title')!.textContent =
+          pageTitle + config.ar_title;
         console.log(title?.innerText);
       } else {
         console.log(title?.innerText);
-        title!.innerText = pageTitle + config.title;
+        document.querySelector('title')!.textContent = pageTitle + config.title;
         console.log(title?.innerText);
       }
     };
