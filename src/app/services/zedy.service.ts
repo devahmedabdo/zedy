@@ -68,6 +68,7 @@ export class ZedyService {
     // console.log(lang);
     // console.log('pageTitle ' + config.ar_title);
     if (lang == 'ar') {
+      console.log('ar');
       switch (component) {
         case 'LandingComponent':
           await this.setTitle('الرئيسية - ', config.ar_title);
@@ -89,6 +90,7 @@ export class ZedyService {
           break;
       }
     } else {
+      console.log('en');
       switch (component) {
         case 'LandingComponent':
           await this.setTitle('Home - ', config.title);
