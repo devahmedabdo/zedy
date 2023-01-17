@@ -45,9 +45,9 @@ export class ZedyService {
       });
   }
   setTitle(pageTitle: string, title: string) {
-    console.log(pageTitle + title);
+    // console.log(pageTitle + title);
     console.log('pageTitle + title');
-    document.title = pageTitle + title;
+    // document.title = pageTitle + title;
     // if (lang == 'ar') {
     //   // console.log(title?.innerText);
     //   // console.log(title?.innerText);
@@ -70,43 +70,43 @@ export class ZedyService {
     if (lang == 'ar') {
       switch (component) {
         case 'LandingComponent':
-          this.setTitle('الرئيسية - ', config.ar_title);
+          await this.setTitle('الرئيسية - ', config.ar_title);
           break;
         case 'AboutPageComponent':
-          this.setTitle('من نحن - ', config.ar_title);
+          await this.setTitle('من نحن - ', config.ar_title);
           break;
         case 'ClientPageComponent':
-          this.setTitle('عملاؤنا - ', config.ar_title);
+          await this.setTitle('عملاؤنا - ', config.ar_title);
           break;
         case 'JoinPageComponent':
-          this.setTitle('انضم إلينا - ', config.ar_title);
+          await this.setTitle('انضم إلينا - ', config.ar_title);
           break;
         case 'LearnPageComponent':
-          this.setTitle('تعلم معنا - ', config.ar_title);
+          await this.setTitle('تعلم معنا - ', config.ar_title);
           break;
         case 'ServicesPageComponent':
-          this.setTitle('خدماتنا - ', config.ar_title);
+          await this.setTitle('خدماتنا - ', config.ar_title);
           break;
       }
     } else {
       switch (component) {
         case 'LandingComponent':
-          this.setTitle('Home - ', config.title);
+          await this.setTitle('Home - ', config.title);
           break;
         case 'AboutPageComponent':
-          this.setTitle('About Us - ', config.title);
+          await this.setTitle('About Us - ', config.title);
           break;
         case 'ClientPageComponent':
-          this.setTitle('Our Clients - ', config.title);
+          await this.setTitle('Our Clients - ', config.title);
           break;
         case 'JoinPageComponent':
-          this.setTitle('Join Us - ', config.title);
+          await this.setTitle('Join Us - ', config.title);
           break;
         case 'LearnPageComponent':
-          this.setTitle('Learn With Us - ', config.title);
+          await this.setTitle('Learn With Us - ', config.title);
           break;
         case 'ServicesPageComponent':
-          this.setTitle('Services - ', config.title);
+          await this.setTitle('Services - ', config.title);
           break;
       }
     }
