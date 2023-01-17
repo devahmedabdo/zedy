@@ -44,69 +44,69 @@ export class ZedyService {
         return data['data'];
       });
   }
+  setTitle(pageTitle: string, title: string) {
+    console.log(pageTitle + title);
+    console.log('pageTitle + title');
+    document.title = pageTitle + title;
+    // if (lang == 'ar') {
+    //   // console.log(title?.innerText);
+    //   // console.log(title?.innerText);
+    //   console.log('pageTitle' + config.ar_title);
+    // } else {
+    //   // console.log(title?.innerText);
+    //   title.textContent = pageTitle + config.title;
+    //   // console.log(title?.innerText);
+    //   console.log('pageTitle' + config.title);
+    // }
+  }
   async changeTitle(component: string) {
     let lang = document.documentElement.lang;
     let config = await this.localApi('configrations');
-    let title = document.querySelector('title') as HTMLTitleElement;
+    // let title = document.querySelector('title') as HTMLTitleElement;
     // console.log('changing title');
     // console.log(title);
     // console.log(lang);
     // console.log('pageTitle ' + config.ar_title);
-    let setTitle = async (pageTitle: string, title: string) => {
-      console.log(pageTitle + title);
-      console.log('pageTitle + title');
-      document.title = pageTitle + title;
-      // if (lang == 'ar') {
-      //   // console.log(title?.innerText);
-      //   // console.log(title?.innerText);
-      //   console.log('pageTitle' + config.ar_title);
-      // } else {
-      //   // console.log(title?.innerText);
-      //   title.textContent = pageTitle + config.title;
-      //   // console.log(title?.innerText);
-      //   console.log('pageTitle' + config.title);
-      // }
-    };
     if (lang == 'ar') {
       switch (component) {
         case 'LandingComponent':
-          setTitle('الرئيسية - ', config.ar_title);
+          this.setTitle('الرئيسية - ', config.ar_title);
           break;
         case 'AboutPageComponent':
-          setTitle('من نحن - ', config.ar_title);
+          this.setTitle('من نحن - ', config.ar_title);
           break;
         case 'ClientPageComponent':
-          setTitle('عملاؤنا - ', config.ar_title);
+          this.setTitle('عملاؤنا - ', config.ar_title);
           break;
         case 'JoinPageComponent':
-          setTitle('انضم إلينا - ', config.ar_title);
+          this.setTitle('انضم إلينا - ', config.ar_title);
           break;
         case 'LearnPageComponent':
-          setTitle('تعلم معنا - ', config.ar_title);
+          this.setTitle('تعلم معنا - ', config.ar_title);
           break;
         case 'ServicesPageComponent':
-          setTitle('خدماتنا - ', config.ar_title);
+          this.setTitle('خدماتنا - ', config.ar_title);
           break;
       }
     } else {
       switch (component) {
         case 'LandingComponent':
-          setTitle('Home - ', config.title);
+          this.setTitle('Home - ', config.title);
           break;
         case 'AboutPageComponent':
-          setTitle('About Us - ', config.title);
+          this.setTitle('About Us - ', config.title);
           break;
         case 'ClientPageComponent':
-          setTitle('Our Clients - ', config.title);
+          this.setTitle('Our Clients - ', config.title);
           break;
         case 'JoinPageComponent':
-          setTitle('Join Us - ', config.title);
+          this.setTitle('Join Us - ', config.title);
           break;
         case 'LearnPageComponent':
-          setTitle('Learn With Us - ', config.title);
+          this.setTitle('Learn With Us - ', config.title);
           break;
         case 'ServicesPageComponent':
-          setTitle('Services - ', config.title);
+          this.setTitle('Services - ', config.title);
           break;
       }
     }
