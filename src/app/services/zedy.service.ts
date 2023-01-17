@@ -48,6 +48,9 @@ export class ZedyService {
     let lang = document.documentElement.lang;
     let config = await this.localApi('configrations');
     let title = document.querySelector('title');
+    console.log('changing title');
+    console.log(document.querySelector('title'));
+    console.log(lang);
     let setTitle = (pageTitle: string) => {
       if (lang == 'ar') {
         console.log(title?.innerText);
