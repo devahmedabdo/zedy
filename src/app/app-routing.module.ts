@@ -13,7 +13,11 @@ const routes: Routes = [
   { path: 'clients', component: ClientPageComponent },
   { path: 'learn', component: LearnPageComponent },
   { path: 'join', component: JoinPageComponent },
-  { path: 'about', component: AboutPageComponent },
+  {
+    path: 'about',
+    component: AboutPageComponent,
+    title: 'من نحن - زيدي لخدمات التسويق والبرمجة',
+  },
 ];
 
 @NgModule({
