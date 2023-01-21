@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 @Injectable({
   providedIn: 'root',
 })
 export class ZedyService {
   url: string = 'http://api.z-edy.com/api/';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private title: Title) {}
   private subject = new Subject<any>();
   setItems() {
     this.subject.next(null);
@@ -45,7 +46,8 @@ export class ZedyService {
       });
   }
   setTitle(pageTitle: string, title: string) {
-    document.title = pageTitle + title;
+    // document.title = pageTitle + title;
+    this.title.setTitle(pageTitle + title);
   }
   async changeTitle(component: string) {
     let lang = document.documentElement.lang;
