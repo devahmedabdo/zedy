@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { ZedyService } from './services/zedy.service';
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
         }
       });
     });
+
     this.zedy.getData('configrations').subscribe({
       next: (config: any) => {
         let head = document.getElementsByTagName('head')[0];
@@ -32,6 +34,14 @@ export class AppComponent implements OnInit {
           body.insertAdjacentHTML('beforeend', config['data'].footer_meta);
         }
         this.whatsLink = 'https://wa.me/' + config['data'].whatsapp;
+        this.meta.updateTag({
+          name: 'keywords',
+          content: config.header_keywords,
+        });
+        this.meta.updateTag({
+          name: 'description',
+          content: config.description,
+        });
         window.localStorage.setItem(
           'configrations',
           JSON.stringify(config['data'])
@@ -39,6 +49,6 @@ export class AppComponent implements OnInit {
       },
     });
   }
-  constructor(private zedy: ZedyService) {}
+  constructor(private zedy: ZedyService, private meta: Meta) {}
   title = 'zedy';
 }
