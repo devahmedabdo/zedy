@@ -16,8 +16,6 @@ SwiperCore.use([Pagination, Scrollbar, Autoplay]);
 })
 export class OpinionsComponent implements OnInit {
   config: SwiperOptions = {
-    slidesPerView: 3,
-    spaceBetween: 50,
     grabCursor: true,
     autoplay: {
       delay: 2500,

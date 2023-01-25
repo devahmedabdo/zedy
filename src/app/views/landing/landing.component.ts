@@ -87,10 +87,11 @@ export class LandingComponent implements OnInit {
   changeTitle() {
     this.zedy.changeTitle('LandingComponent');
   }
-  playVideo() {
-    const video = document.querySelector('iframe') as any;
-    video.previousElementSibling?.remove();
+  playVideo(event: any) {
+    const button = event.target;
+    const video = button.nextElementSibling as HTMLEmbedElement;
     video.src += '?autoplay=1';
+    button.remove();
   }
   ngOnInit(): void {
     this.changeTitle();

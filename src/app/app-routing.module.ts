@@ -16,7 +16,6 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutPageComponent,
-    title: 'من نحن - زيدي لخدمات التسويق والبرمجة',
   },
 ];
 

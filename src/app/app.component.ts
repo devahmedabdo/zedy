@@ -8,7 +8,8 @@ import { ZedyService } from './services/zedy.service';
 })
 export class AppComponent implements OnInit {
   whatsLink?: string;
-  ngOnInit() {
+  config: any;
+  async ngOnInit() {
     window.addEventListener('scroll', () => {
       let animationClasses = document.querySelectorAll(
         '.lReveal , .dReveal,.uReveal,.rReveal'
@@ -21,32 +22,24 @@ export class AppComponent implements OnInit {
         }
       });
     });
-
-    this.zedy.getData('configrations').subscribe({
-      next: (config: any) => {
-        let head = document.getElementsByTagName('head')[0];
-        let body = document.getElementsByTagName('body')[0];
-
-        if (config['data'].head_meta != null) {
-          head.insertAdjacentHTML('beforeend', config['data'].head_meta);
-        }
-        if (config['data'].footer_meta != null) {
-          body.insertAdjacentHTML('beforeend', config['data'].footer_meta);
-        }
-        this.whatsLink = 'https://wa.me/' + config['data'].whatsapp;
-        this.meta.updateTag({
-          name: 'keywords',
-          content: config.header_keywords,
-        });
-        this.meta.updateTag({
-          name: 'description',
-          content: config.description,
-        });
-        window.localStorage.setItem(
-          'configrations',
-          JSON.stringify(config['data'])
-        );
-      },
+    this.config = await this.zedy.localApi('configrations');
+    console.log(this.config);
+    let head = document.getElementsByTagName('head')[0];
+    let body = document.getElementsByTagName('body')[0];
+    if (this.config.head_meta != null) {
+      head.insertAdjacentHTML('beforeend', this.config.head_meta);
+    }
+    if (this.config.footer_meta != null) {
+      body.insertAdjacentHTML('beforeend', this.config.footer_meta);
+    }
+    this.whatsLink = 'https://wa.me/' + this.config.whatsapp;
+    this.meta.updateTag({
+      name: 'keywords',
+      content: this.config.header_keywords,
+    });
+    this.meta.updateTag({
+      name: 'description',
+      content: this.config.description,
     });
   }
   constructor(private zedy: ZedyService, private meta: Meta) {}

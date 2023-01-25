@@ -12,6 +12,7 @@
           direction: rtl;
         }
         max-width: 400px;
+        margin: auto;
         > p {
           @apply rounded-3xl relative p-3 mb-5 h-24;
           background: #eeeeee;
