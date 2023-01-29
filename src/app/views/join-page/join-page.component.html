@@ -1,11 +1,14 @@
 <section>
   <div class="container">
     <h2>{{"Available Jobs"|translate}}</h2>
-    <p>{{"You can apply to work with us through"|translate}}<span class="font-bold"> {{jobs.length}} </span>{{"possible
+    <p *ngIf="jobs.length > 0">{{"You can apply to work with us through"|translate}}<span class="font-bold">
+        {{jobs.length}} </span>{{"possible
       jobs, and if
       the job is not available, it may be available later, God willing"|translate}}</p>
+    <p *ngIf="jobs.length == 0">{{"Unfortunately, there are no jobs availble at the moment" | translate }}</p>
 
-    <div>
+    <div *ngIf="jobs.length > 0">
+
       <div class="links">
         <div class="other-jobs">
           <div style="--color:#3683CD">

@@ -1,0 +1,35 @@
+div {
+  svg {
+    overflow: visible;
+    fill-opacity: 0;
+    stroke-dasharray: 350;
+    animation: forwards loading 3s ease-in-out,
+      upDown 1s infinite alternate ease-in-out 4s;
+    @apply stroke-primary;
+    @keyframes loading {
+      0% {
+        stroke-dashoffset: 350;
+      }
+      80% {
+        fill-opacity: 0;
+        stroke-dashoffset: 700;
+      }
+      100% {
+        stroke-dashoffset: 700;
+        fill-opacity: 1;
+        // animation: upDown 1s infinite ease-in-out ,;
+      }
+    }
+    @keyframes upDown {
+      0% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(50px);
+      }
+    }
+  }
+  &.hide {
+    @apply z-50 opacity-0 scale-150;
+  }
+}

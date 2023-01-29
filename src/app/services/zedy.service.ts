@@ -45,55 +45,35 @@ export class ZedyService {
         return data['data'];
       });
   }
-  setTitle(pageTitle: string, title: string) {
-    // document.title = pageTitle + title;
-    this.title.setTitle(pageTitle + title);
-  }
-  async changeTitle(component: string) {
+  async setTitle(arPageTitle: string, enPageTitle: string) {
     let lang = document.documentElement.lang;
     let config = await this.localApi('configrations');
     if (lang == 'ar') {
-      switch (component) {
-        case 'LandingComponent':
-          this.setTitle('الرئيسية - ', config.ar_title);
-          break;
-        case 'AboutPageComponent':
-          this.setTitle('من نحن - ', config.ar_title);
-          break;
-        case 'ClientPageComponent':
-          this.setTitle('عملاؤنا - ', config.ar_title);
-          break;
-        case 'JoinPageComponent':
-          this.setTitle('انضم إلينا - ', config.ar_title);
-          break;
-        case 'LearnPageComponent':
-          this.setTitle('تعلم معنا - ', config.ar_title);
-          break;
-        case 'ServicesPageComponent':
-          this.setTitle('خدماتنا - ', config.ar_title);
-          break;
-      }
+      this.title.setTitle(arPageTitle + config.ar_title);
     } else {
-      switch (component) {
-        case 'LandingComponent':
-          this.setTitle('Home - ', config.title);
-          break;
-        case 'AboutPageComponent':
-          this.setTitle('About Us - ', config.title);
-          break;
-        case 'ClientPageComponent':
-          this.setTitle('Our Clients - ', config.title);
-          break;
-        case 'JoinPageComponent':
-          this.setTitle('Join Us - ', config.title);
-          break;
-        case 'LearnPageComponent':
-          this.setTitle('Learn With Us - ', config.title);
-          break;
-        case 'ServicesPageComponent':
-          this.setTitle('Services - ', config.title);
-          break;
-      }
+      this.title.setTitle(enPageTitle + config.title);
+    }
+  }
+  changeTitle(component: string) {
+    switch (component) {
+      case 'LandingComponent':
+        this.setTitle('الرئيسية - ', 'Home - ');
+        break;
+      case 'AboutPageComponent':
+        this.setTitle('من نحن - ', 'About Us - ');
+        break;
+      case 'ClientPageComponent':
+        this.setTitle('عملاؤنا - ', 'Our Clients - ');
+        break;
+      case 'JoinPageComponent':
+        this.setTitle('انضم إلينا - ', 'Join Us - ');
+        break;
+      case 'LearnPageComponent':
+        this.setTitle('تعلم معنا - ', 'Learn With Us - ');
+        break;
+      case 'ServicesPageComponent':
+        this.setTitle('خدماتنا - ', 'Services - ');
+        break;
     }
   }
   goTop() {

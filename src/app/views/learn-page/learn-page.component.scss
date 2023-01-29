@@ -3,7 +3,7 @@ section {
     .learn-video {
       @apply flex gap-3 flex-wrap justify-center  py-10;
       > div {
-        @apply items-center flex flex-col;
+        @apply items-center flex flex-col max-w-[310px];
         div {
           @apply relative rounded-lg overflow-hidden;
           button {

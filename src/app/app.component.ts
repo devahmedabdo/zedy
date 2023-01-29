@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { ZedyService } from './services/zedy.service';
 @Component({
@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
       });
     });
     this.config = await this.zedy.localApi('configrations');
-    console.log(this.config);
     let head = document.getElementsByTagName('head')[0];
     let body = document.getElementsByTagName('body')[0];
     if (this.config.head_meta != null) {
@@ -42,6 +41,14 @@ export class AppComponent implements OnInit {
       content: this.config.description,
     });
   }
-  constructor(private zedy: ZedyService, private meta: Meta) {}
+  constructor(private zedy: ZedyService, private meta: Meta) {
+    window.addEventListener('DOMContentLoaded', () => {
+      let loading = document.getElementById('loading');
+      loading?.classList.add('hide');
+      setTimeout(() => {
+        loading?.remove();
+      }, 3000);
+    });
+  }
   title = 'zedy';
 }

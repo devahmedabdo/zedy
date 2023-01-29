@@ -36,6 +36,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { SafePipe } from './pipes/safe.pipe';
 
 import { ZedyService } from './services/zedy.service';
+import { LoadingComponent } from './layout/loading/loading.component';
 //
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ZedyService } from './services/zedy.service';
     AboutPageComponent,
     OpinionsComponent,
     SafePipe,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
