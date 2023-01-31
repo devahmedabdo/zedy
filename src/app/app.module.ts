@@ -37,6 +37,7 @@ import { SafePipe } from './pipes/safe.pipe';
 
 import { ZedyService } from './services/zedy.service';
 import { LoadingComponent } from './layout/loading/loading.component';
+import { TopComponent } from './layout/top/top.component';
 //
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { LoadingComponent } from './layout/loading/loading.component';
     OpinionsComponent,
     SafePipe,
     LoadingComponent,
+    TopComponent,
   ],
   imports: [
     BrowserModule,

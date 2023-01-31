@@ -1,10 +1,8 @@
 div {
   svg {
-    overflow: visible;
     fill-opacity: 0;
     stroke-dasharray: 350;
-    animation: forwards loading 3s ease-in-out,
-      upDown 1s infinite alternate ease-in-out 4s;
+    animation: forwards loading 3s ease-in-out;
     @apply stroke-primary;
     @keyframes loading {
       0% {
@@ -17,19 +15,40 @@ div {
       100% {
         stroke-dashoffset: 700;
         fill-opacity: 1;
-        // animation: upDown 1s infinite ease-in-out ,;
-      }
-    }
-    @keyframes upDown {
-      0% {
-        transform: translateY(0px);
-      }
-      100% {
-        transform: translateY(50px);
       }
     }
   }
+  div {
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes opacity {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    width: 30px;
+    height: 30px;
+    animation: opacity 2s 4s forwards, rotate 0.7s 4s infinite linear;
+    opacity: 0;
+    &::after {
+      @apply bg-primary rounded-full absolute;
+      content: "";
+      width: 2px;
+      height: 2px;
+      top: 2px;
+      left: 85%;
+    }
+  }
   &.hide {
-    @apply z-50 opacity-0 scale-150;
+    @apply -z-50 opacity-0 scale-150;
   }
 }

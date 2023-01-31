@@ -7,12 +7,6 @@
   .lang-box {
     @apply flex gap-3 hover:text-primary scale-95 transition;
     cursor: pointer;
-    @media (max-width: 400px) {
-      @apply justify-center;
-      span {
-        @apply hidden;
-      }
-    }
     img {
       @apply rounded-sm max-w-[30px];
     }

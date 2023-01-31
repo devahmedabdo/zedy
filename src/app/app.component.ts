@@ -10,6 +10,13 @@ export class AppComponent implements OnInit {
   whatsLink?: string;
   config: any;
   async ngOnInit() {
+    window.addEventListener('load', () => {
+      let loading = document.getElementById('loading');
+      loading?.classList.add('hide');
+      setTimeout(() => {
+        loading?.remove();
+      }, 1000);
+    });
     window.addEventListener('scroll', () => {
       let animationClasses = document.querySelectorAll(
         '.lReveal , .dReveal,.uReveal,.rReveal'
@@ -41,14 +48,6 @@ export class AppComponent implements OnInit {
       content: this.config.description,
     });
   }
-  constructor(private zedy: ZedyService, private meta: Meta) {
-    window.addEventListener('DOMContentLoaded', () => {
-      let loading = document.getElementById('loading');
-      loading?.classList.add('hide');
-      setTimeout(() => {
-        loading?.remove();
-      }, 3000);
-    });
-  }
+  constructor(private zedy: ZedyService, private meta: Meta) {}
   title = 'zedy';
 }

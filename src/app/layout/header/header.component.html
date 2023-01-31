@@ -15,7 +15,7 @@
             translate}}</a></li>
         <li><a routerLinkActive="active" routerLink="join">{{'join us' |
             translate}}</a></li>
-        <app-language></app-language>
+        <app-language (click)="toggelMenu()"></app-language>
       </ul>
     </nav>
     <a class="whatsapp-icon" [href]="whatsLink">

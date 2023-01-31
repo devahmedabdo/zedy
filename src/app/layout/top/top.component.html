@@ -1,0 +1,6 @@
+<button
+  class="cursor-default overflow-hidden z-50 w-[60px] h-[60px] fixed bottom-6 -translate-y-full mx-3 right-3 flex justify-center items-center">
+  <fa-icon [ngClass]="{'translate-y-16 opacity-0':hide || lastScroll < 800}" onclick="window.scrollTo(0,0)"
+    class="md:cursor-pointer cursor-default w-12 h-12 flex justify-center items-center bg-primary hover:bg-primaryLight text-white duration-300 rounded-full"
+    [icon]="top"></fa-icon>
+</button>
