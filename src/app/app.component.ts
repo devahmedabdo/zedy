@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 import { ZedyService } from './services/zedy.service';
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ export class AppComponent implements OnInit {
   whatsLink?: string;
   config: any;
   async ngOnInit() {
+    let lang = localStorage.getItem('lang') || 'ar';
     window.addEventListener('load', () => {
       let loading = document.getElementById('loading');
       loading?.classList.add('hide');
@@ -39,14 +41,26 @@ export class AppComponent implements OnInit {
       body.insertAdjacentHTML('beforeend', this.config.footer_meta);
     }
     this.whatsLink = 'https://wa.me/' + this.config.whatsapp;
-    this.meta.updateTag({
-      name: 'keywords',
-      content: this.config.header_keywords,
-    });
-    this.meta.updateTag({
-      name: 'description',
-      content: this.config.description,
-    });
+
+    if (lang == 'ar') {
+      this.meta.updateTag({
+        name: 'keywords',
+        content: this.config.header_keywords,
+      });
+      this.meta.updateTag({
+        name: 'description',
+        content: this.config.description,
+      });
+    } else {
+      this.meta.updateTag({
+        name: 'keywords',
+        content: this.config.en_header_keywords,
+      });
+      this.meta.updateTag({
+        name: 'description',
+        content: this.config.en_description,
+      });
+    }
   }
   constructor(private zedy: ZedyService, private meta: Meta) {}
   title = 'zedy';
