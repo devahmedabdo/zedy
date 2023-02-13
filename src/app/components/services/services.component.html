@@ -10,7 +10,9 @@
             <div>
               <h3 class="arabic">{{service.ar_name}}</h3>
               <h3 class="english">{{service.name}}</h3>
-              <a target="_blank" [href]="'https://wa.me/+2'+config?.whatsapp">{{"Order Now"|translate}}</a>
+              <a target="_blank"
+                [href]="'https://wa.me/+2'+config?.whatsapp+'?text=أريد طلب خدمة : '+service.ar_name">{{"Order
+                Now"|translate}}</a>
             </div>
             <p class="arabic">{{service.ar_description}}</p>
             <p class="english">{{service.description}}</p>
@@ -19,7 +21,9 @@
         <div class="services-des">
           <h3 class="arabic">{{service.ar_name}}</h3>
           <h3 class="english">{{service.name}}</h3>
-          <a target="_blank" [href]="'https://wa.me/+2'+config?.whatsapp">{{"Order Now" | translate}}</a>
+          <a target="_blank"
+            [href]="'https://wa.me/+2'+config?.whatsapp+'?text=أريد طلب خدمة : '+service.ar_name">{{"Order Now" |
+            translate}}</a>
         </div>
       </div>
     </div>
