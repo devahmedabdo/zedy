@@ -15,7 +15,15 @@ export class ZedyService {
   getItems(): Observable<any> {
     return this.subject.asObservable();
   }
-  getData(api: string) {
+  // getData(api: string): Observable<any> {
+  //   return this.http.get(this.url + api);
+  // }
+  get(api: string): Observable<any> {
+    let localData: any = sessionStorage.getItem(api);
+    if (localData) {
+      console.log('local => ', JSON.parse(localData));
+      return localData.asObservable();
+    }
     return this.http.get(this.url + api);
   }
   removeRveal() {
@@ -29,22 +37,22 @@ export class ZedyService {
     }, 111);
   }
 
-  async localApi(api: string) {
-    let setLocal = async (position: string, data: any) => {
-      let strData = await JSON.stringify(data);
-      window.sessionStorage.setItem(position, strData);
-    };
-    let config = await JSON.parse(window.sessionStorage.getItem(api)!);
-    if (config) {
-      return config;
-    }
-    return this.getData(api)
-      .toPromise()
-      .then((data: any) => {
-        setLocal(api, data['data']);
-        return data['data'];
-      });
-  }
+  // async localApi(api: string) {
+  //   let setLocal = async (position: string, data: any) => {
+  //     let strData = await JSON.stringify(data);
+  //     window.sessionStorage.setItem(position, strData);
+  //   };
+  //   let config = await JSON.parse(window.sessionStorage.getItem(api)!);
+  //   if (config) {
+  //     return config;
+  //   }
+  //   return this.getData(api)
+  //     .toPromise()
+  //     .then((data: any) => {
+  //       setLocal(api, data['data']);
+  //       return data['data'];
+  //     });
+  // }
   async setTitle(arPageTitle: string, enPageTitle: string) {
     let lang = document.documentElement.lang;
     let config = await this.localApi('configrations');
@@ -75,6 +83,9 @@ export class ZedyService {
         this.setTitle('خدماتنا - ', 'Services - ');
         break;
     }
+  }
+  saveData(key: string, data: any) {
+    sessionStorage.setItem(key, JSON.stringify(data));
   }
   goTop() {
     window.scrollTo(0, 0);

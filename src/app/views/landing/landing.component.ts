@@ -39,8 +39,17 @@ export class LandingComponent implements OnInit {
   };
   configuration: any;
   socialLinks?: any[];
-  async getConfig() {
-    this.configuration = await this.zedy.localApi('configrations');
+  getConfig() {
+    // this.configuration = await this.zedy.localApi('configrations');
+    this.zedy.get('todos').subscribe({
+      next: (data) => {
+        console.log(data);
+        this.zedy.saveData('todos', data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
     this.socialLinks = [
       {
         icon: faFacebookF,

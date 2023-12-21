@@ -83,7 +83,7 @@ import { TopComponent } from './layout/top/top.component';
   ],
   providers: [
     ZedyService,
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],
 })
