@@ -9,17 +9,18 @@ import { ZedyService } from 'src/app/services/zedy.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class ServicesPageComponent implements OnInit {
-  clickEventSubscribtion: Subscription;
   constructor(private zedy: ZedyService) {
-    this.clickEventSubscribtion = this.zedy.getItems().subscribe(() => {
+    this.zedy.subject.subscribe(() => {
       this.changeTitle();
     });
   }
   changeTitle() {
-    this.zedy.changeTitle('ServicesPageComponent');
+    this.zedy.setTitle({
+      ar: 'خدماتنا',
+      en: 'Services',
+    });
   }
   ngOnInit(): void {
     this.changeTitle();
-    this.zedy.goTop();
   }
 }

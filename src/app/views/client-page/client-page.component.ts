@@ -7,17 +7,18 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./client-page.component.scss'],
 })
 export class ClientPageComponent implements OnInit {
-  clickEventSubscribtion: Subscription;
   constructor(private zedy: ZedyService) {
-    this.clickEventSubscribtion = this.zedy.getItems().subscribe(() => {
+    this.zedy.subject.subscribe(() => {
       this.changeTitle();
     });
   }
   changeTitle() {
-    this.zedy.changeTitle('ClientPageComponent');
+    this.zedy.setTitle({
+      ar: 'عملاؤنا',
+      en: 'Our Clients',
+    });
   }
   ngOnInit(): void {
     this.changeTitle();
-    this.zedy.goTop();
   }
 }

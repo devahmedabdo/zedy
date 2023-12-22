@@ -19,10 +19,15 @@ SwiperCore.use([Navigation, Autoplay]);
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
-  clickEventSubscribtion: Subscription;
   constructor(private zedy: ZedyService) {
-    this.clickEventSubscribtion = this.zedy.getItems().subscribe(() => {
+    this.zedy.subject.subscribe(() => {
       this.changeTitle();
+    });
+  }
+  changeTitle() {
+    this.zedy.setTitle({
+      ar: 'الرئيسية',
+      en: 'Home',
     });
   }
   config: SwiperOptions = {
@@ -40,62 +45,59 @@ export class LandingComponent implements OnInit {
   configuration: any;
   socialLinks?: any[];
   getConfig() {
-    // this.configuration = await this.zedy.localApi('configrations');
-    this.zedy.get('todos').subscribe({
+    this.zedy.get('configrations').subscribe({
       next: (data) => {
-        console.log(data);
-        this.zedy.saveData('todos', data);
+        console.log('landing', data);
+        this.configuration = data;
+        this.socialLinks = [
+          {
+            icon: faFacebookF,
+            link: this.configuration.facebook,
+            color: '71 89 147',
+          },
+          {
+            icon: faLinkedinIn,
+            link: this.configuration.linkedin,
+            color: '0 119 183',
+          },
+          {
+            icon: faInstagram,
+            link: this.configuration.instagram,
+            color: '242 124 166',
+          },
+          {
+            icon: faWhatsapp,
+            link: 'https://wa.me/+2' + this.configuration.whatsapp,
+            color: '122 208 109',
+          },
+          {
+            icon: faYoutube,
+            link: this.configuration.youtube,
+            color: '255 0 0',
+          },
+          {
+            icon: faBehance,
+            link: this.configuration.behance,
+            color: '30 109 255',
+          },
+          {
+            icon: faLocationDot,
+            link: this.configuration.location,
+            color: '196 66 40',
+          },
+          {
+            icon: faGooglePlay,
+            link: this.configuration.google_play_link,
+            color: '242 196 0',
+          },
+        ];
       },
       error: (err) => {
         console.log(err);
       },
     });
-    this.socialLinks = [
-      {
-        icon: faFacebookF,
-        link: this.configuration.facebook,
-        color: '71 89 147',
-      },
-      {
-        icon: faLinkedinIn,
-        link: this.configuration.linkedin,
-        color: '0 119 183',
-      },
-      {
-        icon: faInstagram,
-        link: this.configuration.instagram,
-        color: '242 124 166',
-      },
-      {
-        icon: faWhatsapp,
-        link: 'https://wa.me/+2' + this.configuration.whatsapp,
-        color: '122 208 109',
-      },
-      {
-        icon: faYoutube,
-        link: this.configuration.youtube,
-        color: '255 0 0',
-      },
-      {
-        icon: faBehance,
-        link: this.configuration.behance,
-        color: '30 109 255',
-      },
-      {
-        icon: faLocationDot,
-        link: this.configuration.location,
-        color: '196 66 40',
-      },
-      {
-        icon: faGooglePlay,
-        link: this.configuration.google_play_link,
-        color: '242 196 0',
-      },
-    ];
   }
-  changeTitle() {
-    this.zedy.changeTitle('LandingComponent');
-  }
+
   playVideo(event: any) {
     const button = event.target;
     const video = button.nextElementSibling as HTMLEmbedElement;
@@ -103,8 +105,7 @@ export class LandingComponent implements OnInit {
     button.remove();
   }
   ngOnInit(): void {
-    this.changeTitle();
     this.getConfig();
-    this.zedy.goTop();
+    this.changeTitle();
   }
 }

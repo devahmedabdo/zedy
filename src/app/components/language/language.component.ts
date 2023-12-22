@@ -7,18 +7,24 @@ import { ZedyService } from 'src/app/services/zedy.service';
   styleUrls: ['./language.component.scss'],
 })
 export class LanguageComponent implements OnInit {
-  constructor(private translate: TranslateService, private zedy: ZedyService) {}
+  constructor(private translate: TranslateService, private zedy: ZedyService) {
+    this.zedy.subject.subscribe({
+      next: (data) => {
+        this.lang = data;
+      },
+    });
+  }
   lang: string = 'ar';
-  setLang = async (lang: any) => {
+  setLang(lang: any) {
     this.lang = lang;
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
-    this.zedy.setItems();
-  };
+    this.zedy.subject.next(lang);
+  }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.lang = localStorage.getItem('lang') || 'ar';
     this.setLang(this.lang);
   }

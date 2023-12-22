@@ -10,6 +10,13 @@ export class FieldsComponent implements OnInit {
   constructor(private zedy: ZedyService) {}
   fields: any[] = [];
   async ngOnInit() {
-    this.fields = await this.zedy.localApi('fields');
+    this.zedy.get('fields').subscribe({
+      next: (fields) => {
+        this.fields = fields;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

@@ -7,10 +7,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./join-page.component.scss'],
 })
 export class JoinPageComponent implements OnInit {
-  clickEventSubscribtion: Subscription;
   constructor(private zedy: ZedyService) {
-    this.clickEventSubscribtion = this.zedy.getItems().subscribe(() => {
+    this.zedy.subject.subscribe(() => {
       this.changeTitle();
+    });
+  }
+  changeTitle() {
+    this.zedy.setTitle({
+      ar: 'انضم إلينا',
+      en: 'Join Us',
     });
   }
   jobs: any[] = [];
@@ -18,21 +23,30 @@ export class JoinPageComponent implements OnInit {
   femaleJobs: any = [];
   multiJobs: any = [];
   config: any;
-  async getJobs() {
-    this.jobs = await this.zedy.localApi('jobs');
-    this.maleJobs = this.jobs.filter((e) => e.type == 'ذكر');
-    this.femaleJobs = this.jobs.filter((e) => e.type == 'انثي');
-    this.multiJobs = this.jobs.filter((e) => e.type == 'انثي,ذكر');
-  }
-
-  changeTitle() {
-    this.zedy.changeTitle('JoinPageComponent');
+  getData() {
+    this.zedy.get('configrations').subscribe({
+      next: (config) => {
+        this.config = config;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+    this.zedy.get('jobs').subscribe({
+      next: (jobs) => {
+        this.jobs = jobs;
+        this.maleJobs = this.jobs.filter((e) => e.type == 'ذكر');
+        this.femaleJobs = this.jobs.filter((e) => e.type == 'انثي');
+        this.multiJobs = this.jobs.filter((e) => e.type == 'انثي,ذكر');
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   async ngOnInit() {
-    this.config = await this.zedy.localApi('configrations');
     this.changeTitle();
-    this.getJobs();
-    this.zedy.goTop();
+    this.getData();
   }
 }

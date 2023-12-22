@@ -13,8 +13,8 @@ export class ServicesComponent implements OnInit {
   getConfig() {}
   async ngOnInit() {
     // console.log(await this.zedy.localApi('services'));
-    this.config = await this.zedy.localApi('configrations');
-    this.services = await this.zedy.localApi('services');
+    // this.config = await this.zedy.localApi('configrations');
+    // this.services = await this.zedy.localApi('services');
     this.zedy.removeRveal();
   }
   // if (

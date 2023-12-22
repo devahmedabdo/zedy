@@ -7,18 +7,20 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./about-page.component.scss'],
 })
 export class AboutPageComponent implements OnInit {
-  constructor(private zedy: ZedyService) {}
-  // clickEventSubscribtion: Subscription;
-  // constructor(private zedy: ZedyService) {
-  //   this.clickEventSubscribtion = this.zedy.getItems().subscribe(() => {
-  //     this.changeTitle();
-  //   });
-  // }
-  changeTitle() {
-    this.zedy.changeTitle('AboutPageComponent');
+  constructor(private zedy: ZedyService) {
+    this.zedy.subject.subscribe(() => {
+      this.changeTitle();
+    });
   }
+  changeTitle() {
+    this.zedy.setTitle({
+      ar: 'من نحن',
+      en: 'About Us',
+    });
+  }
+
   ngOnInit(): void {
-    // this.changeTitle();
-    this.zedy.goTop();
+    this.changeTitle();
+    // this.zedy.goTop();
   }
 }

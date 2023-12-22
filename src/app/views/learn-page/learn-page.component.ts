@@ -7,10 +7,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./learn-page.component.scss'],
 })
 export class LearnPageComponent implements OnInit {
-  clickEventSubscribtion: Subscription;
   constructor(private zedy: ZedyService) {
-    this.clickEventSubscribtion = this.zedy.getItems().subscribe(() => {
+    this.zedy.subject.subscribe(() => {
       this.changeTitle();
+    });
+  }
+  changeTitle() {
+    this.zedy.setTitle({
+      ar: 'تعلم معنا',
+      en: 'Learn With Us',
     });
   }
   videos: any[] = [];
@@ -23,14 +28,19 @@ export class LearnPageComponent implements OnInit {
     }
   }
   async getVideos() {
-    this.videos = await this.zedy.localApi('videos?type=videos');
+    this.zedy.get('videos?type=videos').subscribe({
+      next: (videos) => {
+        console.log('landing', videos);
+        this.videos = videos;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
-  changeTitle() {
-    this.zedy.changeTitle('LearnPageComponent');
-  }
+
   ngOnInit(): void {
     this.getVideos();
     this.changeTitle();
-    this.zedy.goTop();
   }
 }

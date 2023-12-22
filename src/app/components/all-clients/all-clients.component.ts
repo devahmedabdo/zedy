@@ -16,7 +16,7 @@ export class AllClientsComponent implements OnInit {
   types: any[] = [];
   clientType: string = 'all';
   async getClient() {
-    this.clients = await this.zedy.localApi('clients');
+    // this.clients = await this.zedy.localApi('clients');
     let type;
     this.clients.forEach((e: any) => {
       if (e.field == null) {

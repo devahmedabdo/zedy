@@ -16,7 +16,7 @@ export class ClientsComponent implements OnInit {
   types: any[] = [];
   clientType: string = 'all';
   async getClient() {
-    this.clients = await this.zedy.localApi('clients');
+    // this.clients = await this.zedy.localApi('clients');
     let type;
     this.clients.forEach((e: any) => {
       if (e.field == null) {
@@ -34,14 +34,14 @@ export class ClientsComponent implements OnInit {
   }
   async getSpecific(type: string) {
     let typeArr: any = [];
-    let client = await this.zedy.localApi('clients');
-    client.forEach((ele: any) => {
-      if (type == 'all') {
-        typeArr.push(ele);
-      } else if (ele.field?.name == type) {
-        typeArr.push(ele);
-      }
-    });
+    // let client = await this.zedy.localApi('clients');
+    // client.forEach((ele: any) => {
+    //   if (type == 'all') {
+    //     typeArr.push(ele);
+    //   } else if (ele.field?.name == type) {
+    //     typeArr.push(ele);
+    //   }
+    // });
     if (typeArr.length > 12) {
       typeArr.length = 12;
     }

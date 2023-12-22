@@ -1,11 +1,12 @@
-<section class="find-us">
-  <div class="container">
+<section class="find-us bg-grayMid relative mb-28 sm:mb-20 overflow-visible">
+  <div class="container py-10">
     <h2 class="title dReveal">
       {{"You can find our work in" | translate}}
     </h2>
-    <img src="assets/landing/map.webp" alt="map-img">
-    <div>
-      <div class="dReveal" *ngFor="let country of countries;let i = index" style="--d:{{i}}">
+    <img class="pt-10 w-3/4 block mx-auto" src="assets/landing/map.webp" alt="map-img">
+    <div class="flex flex-wrap justify-around bg-grayDark bg-opacity-10 rounded-3xl absolute top-full -translate-y-1/2">
+      <div class="dReveal flex flex-col items-center gap-3 font-bold p-5 text-lg w-1/12 min-w-[90px]"
+        *ngFor="let country of countries;let i = index" [style]="'--d:'+i">
         <img src="assets/landing/flags/{{country.img}}.svg" alt="{{country.name}} Image">
         <span>{{country.name | translate}}</span>
       </div>

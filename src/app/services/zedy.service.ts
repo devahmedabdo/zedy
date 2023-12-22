@@ -1,30 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, catchError, map, of } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 @Injectable({
   providedIn: 'root',
 })
 export class ZedyService {
-  url: string = 'http://api.z-edy.com/api/';
+  url: string = 'https://dmc-dashboard.vercel.app/';
+  // url: string = 'http://api.z-edy.com/api/';
   constructor(private http: HttpClient, private title: Title) {}
-  private subject = new Subject<any>();
-  setItems() {
-    this.subject.next(null);
-  }
-  getItems(): Observable<any> {
-    return this.subject.asObservable();
-  }
-  // getData(api: string): Observable<any> {
-  //   return this.http.get(this.url + api);
-  // }
+  subject = new Subject<any>();
   get(api: string): Observable<any> {
     let localData: any = sessionStorage.getItem(api);
     if (localData) {
       console.log('local => ', JSON.parse(localData));
-      return localData.asObservable();
+      return of(JSON.parse(localData));
     }
-    return this.http.get(this.url + api);
+    return this.http.get(this.url + api).pipe(
+      map((data: any) => {
+        console.log('API Data => ', data);
+        // Save data in sessionStorage
+        sessionStorage.setItem(api, JSON.stringify(data));
+        return data; // Return the fetched data
+      }),
+      catchError((error: any) => {
+        // Handle errors here if needed
+        console.error('Error fetching data from API', error);
+        throw error;
+      })
+    );
   }
   removeRveal() {
     setTimeout(() => {
@@ -37,55 +41,26 @@ export class ZedyService {
     }, 111);
   }
 
-  // async localApi(api: string) {
-  //   let setLocal = async (position: string, data: any) => {
-  //     let strData = await JSON.stringify(data);
-  //     window.sessionStorage.setItem(position, strData);
-  //   };
-  //   let config = await JSON.parse(window.sessionStorage.getItem(api)!);
-  //   if (config) {
-  //     return config;
-  //   }
-  //   return this.getData(api)
-  //     .toPromise()
-  //     .then((data: any) => {
-  //       setLocal(api, data['data']);
-  //       return data['data'];
-  //     });
-  // }
-  async setTitle(arPageTitle: string, enPageTitle: string) {
-    let lang = document.documentElement.lang;
-    let config = await this.localApi('configrations');
-    if (lang == 'ar') {
-      this.title.setTitle(arPageTitle + config.ar_title);
-    } else {
-      this.title.setTitle(enPageTitle + config.title);
+  lang: string = localStorage.getItem('lang') || 'ar';
+  config: any;
+  setTitle(title: any) {
+    if (this.config) {
+      return this.title.setTitle(
+        title[this.lang] + this.config.title[this.lang]
+      );
     }
-  }
-  changeTitle(component: string) {
-    switch (component) {
-      case 'LandingComponent':
-        this.setTitle('الرئيسية - ', 'Home - ');
-        break;
-      case 'AboutPageComponent':
-        this.setTitle('من نحن - ', 'About Us - ');
-        break;
-      case 'ClientPageComponent':
-        this.setTitle('عملاؤنا - ', 'Our Clients - ');
-        break;
-      case 'JoinPageComponent':
-        this.setTitle('انضم إلينا - ', 'Join Us - ');
-        break;
-      case 'LearnPageComponent':
-        this.setTitle('تعلم معنا - ', 'Learn With Us - ');
-        break;
-      case 'ServicesPageComponent':
-        this.setTitle('خدماتنا - ', 'Services - ');
-        break;
-    }
-  }
-  saveData(key: string, data: any) {
-    sessionStorage.setItem(key, JSON.stringify(data));
+    this.get('configrations').subscribe({
+      next: (config) => {
+        this.config = config;
+        this.config.title = {
+          ar: config.ar_title,
+          en: config.title,
+        };
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
   goTop() {
     window.scrollTo(0, 0);

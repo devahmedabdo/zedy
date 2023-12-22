@@ -10,7 +10,7 @@ export class TeamComponent implements OnInit {
   constructor(private zedy: ZedyService) {}
   team: any[] = [];
   async getTeam() {
-    this.team = await this.zedy.localApi('employees');
+    // this.team = await this.zedy.localApi('employees');
   }
   ngOnInit(): void {
     this.getTeam();

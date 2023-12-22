@@ -1,5 +1,4 @@
 .lang {
-  @apply bg-grayLight flex justify-around gap-2 py-3 px-2 min-w-[100px] rounded-2xl relative select-none;
   @media (max-width: 400px) {
     @apply min-w-[40px];
   }
@@ -12,14 +11,6 @@
     }
     &.arabic {
       font-family: "Tajawal", sans-serif;
-      &:lang(ar) {
-        display: none !important;
-      }
-    }
-    &.english {
-      &:lang(en) {
-        display: none !important;
-      }
     }
   }
 }

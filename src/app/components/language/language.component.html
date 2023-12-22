@@ -1,9 +1,9 @@
-<div class="lang">
+<div class="lang bg-grayLight flex justify-around gap-2 py-3 px-2 min-w-[100px] rounded-2xl relative select-none">
   <div class="selected-lang">
-    <div class="lang-box english " (click)="setLang('en')"><img src="assets/landing/flags/usa.svg"
+    <div *ngIf="lang == 'ar'" class="lang-box" (click)="setLang('en')"><img src="assets/landing/flags/usa.svg"
         alt="English-Button"><span>English</span>
     </div>
-    <div class="lang-box  arabic" (click)="setLang('ar')"><img src="assets/landing/flags/egypt.svg"
+    <div *ngIf="lang == 'en'" class="lang-box  arabic" (click)="setLang('ar')"><img src="assets/landing/flags/egypt.svg"
         alt="Arabic-Button"><span>عربى</span>
     </div>
   </div>
