@@ -37,9 +37,9 @@ export class AppComponent implements OnInit {
     });
   }
   getData() {
-    this.zedy.get('config').subscribe({
+    this.zedy.get('configrations').subscribe({
       next: (data: any) => {
-        this.config = data;
+        this.config = data.data;
         let head = document.getElementsByTagName('head')[0];
         let body = document.getElementsByTagName('body')[0];
         if (this.config.head_meta != null) {

@@ -15,38 +15,54 @@ export class ClientsComponent implements OnInit {
   }
   types: any[] = [];
   clientType: string = 'all';
-  async getClient() {
+  getClient() {
     // this.clients = await this.zedy.localApi('clients');
-    let type;
-    this.clients.forEach((e: any) => {
-      if (e.field == null) {
-        return;
-      }
-      type = e.field;
-      if (JSON.stringify(this.types).includes(JSON.stringify(type))) {
-      } else {
-        this.types.push(type);
-      }
+    this.zedy.get('clients').subscribe({
+      next: (data) => {
+        console.log('cclient', data);
+        let type;
+        this.clients = data.data;
+        this.clients.forEach((e: any) => {
+          if (e.field == null) {
+            return;
+          }
+          type = e.field;
+          if (JSON.stringify(this.types).includes(JSON.stringify(type))) {
+          } else {
+            this.types.push(type);
+          }
+        });
+        if (this.clients.length > 12) {
+          this.clients.length = 12;
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
     });
-    if (this.clients.length > 12) {
-      this.clients.length = 12;
-    }
   }
-  async getSpecific(type: string) {
-    let typeArr: any = [];
-    // let client = await this.zedy.localApi('clients');
-    // client.forEach((ele: any) => {
-    //   if (type == 'all') {
-    //     typeArr.push(ele);
-    //   } else if (ele.field?.name == type) {
-    //     typeArr.push(ele);
-    //   }
-    // });
-    if (typeArr.length > 12) {
-      typeArr.length = 12;
-    }
-    this.clients = typeArr;
-    this.zedy.removeRveal();
+  getSpecific(type: string) {
+    this.zedy.get('clients').subscribe({
+      next: (client) => {
+        let typeArr: any = [];
+
+        client.data.forEach((ele: any) => {
+          if (type == 'all') {
+            typeArr.push(ele);
+          } else if (ele.field?.name == type) {
+            typeArr.push(ele);
+          }
+        });
+        if (typeArr.length > 12) {
+          typeArr.length = 12;
+        }
+        this.clients = typeArr;
+        this.zedy.removeRveal();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
   ngOnInit(): void {
     this.getClient();

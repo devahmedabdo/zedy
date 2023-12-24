@@ -9,10 +9,10 @@ import { ZedyService } from './../../services/zedy.service';
 export class FieldsComponent implements OnInit {
   constructor(private zedy: ZedyService) {}
   fields: any[] = [];
-  async ngOnInit() {
+  ngOnInit() {
     this.zedy.get('fields').subscribe({
       next: (fields) => {
-        this.fields = fields;
+        this.fields = fields.data;
       },
       error: (err) => {
         console.log(err);

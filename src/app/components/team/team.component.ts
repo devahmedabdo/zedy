@@ -9,10 +9,14 @@ import { ZedyService } from './../../services/zedy.service';
 export class TeamComponent implements OnInit {
   constructor(private zedy: ZedyService) {}
   team: any[] = [];
-  async getTeam() {
-    // this.team = await this.zedy.localApi('employees');
-  }
   ngOnInit(): void {
-    this.getTeam();
+    this.zedy.get('employees').subscribe({
+      next: (data) => {
+        this.team = data.data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

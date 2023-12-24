@@ -48,7 +48,7 @@ export class LandingComponent implements OnInit {
     this.zedy.get('configrations').subscribe({
       next: (data) => {
         console.log('landing', data);
-        this.configuration = data;
+        this.configuration = data.data;
         this.socialLinks = [
           {
             icon: faFacebookF,

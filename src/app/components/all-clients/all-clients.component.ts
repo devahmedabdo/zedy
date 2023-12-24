@@ -15,18 +15,26 @@ export class AllClientsComponent implements OnInit {
   }
   types: any[] = [];
   clientType: string = 'all';
-  async getClient() {
-    // this.clients = await this.zedy.localApi('clients');
-    let type;
-    this.clients.forEach((e: any) => {
-      if (e.field == null) {
-        return;
-      }
-      type = e.field;
-      if (JSON.stringify(this.types).includes(JSON.stringify(type))) {
-      } else {
-        this.types.push(type);
-      }
+  getClient() {
+    this.zedy.get('clients').subscribe({
+      next: (data) => {
+        console.log('landing', data);
+        this.clients = data.data;
+        let type;
+        this.clients.forEach((e: any) => {
+          if (e.field == null) {
+            return;
+          }
+          type = e.field;
+          if (JSON.stringify(this.types).includes(JSON.stringify(type))) {
+          } else {
+            this.types.push(type);
+          }
+        });
+      },
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
   ngOnInit(): void {

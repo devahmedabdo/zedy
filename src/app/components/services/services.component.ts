@@ -10,31 +10,23 @@ export class ServicesComponent implements OnInit {
   constructor(private zedy: ZedyService) {}
   services: any[] = [];
   config: any;
-  getConfig() {}
-  async ngOnInit() {
-    // console.log(await this.zedy.localApi('services'));
-    // this.config = await this.zedy.localApi('configrations');
-    // this.services = await this.zedy.localApi('services');
+  ngOnInit() {
+    this.zedy.get('services').subscribe({
+      next: (data) => {
+        this.config = data.data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+    this.zedy.get('services').subscribe({
+      next: (data) => {
+        this.services = data.data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
     this.zedy.removeRveal();
   }
-  // if (
-  //   (await this.zedy.localApi('configrations')) &&
-  //   (await this.zedy.localApi('services'))
-  // ) {
-  //   this.config = await this.zedy.localApi('configrations');
-  //   this.services = await this.zedy.localApi('services');
-  //   this.zedy.removeRveal();
-  // } else {
-  //   await this.zedy.getData('services').subscribe({
-  //     next: (data: any) => {
-  //       this.services = data['data'];
-  //       this.zedy.removeRveal();
-  //     },
-  //   });
-  //   await this.zedy.getData('configrations').subscribe({
-  //     next: (data: any) => {
-  //       this.config = data['data'];
-  //     },
-  //   });
-  // }
 }
