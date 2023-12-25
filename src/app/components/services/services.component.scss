@@ -1,8 +1,5 @@
 section {
   .container {
-    > p {
-      @apply font-bold text-4xl py-3;
-    }
     .services {
       @apply py-10 grid justify-center gap-8;
       justify-items: center;

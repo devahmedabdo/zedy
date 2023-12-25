@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
   constructor(private translate: TranslateService) {}
-@Input() whatsLink?:string
+  @Input() whatsLink?: string;
   lang: string = 'en';
   whatsapp = faWhatsapp;
   toggelMenu() {
@@ -27,14 +27,6 @@ export class HeaderComponent implements OnInit {
     document.querySelector('.lang-menu')?.classList.toggle('active');
   }
   ngOnInit(): void {
-    //scroll to top on click and close menu
-    let navLink = document.querySelectorAll('header nav ul li');
-    navLink.forEach((e) => {
-      e.addEventListener('click', () => {
-        this.removeActive(toggeler);
-        window.scrollTo(0, 0);
-      });
-    });
     //close menu when scroll
     let toggeler = document.querySelectorAll('#toggeler,#nav-menu');
     window.addEventListener('scroll', () => {

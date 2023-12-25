@@ -11,12 +11,13 @@ export class AppComponent implements OnInit {
   whatsLink?: string;
   config: any;
   lang: string = localStorage.getItem('lang') || 'ar';
+  loading:boolean=true
+  loaded:boolean=false
   ngOnInit() {
     window.addEventListener('load', () => {
-      let loading = document.getElementById('loading');
-      loading?.classList.add('hide');
+      this.loading = false
       setTimeout(() => {
-        loading?.remove();
+        this.loaded = true
       }, 1000);
     });
     window.addEventListener('scroll', () => {
@@ -71,6 +72,14 @@ export class AppComponent implements OnInit {
         }
       },
     });
+  }
+  activate() {
+     const scrollOptions: ScrollToOptions = {
+       top: 0,
+       left: 0,
+       behavior: 'instant' as ScrollBehavior,
+     };
+    window.scroll(scrollOptions);
   }
   constructor(private zedy: ZedyService, private meta: Meta) {
     this.getData();

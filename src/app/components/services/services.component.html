@@ -1,18 +1,17 @@
 <section>
   <div class="container">
-    <h1 style="--color:#1A7FC3" class="title lReveal">{{"Services" | translate}}</h1>
-    <p class="lReveal">{{"With you in marketing and business" | translate}}</p>
+    <h1 style="--color:#1A7FC3" class="title lReveal ">{{"Services" | translate}}</h1>
+    <p class="lReveal font-bold text-4xl py-3">{{"With you in marketing and business" | translate}}</p>
     <div class="services">
-      <div style="--color:{{service.color}}" class="dReveal" *ngFor="let service of services">
+      <div [style]="'--color:'+service.color" class="dReveal" *ngFor="let service of services">
         <div class="services-img">
           <img [src]="service.image" alt="{{service.title}}">
           <div>
             <div>
               <h3 class="arabic">{{service.ar_name}}</h3>
               <h3 class="english">{{service.name}}</h3>
-              <a target="_blank"
-                [href]="'https://wa.me/+2'+config?.whatsapp+'?text=أريد طلب خدمة : '+service.ar_name">{{"Order
-                Now"|translate}}</a>
+              <a target="_blank" [href]="'https://wa.me/+2'+config?.whatsapp+'?text=أريد طلب خدمة : '+service.ar_name">
+                {{"Order Now"|translate}}</a>
             </div>
             <p class="arabic">{{service.ar_description}}</p>
             <p class="english">{{service.description}}</p>

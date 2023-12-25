@@ -46,15 +46,15 @@ export class ZedyService {
   setTitle(title: any) {
     if (this.config) {
       return this.title.setTitle(
-        title[this.lang] + this.config.title[this.lang]
+        title[this.lang] + ' - ' + this.config.title[this.lang]
       );
     }
     this.get('configrations').subscribe({
       next: (config) => {
         this.config = config;
         this.config.title = {
-          ar: config.ar_title,
-          en: config.title,
+          ar: config.ar_title || '',
+          en: config.title || '',
         };
       },
       error: (err) => {

@@ -31,7 +31,7 @@ export class LearnPageComponent implements OnInit {
     this.zedy.get('videos?type=videos').subscribe({
       next: (videos) => {
         console.log('landing', videos);
-        this.videos = videos;
+        this.videos = videos.data;
       },
       error: (err) => {
         console.log(err);
