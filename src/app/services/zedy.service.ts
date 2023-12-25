@@ -13,14 +13,22 @@ export class ZedyService {
   get(api: string): Observable<any> {
     let localData: any = sessionStorage.getItem(api);
     if (localData) {
-      console.log('local => ', JSON.parse(localData));
+      // console.log('local => ', JSON.parse(localData));
+      // if (api == 'configrations') {
+      //   this.config = JSON.parse(localData).data;
+      //   // console.log('localData', localData);
+      // }
       return of(JSON.parse(localData));
     }
     return this.http.get(this.url + api).pipe(
       map((data: any) => {
-        console.log('API Data => ', data);
+        // console.log('API Data => ', data);
         // Save data in sessionStorage
         sessionStorage.setItem(api, JSON.stringify(data));
+        // if (api == 'configrations') {
+        //   this.config = data.data;
+        //   console.log('asd', data.data);
+        // }
         return data; // Return the fetched data
       }),
       catchError((error: any) => {
@@ -56,6 +64,9 @@ export class ZedyService {
           ar: config.ar_title || '',
           en: config.title || '',
         };
+        this.title.setTitle(
+          title[this.lang] + ' - ' + this.config.title[this.lang]
+        );
       },
       error: (err) => {
         console.log(err);

@@ -8,17 +8,17 @@ import { Subscription } from 'rxjs';
 })
 export class ClientPageComponent implements OnInit {
   constructor(private zedy: ZedyService) {
+    this.changeTitle();
     this.zedy.subject.subscribe(() => {
       this.changeTitle();
     });
   }
   changeTitle() {
+    console.log('asd');
     this.zedy.setTitle({
       ar: 'عملاؤنا',
       en: 'Our Clients',
     });
   }
-  ngOnInit(): void {
-    this.changeTitle();
-  }
+  ngOnInit(): void {}
 }

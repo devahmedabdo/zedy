@@ -11,15 +11,15 @@ export class AppComponent implements OnInit {
   whatsLink?: string;
   config: any;
   lang: string = localStorage.getItem('lang') || 'ar';
-  loading:boolean=true
-  loaded:boolean=false
+  loading: boolean = true;
+  loaded: boolean = false;
   ngOnInit() {
-    window.addEventListener('load', () => {
-      this.loading = false
-      setTimeout(() => {
-        this.loaded = true
-      }, 1000);
-    });
+    // window.addEventListener('load', () => {
+    //   this.loading = false
+    //   setTimeout(() => {
+    //     this.loaded = true
+    //   }, 1000);
+    // });
     window.addEventListener('scroll', () => {
       let animationClasses = document.querySelectorAll(
         '.lReveal , .dReveal,.uReveal,.rReveal'
@@ -41,6 +41,10 @@ export class AppComponent implements OnInit {
     this.zedy.get('configrations').subscribe({
       next: (data: any) => {
         this.config = data.data;
+        this.loading = false;
+        setTimeout(() => {
+          this.loaded = true;
+        }, 1000);
         let head = document.getElementsByTagName('head')[0];
         let body = document.getElementsByTagName('body')[0];
         if (this.config.head_meta != null) {
@@ -74,11 +78,11 @@ export class AppComponent implements OnInit {
     });
   }
   activate() {
-     const scrollOptions: ScrollToOptions = {
-       top: 0,
-       left: 0,
-       behavior: 'instant' as ScrollBehavior,
-     };
+    const scrollOptions: ScrollToOptions = {
+      top: 0,
+      left: 0,
+      behavior: 'instant' as ScrollBehavior,
+    };
     window.scroll(scrollOptions);
   }
   constructor(private zedy: ZedyService, private meta: Meta) {
