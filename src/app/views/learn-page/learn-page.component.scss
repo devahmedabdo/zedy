@@ -1,13 +1,7 @@
-section {
-  .container {
-    .learn-video {
-      @apply py-10;
+.learn-video {
       > div {
-        @apply items-center flex flex-col;
         div {
-          @apply relative rounded-lg overflow-hidden;
           button.playBtn {
-            @apply w-full h-full top-0 z-10 absolute;
             &::after,
             &::before {
               @apply absolute;
@@ -39,5 +33,3 @@ section {
         }
       }
     }
-  }
-}

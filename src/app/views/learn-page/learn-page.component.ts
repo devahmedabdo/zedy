@@ -10,7 +10,7 @@ export class LearnPageComponent implements OnInit {
   pagination: any = {
     page: 0,
     total: 0,
-    limit: 9,
+    limit: 33,
   };
   loading: any = true;
   constructor(private zedy: ZedyService) {

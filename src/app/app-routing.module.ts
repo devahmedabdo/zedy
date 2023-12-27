@@ -6,6 +6,7 @@ import { ClientPageComponent } from './views/client-page/client-page.component';
 import { LearnPageComponent } from './views/learn-page/learn-page.component';
 import { JoinPageComponent } from './views/join-page/join-page.component';
 import { AboutPageComponent } from './views/about-page/about-page.component';
+import { ViewVideoComponent } from './views/learn-page/view-video/view-video.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'clients', component: ClientPageComponent },
   { path: 'learn', component: LearnPageComponent },
   { path: 'join', component: JoinPageComponent },
+  { path: 'video/:id', component: ViewVideoComponent },
   {
     path: 'about',
     component: AboutPageComponent,

@@ -38,6 +38,7 @@ import { SafePipe } from './pipes/safe.pipe';
 import { ZedyService } from './services/zedy.service';
 import { LoadingComponent } from './layout/loading/loading.component';
 import { TopComponent } from './layout/top/top.component';
+import { ViewVideoComponent } from './views/learn-page/view-video/view-video.component';
 //
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { TopComponent } from './layout/top/top.component';
     SafePipe,
     LoadingComponent,
     TopComponent,
+    ViewVideoComponent,
   ],
   imports: [
     BrowserModule,

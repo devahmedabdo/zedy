@@ -6,10 +6,10 @@
       والتسويق<div></div>
     </h2>
     <ng-container *ngIf="videos.length">
-      <div class="learn-video grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div *ngFor="let video of videos">
-          <div class="w-full">
-            <button class="playBtn" (click)="playVideo($event)">
+      <div class="learn-video py-10 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="items-center flex flex-col" *ngFor="let video of videos">
+          <div class="w-full relative rounded-lg overflow-hidden">
+            <button class="playBtn w-full h-full top-0 z-10 absolute" (click)="playVideo($event)">
             </button>
             <iframe class="w-full" #frame [src]="'https://www.youtube.com/embed/'+video.path | safe" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -18,8 +18,8 @@
           <div class="flex items-center w-full justify-between mt-2 gap-1">
             <a class="font-bold" translate="text" [translateParams]="{ar:video.ar_name,en:video.name}" target="_blank"
               [href]="video.link | safe"></a>
-            <button class="bg-primaryLight bg-opacity-20 p-2 rounded-full w-max flex items-center gap-1 min-w-max">
-              <span class="text-xs text-primary font-medium" translate="text"
+            <button routerLink="/video/{{video.id}}" class="bg-primaryLight bg-opacity-20 p-2 rounded-full w-max flex items-center gap-1 min-w-max">
+              <span class="text-xs text-primary font-bold" translate="text"
                 [translateParams]="{ar:'المزيد',en:'More'}"></span>
               <img class="w-4 arrow" src="assets/landing/r-arrow.svg">
             </button>
