@@ -13,11 +13,13 @@ export class ZedyService {
   get(api: string): Observable<any> {
     let localData: any = sessionStorage.getItem(api);
     if (localData) {
-      // console.log('local => ', JSON.parse(localData));
-      // if (api == 'configrations') {
-      //   this.config = JSON.parse(localData).data;
-      //   // console.log('localData', localData);
-      // }
+      if (api == 'configrations') {
+        this.config = JSON.parse(localData).data;
+        this.config.title = {
+          ar: JSON.parse(localData).data.ar_title,
+          en: JSON.parse(localData).data.title,
+        };
+      }
       return of(JSON.parse(localData));
     }
     return this.http.get(this.url + api).pipe(
@@ -25,10 +27,13 @@ export class ZedyService {
         // console.log('API Data => ', data);
         // Save data in sessionStorage
         sessionStorage.setItem(api, JSON.stringify(data));
-        // if (api == 'configrations') {
-        //   this.config = data.data;
-        //   console.log('asd', data.data);
-        // }
+        if (api == 'configrations') {
+          this.config = data.data;
+          this.config.title = {
+            ar: data.data.ar_title,
+            en: data.data.title,
+          };
+        }
         return data; // Return the fetched data
       }),
       catchError((error: any) => {
@@ -48,30 +53,10 @@ export class ZedyService {
       });
     }, 111);
   }
-
-  lang: string = localStorage.getItem('lang') || 'ar';
   config: any;
   setTitle(title: any) {
-    if (this.config) {
-      return this.title.setTitle(
-        title[this.lang] + ' - ' + this.config.title[this.lang]
-      );
-    }
-    this.get('configrations').subscribe({
-      next: (config) => {
-        this.config = config;
-        this.config.title = {
-          ar: config.ar_title || '',
-          en: config.title || '',
-        };
-        this.title.setTitle(
-          title[this.lang] + ' - ' + this.config.title[this.lang]
-        );
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+    let lang: string = localStorage.getItem('lang') || 'ar';
+    this.title.setTitle(title[lang] + ' - ' + this.config?.title?.[lang]);
   }
   goTop() {
     window.scrollTo(0, 0);

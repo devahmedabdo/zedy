@@ -3,13 +3,11 @@
     <h2 class="title">{{"Our clients"|translate}}</h2>
     <div class="fillter">
       <div [ngClass]="{active : clientType === 'all' }" (click)="setClientType('all')">
-        <span class="arabic" (click)="getSpecific('all')">الكل</span>
-        <span class="english" (click)="getSpecific('all')">All</span>
+        <span translate="text" [translateParams]="{ar:'الكل',en:'All'}"></span>
       </div>
       <div [ngClass]="{active : clientType === type.name }" *ngFor="let type of types"
         (click)="setClientType(type.name)">
-        <span class="arabic" (click)="getSpecific(type.name)">{{type.ar_name}}</span>
-        <span class="english" (click)="getSpecific(type.name)">{{type.name}}</span>
+        <span translate="text" [translateParams]="{ar:type.ar_name,en:type.name}"></span>
       </div>
     </div>
     <div class="clients">
@@ -17,10 +15,8 @@
       <ng-container *ngFor="let client of clients ">
         <div class="dReveal" *ngIf="clientType === client.field?.name || clientType === 'all'">
           <img src="{{client.image}}" alt="{{client.name}} Logo">
-          <h6 class="english">{{client.name}}</h6>
-          <h6 class="arabic">{{client.ar_name}}</h6>
-          <span class="english">{{client.description}}</span>
-          <span class="arabic">{{client.ar_description}}</span>
+          <h6 translate="text" [translateParams]="{ar:client.name,en:client.ar_name}"></h6>
+          <span translate="text" [translateParams]="{ar:client.description,en:client.ar_description}"></span>
         </div>
       </ng-container>
     </div>

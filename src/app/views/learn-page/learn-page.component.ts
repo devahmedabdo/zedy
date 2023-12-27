@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ZedyService } from './../../services/zedy.service';
-import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-learn-page',
   templateUrl: './learn-page.component.html',
   styleUrls: ['./learn-page.component.scss'],
 })
 export class LearnPageComponent implements OnInit {
+  videos: any[] = [];
+  pagination: any = {
+    page: 0,
+    total: 0,
+    limit: 9,
+  };
+  loading: any = true;
   constructor(private zedy: ZedyService) {
     this.zedy.subject.subscribe(() => {
       this.changeTitle();
     });
   }
-  changeTitle() {
-    this.zedy.setTitle({
-      ar: 'تعلم معنا',
-      en: 'Learn With Us',
-    });
+  ngOnInit(): void {
+    this.getVideos(1);
+    this.changeTitle();
   }
-  videos: any[] = [];
   playVideo(btn: any): void {
     let playBtn = btn.target as HTMLElement;
     let video = playBtn.nextElementSibling as HTMLEmbedElement;
@@ -27,20 +30,35 @@ export class LearnPageComponent implements OnInit {
       playBtn.remove();
     }
   }
-  async getVideos() {
-    this.zedy.get('videos?type=videos').subscribe({
-      next: (videos) => {
-        console.log('landing', videos);
-        this.videos = videos.data;
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+  getVideos(page: any) {
+    this.loading = true;
+    this.zedy
+      .get(
+        'videos?type=videos&limit=' +
+          this.pagination.limit +
+          '&page=' +
+          page +
+          '&skip=' +
+          this.pagination.limit * this.pagination.page
+      )
+      .subscribe({
+        next: (videos) => {
+          console.log('videos', videos);
+          this.loading = false;
+          this.videos.push(...videos.data);
+          this.pagination.page = page;
+          this.pagination.total = videos.total;
+        },
+        error: (err) => {
+          this.loading = false;
+          console.log(err);
+        },
+      });
   }
-
-  ngOnInit(): void {
-    this.getVideos();
-    this.changeTitle();
+  changeTitle() {
+    this.zedy.setTitle({
+      ar: 'تعلم معنا',
+      en: 'Learn With Us',
+    });
   }
 }
