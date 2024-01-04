@@ -1,0 +1,18 @@
+.alsoWatch::after,
+.alsoWatch::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  aspect-ratio: 1/2;
+  background: #1a7fc3;
+}
+
+.alsoWatch::before {
+  right: 0%;
+  transform: rotate(135deg) translate(-100%, 20%);
+}
+.alsoWatch::after {
+  left: 0%;
+  transform: rotate(45deg) translate(-100%, -22%);
+}

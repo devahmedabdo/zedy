@@ -108,3 +108,37 @@ $header-height: 78px;
     }
   }
 }
+.learn-video {
+  > div {
+    div {
+      button.playBtn {
+        &::after,
+        &::before {
+          @apply absolute;
+          content: "";
+        }
+        &::before {
+          @apply w-full h-full top-0 left-0;
+          backdrop-filter: blur(5px);
+        }
+        &::after {
+          @apply w-16 h-16 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+          background: url("assets/landing/play-btn.svg") center center no-repeat,
+            #ffffff26;
+          background-size: 40px;
+        }
+      }
+    }
+    a {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .arrow {
+      &:lang(ar) {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}

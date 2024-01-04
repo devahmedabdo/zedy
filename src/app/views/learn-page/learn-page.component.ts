@@ -10,7 +10,7 @@ export class LearnPageComponent implements OnInit {
   pagination: any = {
     page: 0,
     total: 0,
-    limit: 33,
+    limit: 3,
   };
   loading: any = true;
   constructor(private zedy: ZedyService) {
@@ -34,12 +34,7 @@ export class LearnPageComponent implements OnInit {
     this.loading = true;
     this.zedy
       .get(
-        'videos?type=videos&limit=' +
-          this.pagination.limit +
-          '&page=' +
-          page +
-          '&skip=' +
-          this.pagination.limit * this.pagination.page
+        'videos?type=videos&limit=' + this.pagination.limit + '&page=' + page
       )
       .subscribe({
         next: (videos) => {
