@@ -3,13 +3,12 @@
     <h2 class="title">{{"Our clients"|translate}}</h2>
     <div class="fillter">
       <div [ngClass]="{active : clientType === 'all' }" (click)="setClientType('all')">
-        <span class="arabic">الكل</span>
-        <span class="english">All</span>
+        <span translate="text" [translateParams]="{ar:'الكل',en:'All'}"></span>
+
       </div>
       <div [ngClass]="{active : clientType === type.name }" *ngFor="let type of types"
         (click)="setClientType(type.name)">
-        <span class="arabic">{{type.ar_name}}</span>
-        <span class="english">{{type.name}}</span>
+        <span translate="text" [translateParams]="{ar:type.ar_name,en:type.name}"></span>
       </div>
     </div>
     <div class="clients">
