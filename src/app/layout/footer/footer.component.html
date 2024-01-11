@@ -3,8 +3,7 @@
     <div>
       <div>
         <img src="assets/landing/whiteLogo.svg" alt="zedy logo">
-        <p class="arabic">{{config?.description}}</p>
-        <p class="english">{{config?.en_description}}</p>
+        <p translate="text" [translateParams]="{ar:config?.description,en:config?.en_description}"> </p>
         <app-language class="language"></app-language>
       </div>
       <div>
@@ -33,13 +32,15 @@
         <h3>{{"Or visit the closest branch"|translate}}</h3>
         <div class="location">
           <fa-icon [icon]="faLocationDot"></fa-icon>
-          <a target="_blank" [href]="config?.location" class="arabic">{{config?.ar_address}}</a>
-          <a target="_blank" [href]="config?.location" class="english">{{config?.address}}</a>
+          <a target="_blank" [href]="config?.location" translate="text"
+            [translateParams]="{ar:config?.ar_address,en:config?.address}"> </a>
+
         </div>
         <div class="links">
-          <a target="_blank" style="--color:{{myLink.color}}" *ngFor="let myLink of socialLinks ; let i=index" [href]="myLink.link">
-            <fa-icon [icon]="myLink.icon"></fa-icon>
-          </a>
+          <ng-container *ngFor="let link of socialLinks ; let i=index">
+            <a *ngIf="link.link" target="_blank" [style]="'--color:'+link.color" [href]="link.link">
+              <fa-icon [icon]="link.icon"></fa-icon> </a>
+          </ng-container>
         </div>
       </div>
     </div>

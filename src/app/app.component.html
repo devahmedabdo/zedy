@@ -1,6 +1,6 @@
 <app-loading *ngIf="!loaded" [loading]="loading"></app-loading>
 <ng-container *ngIf="!loading">
-  <app-header [whatsLink]="whatsLink"></app-header>
+  <app-header [whatsLink]="whatsLink" [(activeMenu)]="active"></app-header>
   <router-outlet (activate)="activate()"></router-outlet>
   <app-footer></app-footer>
   <app-top></app-top>

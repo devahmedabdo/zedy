@@ -1,7 +1,7 @@
 header {
   @apply w-full fixed py-3 top-0 z-20 bg-grayBg;
   .container {
-    @apply text-[20px] flex;
+    @apply text-xl flex;
     > a {
       width: 100px;
     }
@@ -16,7 +16,7 @@ header {
           a {
             @apply relative transition-colors  py-2;
             &::after {
-              @apply left-0 top-full w-0 absolute h-[2px] rounded-full bg-primary;
+              @apply left-0 top-full w-0 absolute h-0.5 rounded-full bg-primary;
               content: "";
               transition: 0.15s width;
             }

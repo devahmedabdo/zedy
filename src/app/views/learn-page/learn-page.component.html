@@ -17,7 +17,7 @@
           </div>
           <div class="flex items-center w-full justify-between mt-2 gap-1">
             <a class="font-bold" translate="text" [translateParams]="{ar:video.ar_name,en:video.name}" target="_blank"
-              [href]="video.link | safe"></a>
+              [href]="'https://www.youtube.com/'+video.path | safe"></a>
             <button routerLink="/video/{{video.id}}"
               class="bg-primaryLight bg-opacity-20 p-2 rounded-full w-max flex items-center gap-1 min-w-max">
               <span class="text-xs text-primary font-bold" translate="text"

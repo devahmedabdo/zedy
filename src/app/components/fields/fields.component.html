@@ -21,8 +21,7 @@
           <img src="{{field.image}}" alt="{{field.name}} image">
 
         </div>
-        <h6 class="arabic">{{field.ar_name}}</h6>
-        <h6 class="english">{{field.name}}</h6>
+        <h6 translate="text" [translateParams]="{ar:field.ar_name,en:field.name}"></h6>
       </div>
     </div>
   </div>

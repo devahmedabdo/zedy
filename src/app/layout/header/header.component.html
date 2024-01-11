@@ -2,7 +2,7 @@
   <div class="container items-center">
     <a href="#" class="logo"><img src="assets/header/logo.svg" alt="zedy-logo"></a>
     <nav>
-      <ul class="capitalize" id="nav-menu">
+      <ul class="capitalize" [ngClass]="{active:activeMenu}">
         <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="">{{'home' |
             translate}}</a></li>
         <li><a routerLinkActive="active" routerLink="services">{{'services' |
@@ -15,15 +15,14 @@
             translate}}</a></li>
         <li><a routerLinkActive="active" routerLink="join">{{'join us' |
             translate}}</a></li>
-        <app-language (click)="toggelMenu()"></app-language>
+        <app-language (click)="toggleMenu(true)"></app-language>
       </ul>
     </nav>
-    <a class="whatsapp-icon" [href]="whatsLink">
+    <a *ngIf="whatsLink" class="whatsapp-icon" [href]="whatsLink">
       <fa-icon [icon]="whatsapp"></fa-icon>
-
     </a>
     <app-language></app-language>
-    <button id="toggeler" class=" " (click)="toggelMenu()">
+    <button [ngClass]="{active:activeMenu}" (click)="toggleMenu(activeMenu)">
       <span></span>
       <span></span>
       <span></span>

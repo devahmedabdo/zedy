@@ -35,10 +35,13 @@
         {{"Learn More" | translate}}
       </h2>
       <div>
-        <a target="_blank" class="dReveal" [style]="'--d:'+i+';--color:'+link.color"
-          *ngFor="let link of socialLinks ; let i=index" [href]="link?.link">
-          <fa-icon [icon]="link?.icon"></fa-icon>
-        </a>
+        <ng-container *ngFor="let link of socialLinks ; let i=index">
+          <a *ngIf="link.link" target="_blank" class="dReveal" [style]="'--d:'+i+';--color:'+link.color"
+            [href]="link?.link">
+            <fa-icon [icon]="link?.icon"></fa-icon>
+          </a>
+
+        </ng-container>
       </div>
     </div>
     <div class="video-section rReveal">

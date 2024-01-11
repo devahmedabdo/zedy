@@ -14,12 +14,6 @@ export class AppComponent implements OnInit {
   loading: boolean = true;
   loaded: boolean = false;
   ngOnInit() {
-    // window.addEventListener('load', () => {
-    //   this.loading = false
-    //   setTimeout(() => {
-    //     this.loaded = true
-    //   }, 1000);
-    // });
     window.addEventListener('scroll', () => {
       let animationClasses = document.querySelectorAll(
         '.lReveal , .dReveal,.uReveal,.rReveal'
@@ -36,6 +30,7 @@ export class AppComponent implements OnInit {
         }
       });
     });
+    this.active = false;
   }
   getData() {
     this.zedy.get('configrations').subscribe({
@@ -84,9 +79,12 @@ export class AppComponent implements OnInit {
       behavior: 'instant' as ScrollBehavior,
     };
     window.scroll(scrollOptions);
+    this.active = false;
+    console.log(this.active);
   }
   constructor(private zedy: ZedyService, private meta: Meta) {
     this.getData();
   }
   title = 'zedy';
+  active: any;
 }
