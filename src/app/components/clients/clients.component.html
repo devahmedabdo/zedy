@@ -15,7 +15,7 @@
         <div class="dReveal" *ngIf="clientType === client.field?.name || clientType === 'all'">
           <img src="{{client.image}}" alt="{{client.name}} Logo">
           <h6 translate="text" [translateParams]="{ar:client.ar_name,en:client.name}"></h6>
-          <span translate="text" [translateParams]="{ar:client.ar_description,en:client.description}"></span>
+          <!-- <span translate="text" [translateParams]="{ar:client.ar_description,en:client.description}"></span> -->
         </div>
       </ng-container>
     </div>
