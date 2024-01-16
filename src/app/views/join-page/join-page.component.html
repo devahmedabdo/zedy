@@ -1,44 +1,49 @@
-<section>
-  <div class="container">
-    <h2>{{"Available Jobs"|translate}}</h2>
-    <p *ngIf="jobs.length > 0">{{"You can apply to work with us through"|translate}}<span class="font-bold">
-        {{jobs.length}} </span>{{"possible
-      jobs, and if
-      the job is not available, it may be available later, God willing"|translate}}</p>
-    <p *ngIf="jobs.length == 0">{{"Unfortunately, there are no jobs availble at the moment" | translate }}</p>
+<ng-container *ngIf="!loading">
+  <section>
+    <div class="container">
+      <h2>{{"Available Jobs"|translate}}</h2>
+      <p *ngIf="jobs.length > 0">{{"You can apply to work with us through"|translate}}<span class="font-bold">
+          {{jobs.length}} </span>
+        {{"possible jobs, and if the job is not available, it may be available later, God willing"|translate}}
+      </p>
+      <p *ngIf="jobs.length == 0">
+        {{"Unfortunately, there are no jobs availble at the moment" | translate }}
+      </p>
 
-    <div *ngIf="jobs.length > 0">
+      <div *ngIf="jobs.length > 0">
 
-      <div class="links">
-        <div class="other-jobs">
-          <div style="--color:#3683CD">
-            <div>
-              <img src="assets/join us/male.svg" alt="male-icon">
+        <div class="links">
+          <div class="other-jobs">
+            <div style="--color:#3683CD">
+              <div>
+                <img src="assets/join us/male.svg" alt="male-icon">
+              </div>
+              <a target='_blank' [href]="config?.job_form_link" class="arabic"
+                *ngFor="let job of maleJobs">{{job.ar_name}}</a>
+              <a target='_blank' [href]="config?.job_form_link" class="english"
+                *ngFor="let job of maleJobs">{{job.name}}</a>
             </div>
-            <a target='_blank' [href]="config?.job_form_link" class="arabic"
-              *ngFor="let job of maleJobs">{{job.ar_name}}</a>
-            <a target='_blank' [href]="config?.job_form_link" class="english"
-              *ngFor="let job of maleJobs">{{job.name}}</a>
+            <div style="--color:#F47095">
+              <div>
+                <img src="assets/join us/male.svg" alt="female-icon">
+              </div>
+              <a target='_blank' [href]="config?.job_form_link" class="arabic"
+                *ngFor="let job of femaleJobs">{{job.ar_name}}</a>
+              <a target='_blank' [href]="config?.job_form_link" class="english"
+                *ngFor="let job of femaleJobs">{{job.name}}</a>
+            </div>
           </div>
-          <div style="--color:#F47095">
-            <div>
-              <img src="assets/join us/male.svg" alt="female-icon">
-            </div>
-            <a target='_blank' [href]="config?.job_form_link" class="arabic"
-              *ngFor="let job of femaleJobs">{{job.ar_name}}</a>
-            <a target='_blank' [href]="config?.job_form_link" class="english"
-              *ngFor="let job of femaleJobs">{{job.name}}</a>
+          <div class="submit">
+            <a target='_blank' [href]="config?.job_form_link">{{"Press to submit"|translate}}</a>
+            <a target='_blank' [href]="config?.job_form_link"><img src="assets/join us/file.svg" alt=""></a>
           </div>
         </div>
-        <div class="submit">
-          <a target='_blank' [href]="config?.job_form_link">{{"Press to submit"|translate}}</a>
-          <a target='_blank' [href]="config?.job_form_link"><img src="assets/join us/file.svg" alt=""></a>
+        <div class="form-img">
+          <img src="assets/join us/Illustration.png" alt="form image">
         </div>
-      </div>
-      <div class="form-img">
-        <img src="assets/join us/Illustration.png" alt="form image">
       </div>
     </div>
-  </div>
-</section>
-<app-team></app-team>
+  </section>
+  <app-team></app-team>
+</ng-container>
+<app-loading-com *ngIf="loading"></app-loading-com>

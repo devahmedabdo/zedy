@@ -38,7 +38,6 @@ export class LearnPageComponent implements OnInit {
       )
       .subscribe({
         next: (videos) => {
-          console.log('videos', videos);
           this.loading = false;
           this.videos.push(...videos.data);
           this.pagination.page = page;

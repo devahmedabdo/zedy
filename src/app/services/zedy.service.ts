@@ -24,7 +24,6 @@ export class ZedyService {
     }
     return this.http.get(this.url + api).pipe(
       map((data: any) => {
-        // console.log('API Data => ', data);
         // Save data in sessionStorage
         sessionStorage.setItem(api, JSON.stringify(data));
         if (api == 'configrations') {

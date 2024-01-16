@@ -1,40 +1,43 @@
-<section class="services-page">
-  <div class="container py-10">
-    <h2 class="page-title english">Learn With Us And Watch Our Videos And Leave Us A Comment<div></div>
-    </h2>
-    <h2 class="page-title arabic">تعلم معنا وشاهد فيديوهات <span class="text-primaryLight">زيديات</span> فى البيزنس
-      والتسويق<div></div>
-    </h2>
-    <ng-container *ngIf="videos.length">
-      <div class="learn-video py-10 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="items-center flex flex-col" *ngFor="let video of videos">
-          <div class="w-full relative rounded-lg overflow-hidden">
-            <button class="playBtn w-full h-full top-0 z-10 absolute" (click)="playVideo($event)">
-            </button>
-            <iframe class="w-full" #frame [src]="'https://www.youtube.com/embed/'+video.path | safe" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
-          <div class="flex items-center w-full justify-between mt-2 gap-1">
-            <a class="font-bold" translate="text" [translateParams]="{ar:video.ar_name,en:video.name}" target="_blank"
-              [href]="'https://www.youtube.com/'+video.path | safe"></a>
-            <button routerLink="/video/{{video.id}}"
-              class="bg-primaryLight bg-opacity-20 p-2 rounded-full w-max flex items-center gap-1 min-w-max">
-              <span class="text-xs text-primary font-bold" translate="text"
-                [translateParams]="{ar:'المزيد',en:'More'}"></span>
-              <img class="w-4 arrow" src="assets/landing/r-arrow.svg">
-            </button>
+<ng-container *ngIf="!loading || pagination.page >  0">
+  <section class="services-page">
+    <div class="container py-10">
+      <h2 class="page-title english">Learn With Us And Watch Our Videos And Leave Us A Comment<div></div>
+      </h2>
+      <h2 class="page-title arabic">تعلم معنا وشاهد فيديوهات <span class="text-primaryLight">زيديات</span> فى البيزنس
+        والتسويق<div></div>
+      </h2>
+      <ng-container *ngIf="videos.length">
+        <div class="learn-video py-10 grid md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6">
+          <div class="items-center flex flex-col" *ngFor="let video of videos">
+            <div class="w-full relative rounded-lg overflow-hidden">
+              <button class="playBtn w-full h-full top-0 z-10 absolute" (click)="playVideo($event)">
+              </button>
+              <iframe class="w-full" #frame [src]="'https://www.youtube.com/embed/'+video.path | safe" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="flex items-center w-full justify-between mt-2 gap-1">
+              <a class="font-bold" translate="text" [translateParams]="{ar:video.ar_name,en:video.name}" target="_blank"
+                [href]="'https://www.youtube.com/'+video.path | safe"></a>
+              <button routerLink="/video/{{video.id}}"
+                class="bg-primaryLight bg-opacity-20 p-2 rounded-full w-max flex items-center gap-1 min-w-max">
+                <span class="text-xs text-primary font-bold" translate="text"
+                  [translateParams]="{ar:'المزيد',en:'More'}"></span>
+                <img class="w-4 arrow" src="assets/landing/r-arrow.svg">
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <button *ngIf="(pagination.limit * pagination.page) < pagination.total" (click)="getVideos(pagination.page + 1)"
-        class="details-btn reveal mt-4 relative overflow-hidden">
-        {{'More'|translate}}
-        <span *ngIf="loading" class="absolute inset-0 w-full h-full bg-primaryLight flex justify-center items-center">
-          <span class="rounded-full  animate-spin border border-white border-t-0 aspect-square w-10 block"></span>
-        </span>
-      </button>
-    </ng-container>
+        <button *ngIf="(pagination.limit * pagination.page) < pagination.total" (click)="getVideos(pagination.page + 1)"
+          class="details-btn reveal mt-4 relative overflow-hidden">
+          {{'More'|translate}}
+          <span *ngIf="loading" class="absolute inset-0 w-full h-full bg-primaryLight flex justify-center items-center">
+            <span class="rounded-full  animate-spin border border-white border-t-0 aspect-square w-10 block"></span>
+          </span>
+        </button>
+      </ng-container>
 
-  </div>
-</section>
+    </div>
+  </section>
+</ng-container>
+<app-loading-com *ngIf="loading && pagination.page == 0"> </app-loading-com>

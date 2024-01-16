@@ -27,7 +27,6 @@ export class FooterComponent implements OnInit {
   getConfig() {
     this.zedy.get('configrations').subscribe({
       next: (data) => {
-        console.log('landing', data);
         this.config = data.data;
         this.socialLinks = [
           {

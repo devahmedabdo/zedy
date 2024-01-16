@@ -23,6 +23,7 @@ export class JoinPageComponent implements OnInit {
   femaleJobs: any = [];
   multiJobs: any = [];
   config: any;
+  loading: any = true;
   getData() {
     this.zedy.get('configrations').subscribe({
       next: (config) => {
@@ -34,6 +35,7 @@ export class JoinPageComponent implements OnInit {
     });
     this.zedy.get('jobs').subscribe({
       next: (jobs) => {
+        this.loading = false;
         this.jobs = jobs.data;
         this.maleJobs = this.jobs.filter((e) => e.type == 'ذكر');
         this.femaleJobs = this.jobs.filter((e) => e.type == 'انثي');

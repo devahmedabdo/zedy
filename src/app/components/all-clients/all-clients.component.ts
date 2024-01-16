@@ -18,7 +18,6 @@ export class AllClientsComponent implements OnInit {
   getClient() {
     this.zedy.get('clients').subscribe({
       next: (data) => {
-        console.log('landing', data);
         this.clients = data.data;
         let type;
         this.clients.forEach((e: any) => {

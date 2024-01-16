@@ -80,7 +80,6 @@ export class AppComponent implements OnInit {
     };
     window.scroll(scrollOptions);
     this.active = false;
-    console.log(this.active);
   }
   constructor(private zedy: ZedyService, private meta: Meta) {
     this.getData();

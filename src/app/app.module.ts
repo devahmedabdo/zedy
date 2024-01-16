@@ -39,6 +39,7 @@ import { ZedyService } from './services/zedy.service';
 import { LoadingComponent } from './layout/loading/loading.component';
 import { TopComponent } from './layout/top/top.component';
 import { ViewVideoComponent } from './views/learn-page/view-video/view-video.component';
+import { LoadingComComponent } from './components/loading-com/loading-com.component';
 //
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { ViewVideoComponent } from './views/learn-page/view-video/view-video.com
     LoadingComponent,
     TopComponent,
     ViewVideoComponent,
+    LoadingComComponent,
   ],
   imports: [
     BrowserModule,

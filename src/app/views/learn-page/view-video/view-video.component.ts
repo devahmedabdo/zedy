@@ -29,7 +29,6 @@ export class ViewVideoComponent implements OnInit {
       next: (video) => {
         this.video = video.data;
         this.loading = false;
-        console.log(video);
       },
       error: (err) => {
         this.loading = false;

@@ -19,7 +19,6 @@ export class ClientsComponent implements OnInit {
     // this.clients = await this.zedy.localApi('clients');
     this.zedy.get('clients').subscribe({
       next: (data) => {
-        console.log('cclient', data);
         let type;
         this.clients = data.data;
         this.clients.forEach((e: any) => {
