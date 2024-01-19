@@ -21,15 +21,9 @@ export class OpinionsComponent implements OnInit {
       delay: 2500,
       disableOnInteraction: false,
     },
+    slidesPerView: 1,
+    spaceBetween: 50,
     breakpoints: {
-      '@0.00': {
-        slidesPerView: 1,
-        spaceBetween: 50,
-      },
-      '@0.75': {
-        slidesPerView: 1,
-        spaceBetween: 50,
-      },
       800: {
         slidesPerView: 2,
         spaceBetween: 50,
@@ -61,6 +55,4 @@ export class OpinionsComponent implements OnInit {
       },
     });
   }
-  // this.opinions = await this.zedy.localApi('client-reviews');
 }
-// }
