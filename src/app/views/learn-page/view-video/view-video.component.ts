@@ -9,14 +9,16 @@ import { ZedyService } from 'src/app/services/zedy.service';
 })
 export class ViewVideoComponent implements OnInit {
   id: any;
+  lang: any = localStorage.getItem('lang');
   loading: any = true;
   constructor(private route: ActivatedRoute, private zedy: ZedyService) {
     this.route.params.subscribe((par) => {
       this.id = par['id'];
       this.getVideo(this.id);
     });
-    this.zedy.subject.subscribe(() => {
+    this.zedy.subject.subscribe((data) => {
       this.changeTitle();
+      this.lang = data;
     });
   }
   video: any;
