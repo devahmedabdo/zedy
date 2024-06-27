@@ -7,9 +7,19 @@ import { ZedyService } from './../../services/zedy.service';
   styleUrls: ['./services.component.scss'],
 })
 export class ServicesComponent implements OnInit {
-  constructor(private zedy: ZedyService) {}
+  constructor(private zedy: ZedyService) {
+    this.zedy.subject.subscribe({
+      next: (data) => {
+        console.log(data);
+        this.lang = data;
+        console.log(this.lang);
+      },
+    });
+    this.log();
+  }
   services: any[] = [];
   config: any;
+  lang: any = localStorage.getItem('lang');
   ngOnInit() {
     this.zedy.get('services').subscribe({
       next: (data) => {
@@ -28,5 +38,8 @@ export class ServicesComponent implements OnInit {
       },
     });
     this.zedy.removeRveal();
+  }
+  log() {
+    console.log(this.lang);
   }
 }

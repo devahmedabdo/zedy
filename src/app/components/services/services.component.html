@@ -1,4 +1,4 @@
-<section>
+<section (click)="log()">
   <div class="container">
     <h1 style="--color:#1A7FC3" class="title lReveal ">{{"Services" | translate}}</h1>
     <p class="lReveal font-bold text-4xl py-3">{{"With you in marketing and business" | translate}}</p>
@@ -17,8 +17,8 @@
                 target="_blank" [href]="'https://wa.me/+2'+config?.whatsapp+'?text=أريد طلب خدمة : '+service.ar_name">
                 {{"Order Now"|translate}}</a>
             </div>
-            <p class="font-medium" translate="text"
-              [translateParams]="{ar:service.ar_description,en:service.description}"></p>
+            <p class="font-medium" [innerHTML]="service.ar_description" *ngIf="lang == 'ar'"></p>
+            <p class="font-medium" [innerHTML]="service.description" *ngIf="lang == 'en'"></p>
           </div>
         </div>
         <div

@@ -25,7 +25,6 @@ export class LanguageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.lang = localStorage.getItem('lang') || 'ar';
     this.setLang(this.lang);
   }
 }

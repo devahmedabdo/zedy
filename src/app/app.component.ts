@@ -10,7 +10,7 @@ import { ZedyService } from './services/zedy.service';
 export class AppComponent implements OnInit {
   whatsLink?: string;
   config: any;
-  lang: string = localStorage.getItem('lang') || 'ar';
+  lang: any;
   loading: boolean = true;
   loaded: boolean = false;
   ngOnInit() {
@@ -82,6 +82,8 @@ export class AppComponent implements OnInit {
     this.active = false;
   }
   constructor(private zedy: ZedyService, private meta: Meta) {
+    this.lang = localStorage.getItem('lang') || 'ar';
+    this.zedy.subject.next(this.lang);
     this.getData();
   }
   title = 'zedy';
