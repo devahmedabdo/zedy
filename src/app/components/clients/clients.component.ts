@@ -9,14 +9,15 @@ import { ZedyService } from './../../services/zedy.service';
 export class ClientsComponent implements OnInit {
   constructor(private zedy: ZedyService) {}
   clients: any[] = [];
+  sorted: any[] = [];
   setClientType(type: string) {
     this.clientType = type;
+    this.sorted = this.maxLength(JSON.parse(JSON.stringify(this.clients)));
     this.zedy.removeRveal();
   }
   types: any[] = [];
-  clientType: string = 'all';
+  clientType: any = 'all';
   getClient() {
-    // this.clients = await this.zedy.localApi('clients');
     this.zedy.get('clients').subscribe({
       next: (data) => {
         let type;
@@ -26,42 +27,30 @@ export class ClientsComponent implements OnInit {
             return;
           }
           type = e.field;
-          if (JSON.stringify(this.types).includes(JSON.stringify(type))) {
-          } else {
+          if (!JSON.stringify(this.types).includes(JSON.stringify(type))) {
             this.types.push(type);
           }
         });
-        if (this.clients.length > 12) {
-          this.clients.length = 12;
-        }
+        this.sorted = this.maxLength(JSON.parse(JSON.stringify(this.clients)));
       },
       error: (err) => {
         console.log(err);
       },
     });
   }
-  getSpecific(type: string) {
-    this.zedy.get('clients').subscribe({
-      next: (client) => {
-        let typeArr: any = [];
-
-        client.data.forEach((ele: any) => {
-          if (type == 'all') {
-            typeArr.push(ele);
-          } else if (ele.field?.name == type) {
-            typeArr.push(ele);
-          }
-        });
-        if (typeArr.length > 12) {
-          typeArr.length = 12;
-        }
-        this.clients = typeArr;
-        this.zedy.removeRveal();
-      },
-      error: (err) => {
-        console.log(err);
-      },
+  getSpecific(id: number) {
+    let sort = this.clients.filter((ele) => {
+      return ele.field.id == id;
     });
+
+    this.sorted = this.maxLength(sort);
+
+    this.clientType = id;
+    this.zedy.removeRveal();
+  }
+  maxLength(array: any[]) {
+    if (array.length > 12) array.length = 12;
+    return array;
   }
   ngOnInit(): void {
     this.getClient();

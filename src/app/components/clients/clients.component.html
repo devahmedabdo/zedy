@@ -5,19 +5,20 @@
       <div [ngClass]="{active : clientType === 'all' }" (click)="setClientType('all')">
         <span translate="text" [translateParams]="{ar:'الكل',en:'All'}"></span>
       </div>
-      <div [ngClass]="{active : clientType === type.name }" *ngFor="let type of types"
-        (click)="setClientType(type.name)">
+      <div [ngClass]="{active : clientType === type.id }" *ngFor="let type of types" (click)="getSpecific(type.id)">
         <span translate="text" [translateParams]="{ar:type.ar_name,en:type.name}"></span>
       </div>
     </div>
     <div class="clients">
-      <ng-container *ngFor="let client of clients ">
-        <div class="dReveal" *ngIf="clientType === client.field?.name || clientType === 'all'">
+      <ng-container *ngFor="let client of sorted ;let i =index  ">
+        <!-- <ng-container *ngIf="i < 12"> -->
+        <div class="dReveal">
           <img src="{{client.image}}" alt="{{client.name}} Logo">
           <h6 translate="text" [translateParams]="{ar:client.ar_name,en:client.name}"></h6>
           <!-- <span translate="text" [translateParams]="{ar:client.ar_description,en:client.description}"></span> -->
         </div>
       </ng-container>
+      <!-- </ng-container> -->
     </div>
     <a routerLink="clients" class="details-btn uReveal">{{"More"|translate}}</a>
   </div>

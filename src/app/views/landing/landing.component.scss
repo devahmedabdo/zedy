@@ -57,7 +57,7 @@ $header-height: 68px;
       div {
         @apply flex gap-8 flex-wrap justify-center p-10 max-w-[500px];
         a {
-          @apply bg-white w-20 h-20 p-5 flex justify-center items-center rounded-2xl bg-opacity-10;
+          @apply bg-white w-20 h-20  flex justify-center items-center rounded-2xl bg-opacity-10;
           fa-icon {
             @apply transition-colors duration-300 text-white text-[40px];
           }

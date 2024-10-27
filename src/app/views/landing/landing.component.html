@@ -115,11 +115,9 @@
             <img src="assets/landing/Check Mark.svg" alt="Check Mark">
           </div>
           <div>
-            <span>{{configuration?.fields_count}} </span>
-            <span
-              *ngIf=" configuration?.fields_count > 1 &&  configuration?.fields_count <11 ">{{"Fields"|translate}}</span>
-            <span *ngIf=" configuration?.fields_count == 1">{{"Field"|translate}}</span>
-            <span *ngIf=" configuration?.fields_count >= 11">{{"Fields "|translate}}</span>
+            <span>{{configuration?.training_fields_count}} </span>
+            <span translate="text" [translateParams]="{ar:'مجال تدريب',en:'Training fields'}"> </span>
+
           </div>
         </div>
         <div class="dReveal">

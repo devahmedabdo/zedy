@@ -1,4 +1,4 @@
-<div class="container grid lg:grid-cols-4 gap-5">
+<div class="container grid lg:grid-cols-4 gap-5 pb-10">
   <div class="learn-video lg:col-span-3">
     <div class=" flex flex-col items-start">
       <div class="w-full relative rounded-lg overflow-hidden">
@@ -11,7 +11,7 @@
       </div>
       <a class="mt-2 font-bold text-2xl py-10" translate="text"
         [translateParams]="{ar:video?.item.ar_name,en:video?.item.name}" target="_blank"
-        [href]="'https://www.youtube.com/'+ video?.item.path | safe"></a>
+        [href]="'https://www.youtube.com/watch?v='+ video?.item.path | safe"></a>
       <h2 class="title" translate="text" [translateParams]="{ar:'وصف الفيديو',en:'Discription'}">
 
       </h2>
@@ -36,7 +36,7 @@
         </div>
         <div class="flex items-center w-full justify-between mt-2 gap-1">
           <a class="font-bold text-xs" translate="text" [translateParams]="{ar:video.ar_name,en:video.name}"
-            target="_blank" [href]="'https://www.youtube.com/watch?v='+video.path | safe"></a>
+            routerLink="/video/{{video.id}}"></a>
           <button routerLink="/video/{{video.id}}"
             class="bg-primaryLight bg-opacity-20 p-2 rounded-full w-max flex items-center gap-1 min-w-max">
             <span class="text-xs text-primary font-bold" translate="text"

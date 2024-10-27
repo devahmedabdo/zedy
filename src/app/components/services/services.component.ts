@@ -18,7 +18,7 @@ export class ServicesComponent implements OnInit {
   config: any;
   lang: any = localStorage.getItem('lang');
   ngOnInit() {
-    this.zedy.get('services').subscribe({
+    this.zedy.get('configrations').subscribe({
       next: (data) => {
         this.config = data.data;
       },
