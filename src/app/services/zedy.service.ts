@@ -6,8 +6,7 @@ import { Title } from '@angular/platform-browser';
   providedIn: 'root',
 })
 export class ZedyService {
-  // url: string = 'https://dmc-dashboard.vercel.app/';
-  url: string = 'http://api.z-edy.com/api/';
+  url: string = 'https://api.z-edy.com/api/';
   constructor(private http: HttpClient, private title: Title) {}
   subject = new Subject<any>();
   get(api: string): Observable<any> {
